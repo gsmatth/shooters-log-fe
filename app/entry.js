@@ -9,7 +9,7 @@ const angular = require('angular');
 const ngRoute = require('angular-route');
 
 // angular modules
-angular.module('shuttleBuzz', [ngRoute])
+angular.module('appShooter', [ngRoute])
 .config(['$routeProvider', function($routeProvider){
   $routeProvider
   .when('/signup', {
