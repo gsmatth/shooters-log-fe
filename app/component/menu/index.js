@@ -22,8 +22,6 @@ function MenuController($log, $location, $scope){
 
   vm.hamburgerHidden = checkIndexOfMenuPaths();
 
-  console.log('this is the $location.path', $location.path());
-
   function checkIndexOfMenuPaths() {
     let currentPath = $location.path();
     return vm.hiddenMenuPaths.indexOf(currentPath) !== -1;
