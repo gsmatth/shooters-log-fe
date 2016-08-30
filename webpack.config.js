@@ -8,7 +8,7 @@ const ExtractText = require('extract-text-webpack-plugin');
 
 // module constants
 const production = process.env.NODE_ENV === 'production';
-const apiURL = process.env.API_URL || 'http://localhost:3000';
+const apiURL = process.env.API_URL || 'https://localhost:3000';
 
 // webpack config
 var plugins = [
@@ -75,13 +75,13 @@ module.exports = {
         test: /\.woff.*/,
         loader: 'file?name=fonts/[name].[ext]',
       },
-      { 
+      {
         test: /\.[ot]tf.*/,
-        loader: 'url?limit=10000&mimetype=application/octet-stream&name=fonts/[name].[ext]', 
+        loader: 'url?limit=10000&mimetype=application/octet-stream&name=fonts/[name].[ext]',
       },
       {
-        test: /\.eot.*/, 
-        loader: 'url?limit=10000&mimetype=application/vnd.ms-fontobject&name=fonts/[name].[ext]', 
+        test: /\.eot.*/,
+        loader: 'url?limit=10000&mimetype=application/vnd.ms-fontobject&name=fonts/[name].[ext]',
       },
     ],
   },
