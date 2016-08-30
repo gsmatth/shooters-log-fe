@@ -14,6 +14,7 @@ angular.module('appShooter', [ngRoute, ngAnimate])
 .config(['$routeProvider', '$logProvider', function($routeProvider, $logProvider){
   $routeProvider
   .when('/signup', {
+
     template: require('./view/signup/signup.html'),
     controller: 'SignupController',
     controllerAs: 'signupCtrl',
@@ -25,8 +26,8 @@ angular.module('appShooter', [ngRoute, ngAnimate])
   })
   .when('/home', {
     template: require('./view/home/home.html'),
-    controller: 'HomeController',
-    controllerAs: 'homeCtrl',
+    // controller: 'HomeController',
+    // controllerAs: 'homeCtrl',
   })
   .otherwise({
     redirectTo: '/signin',

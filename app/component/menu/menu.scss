@@ -4,8 +4,34 @@
 
   .fa-bars {
   position: fixed;
-  color: white;
+  color: grey;
   z-index: 100;
   font-size: 40px;
   }
+}
+
+
+.menu-exit.ng-leave {
+  animation: my_fade_animation 0.2s linear;
+  * {
+    animation: my_fade_animation 0.2s linear;
+  }
+}
+
+
+.menu-exit.ng-enter {
+  animation: my_fade_animation 0.2s linear reverse;
+  * {
+    animation: my_fade_animation 0.2s linear reverse;
+  }
+}
+
+@keyframes my_fade_animation {
+  from {
+    left: 0;
+
+  } to {
+    left: -150px;
+  }
+
 }

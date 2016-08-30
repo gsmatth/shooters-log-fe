@@ -7,10 +7,32 @@ appShooter.component('appMenu', {
   controller: 'MenuController'
 });
 
-appShooter.controller('MenuController', ['$log', MenuController]);
+appShooter.controller('MenuController', ['$log', '$location', '$scope', MenuController]);
 
-function MenuController($log){
+function MenuController($log, $location, $scope){
+  const vm = this;
+
+  vm.hiddenMenuPaths = [
+    '/signin',
+    '/signup'
+  ];
+
   $log.debug('entered MenuController');
-  this.showMenu = true;
+  vm.showMenu = true;
+
+  vm.hamburgerHidden = checkIndexOfMenuPaths();
+
+  console.log('this is the $location.path', $location.path());
+
+  function checkIndexOfMenuPaths() {
+    let currentPath = $location.path();
+    return vm.hiddenMenuPaths.indexOf(currentPath) !== -1;
+  }
+
+  $scope.$on('$routeChangeSuccess', () => {
+    vm.hamburgerHidden = checkIndexOfMenuPaths();
+  });
+
+
 
 }
