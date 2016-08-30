@@ -2,20 +2,19 @@
   <form novalidate ng-submit="signupCtrl.signup()">
     <section class="form-group">
       <label for="username"><span>*</span>Username:</label>
-      <input class="form-control" ng-model="signupCtrl.user.username" type="text">
-      <label for="password"></label>
+      <input ng-required class="form-control" ng-model="signupCtrl.user.username" type="text">
     </section>
     <section class="form-group">
       <label for="password"><span>*</span>Password:</label>
-      <input class="form-control" ng-model="signupCtrl.user.password" type="text">
+      <input ng-required ng-minlength="4" class="form-control" ng-model="signupCtrl.user.password" type="password">
     </section>
     <section class="form-group">
       <label for="firtName">First Name:</label>
-      <input class="form-control" ng-model="signupCtrl.user.firstName" type="text">
+      <input ng-required class="form-control" ng-model="signupCtrl.user.firstName" type="text">
     </section>
     <section class="form-group">
       <label for="LastName">Last Name:</label>
-      <input class="form-control" ng-model="signupCtrl.user.lastName" type="text">
+      <input ng-required class="form-control" ng-model="signupCtrl.user.lastName" type="text">
     </section>
     <section class="form-group">
       <label for="nameSuffix">Suffix:</label>
