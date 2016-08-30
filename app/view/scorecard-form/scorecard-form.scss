@@ -1,23 +1,33 @@
-.form-control-shot {
-  width: 15px;
+.scorecard-form-main {
+  border: black 2px solid;
+  margin: 50px 0px 0px 50px;
+  padding: 10px;
+  max-width: 900px
+}
+
+.scorecard-form-admin {
+  margin: 0px 5px 5px 0px
 }
 
 .first-shot-score {
+  display: inline-block;
+  background-color: #14DCCC;
   width: 32px;
   height: 25px;
-  margin:-50 0 0 58;
-  padding:0 2 0 2;
-  border-width:0 3 0 3;
+  margin:-50px 0px 0px 58px;
+  padding:0px 2px 0px 2px;
+  border-width:0px 3px 0px 3px;
   border-right-style: outset
 }
 
 .shot-score {
+  display: inline-block;
+  background-color: #14DCCC;
   width: 27px;
   height: 25px;
-  padding:0 2 0 2;
-  border-width:0 3 0 0;
-  border-style: outset
-
+  padding:0px 2px 0px 2px;
+  border-color: black;
+  border-width:0px 3px 0px 0px;
 }
 
 .scorecard-match-outer-div {
@@ -40,4 +50,21 @@
   font-family:Helvetica-Bold;
   font-size:12;
   font-weight:bold
+}
+
+.scorecard-scoring-totals {
+  font-size: 18px;
+}
+
+.subtotal-score-data {
+  font-size: 18px;
+  float: left;
+  margin: 0px 75px 35px 0px;
+}
+
+.aggregate-score-data {
+  font-size: 20px;
+  float: left;
+  margin-top: 20px;
+
 }
