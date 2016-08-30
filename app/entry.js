@@ -7,10 +7,11 @@ require('./scss/base.scss');
 // npm modules
 const angular = require('angular');
 const ngRoute = require('angular-route');
+const ngAnimate = require('angular-animate');
 
 // angular modules
-angular.module('appShooter', [ngRoute])
-.config(['$routeProvider', function($routeProvider){
+angular.module('appShooter', [ngRoute, ngAnimate])
+.config(['$routeProvider', '$logProvider', function($routeProvider, $logProvider){
   $routeProvider
   .when('/signup', {
     template: require('./view/signup/signup.html'),
@@ -39,3 +40,7 @@ require('./service/auth-service');
 require('./view/signup');
 require('./view/signin');
 require('./view/home');
+
+// angular components
+require('./component/nav');
+require('./component/menu');

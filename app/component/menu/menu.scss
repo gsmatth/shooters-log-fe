@@ -1,0 +1,11 @@
+.app-menu {
+  position: relative;
+  border: blue 3px solid;
+
+  .fa-bars {
+  position: fixed;
+  color: white;
+  z-index: 100;
+  font-size: 40px;
+  }
+}
