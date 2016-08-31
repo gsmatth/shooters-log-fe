@@ -1,30 +1,47 @@
 <main class="app-signup">
-  <form novalidate ng-submit="signupCtrl.signup()">
-    <section class="form-group">
-      <label for="username"><span>*</span>Username:</label>
-      <input ng-required class="form-control" ng-model="signupCtrl.user.username" type="text">
-    </section>
-    <section class="form-group">
-      <label for="password"><span>*</span>Password:</label>
-      <input ng-required ng-minlength="4" class="form-control" ng-model="signupCtrl.user.password" type="password">
-    </section>
-    <section class="form-group">
-      <label for="firtName">First Name:</label>
-      <input ng-required class="form-control" ng-model="signupCtrl.user.firstName" type="text">
-    </section>
-    <section class="form-group">
-      <label for="LastName">Last Name:</label>
-      <input ng-required class="form-control" ng-model="signupCtrl.user.lastName" type="text">
-    </section>
-    <section class="form-group">
-      <label for="nameSuffix">Suffix:</label>
-      <input class="form-control" ng-model="signupCtrl.user.nameSuffix" type="text">
-    </section>
-    <section class="form-group">
+  <form novalidate ng-submit="signupCtrl.signup()" name="signupForm">
+
+    <div class="userPass">
+      <section class="form-group">
+        <label for="username"><span>*</span>Username:</label>
+        <input required class="form-control" name="username"
+        ng-class="{appInvalid: signupForm.$submitted && signupForm.username.$invalid}" ng-model="signupCtrl.user.username" type="text">
+      </section>
+      <section class="form-group">
+        <label for="password"><span>*</span>Password:</label>
+        <input required ng-minlength="4" name="password" class="form-control" ng-class="{appInvalid: signupForm.$submitted && signupForm.password.$invalid}" ng-model="signupCtrl.user.password" type="password">
+      </section>
+    </div>
+
+    <div class=naming>
+      <section class="form-group nameSuffix">
+        <label for="nameSuffix">Suffix:</label>
+        <select name="nameSuffix" class="form-control" ng-model="signupCtrl.user.nameSuffix">
+          <option value="Mr.">Mr.</option>
+          <option value="Mrs.">Mrs.</option>
+          <option value="Ms.">Ms.</option>
+          <option value="Dr.">Dr.</option>
+        </select>
+        <!-- <input class="form-control" ng-model="signupCtrl.user.nameSuffix" type="text"> -->
+      </section>
+      <section class="form-group">
+        <label for="firstName">First Name:</label>
+        <input required class="form-control" name="firstName" ng-class="{appInvalid: signupForm.$submitted && signupForm.firstName.$invalid}"
+        ng-model="signupCtrl.user.firstName" type="text">
+      </section>
+      <section class="form-group">
+        <label for="LastName">Last Name:</label>
+        <input required class="form-control" name="lastName"
+        ng-class="{appInvalid: signupForm.$submitted && signupForm.lastName.$invalid}"
+        ng-model="signupCtrl.user.lastName" type="text">
+      </section>
+    </div>
+
+    <section class="form-group nraNumber">
       <label for="nraNumber">NRA Number:</label>
       <input class="form-control" ng-model="signupCtrl.user.nraNumber" type="text">
     </section>
-    <span>* designates required fields</span>
     <button class="btn btn-default" type="submit">Create Account</button>
+    <span class="footnote">* designates required fields</span>
   </form>
 </main>

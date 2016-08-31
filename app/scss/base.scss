@@ -14,3 +14,13 @@ html, body {
 body {
   background-color: white;
 }
+
+@keyframes appInvalid {
+  0%   {background-color: white;}
+  100% {background-color: $app-error}
+}
+
+.appInvalid {
+  animation: 0.5s;
+  animation-name: appInvalid;
+}

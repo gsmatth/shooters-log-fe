@@ -1,6 +1,7 @@
 .app-menu {
   position: relative;
   border: blue 3px solid;
+  z-index: 101;
 
   .fa-bars {
   position: fixed;

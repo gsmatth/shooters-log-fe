@@ -1,6 +1,45 @@
 @import "_theme";
 
 .app-signup {
+  width: 50%;
   padding: 5%;
+  margin: 10% auto 0 auto;
   background-color: $app-default;
+  border-radius: 10px 10px 10px 10px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  button{
+    width: 150px;
+    margin: 5% auto 0 auto;
+  }
+
+  .userPass {
+    margin-top: 5%;
+  }
+
+  .naming {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5% auto 5% auto;
+  }
+
+  .nameSuffix {
+    margin: 0 3% 0 3%;
+  }
+
+  .nraNumber {
+    margin: 5% auto 5% auto;
+  }
+
+  .footnote {
+    align-content: center;
+    margin: 5% 20% 0 20%;
+  }
+
 }

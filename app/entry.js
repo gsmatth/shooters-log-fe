@@ -14,7 +14,6 @@ angular.module('appShooter', [ngRoute, ngAnimate])
 .config(['$routeProvider', '$logProvider', function($routeProvider, $logProvider){
   $routeProvider
   .when('/signup', {
-
     template: require('./view/signup/signup.html'),
     controller: 'SignupController',
     controllerAs: 'signupCtrl',
@@ -29,6 +28,11 @@ angular.module('appShooter', [ngRoute, ngAnimate])
     // controller: 'HomeController',
     // controllerAs: 'homeCtrl',
   })
+  .when('/createscorecard', {
+    template: require('./view/scorecard-form/scorecard-form.html'),
+    controller: 'CreateScorecardFormController',
+    controllerAs: 'createScorecardFormCtrl',
+  })
   .otherwise({
     redirectTo: '/signin',
   });
@@ -41,6 +45,7 @@ require('./service/auth-service');
 require('./view/signup');
 require('./view/signin');
 require('./view/home');
+require('./view/scorecard-form');
 
 // angular components
 require('./component/nav');
