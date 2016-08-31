@@ -14,7 +14,6 @@ angular.module('appShooter', [ngRoute, ngAnimate])
 .config(['$routeProvider', '$logProvider', function($routeProvider, $logProvider){
   $routeProvider
   .when('/signup', {
-
     template: require('./view/signup/signup.html'),
     controller: 'SignupController',
     controllerAs: 'signupCtrl',
