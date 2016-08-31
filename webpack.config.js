@@ -8,7 +8,7 @@ const ExtractText = require('extract-text-webpack-plugin');
 
 // module constants
 const production = process.env.NODE_ENV === 'production';
-const apiURL = process.env.API_URL || 'https://localhost:3000';
+const apiURL = process.env.API_URL || 'http://localhost:3000';
 
 // webpack config
 var plugins = [

@@ -1,5 +1,5 @@
 <main ng-init="signinCtrl.getToken()" class="app-signin">
-    <form novalidate name="signinForm" ng-submit="signinCtrl.signin">
+    <form novalidate name="signinForm" ng-submit="signinCtrl.signin()">
       <section class="form-group">
         <label for="username">Username:</label>
         <input type="text" ng-required class='form-control' ng-model="signinCtrl.user.username">
