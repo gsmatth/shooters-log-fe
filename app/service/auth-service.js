@@ -40,6 +40,7 @@ function authService($log, $q, $http, $window){
 
   /********* CHECK API URL AND MAKE SURE IT MATCHES BACKEND *********/
   service.signup = function(user){
+    console.log(`${__API_URL__}`);
     let url = `${__API_URL__}/api/signup`;
     let config = {
       headers: {
@@ -61,6 +62,7 @@ function authService($log, $q, $http, $window){
 
   service.signin = function(user){
     $log.debug('authService.signin');
+    console.log('user:', user);
     let url = `${__API_URL__}/api/signin`;
     let authString = $window.btoa(`${user.username}:${user.password}`);
     let config = {
