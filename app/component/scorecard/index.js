@@ -2,7 +2,7 @@
 
 require('./scorecard.scss');
 const angular = require('angular');
-angular.module('appShooter').directive('appScorecard', function(){
+angular.module('appShooter').directive('appScorecardGet', function(){
   return {
     restrict: 'E',
     replace: true,
@@ -17,5 +17,5 @@ angular.module('appShooter').directive('appScorecard', function(){
 });
 
 function ScorecardController($log, scorecardService){
-  this
+  scorecardService.getScorecard()
 }
