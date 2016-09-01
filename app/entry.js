@@ -51,3 +51,4 @@ require('./view/scorecard-form');
 // angular components
 require('./component/nav');
 require('./component/menu');
+require('./component/scorecard');
