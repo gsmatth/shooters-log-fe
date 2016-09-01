@@ -21,14 +21,19 @@ function MenuController($log, $location, $scope){
   vm.showMenu = true;
 
   vm.hamburgerHidden = checkIndexOfMenuPaths();
-
+  $log.debug('past hamburgerHidden');
   function checkIndexOfMenuPaths() {
+    $log.debug('entered checkIndexOfMenuPaths');
     let currentPath = $location.path();
+    $log.debug('currentPath', currentPath);
+    $log.debug('false or true: ', vm.hiddenMenuPaths.indexOf(currentPath) !== -1);
     return vm.hiddenMenuPaths.indexOf(currentPath) !== -1;
   }
 
   $scope.$on('$routeChangeSuccess', () => {
+    $log.debug('entered scope.on');
     vm.hamburgerHidden = checkIndexOfMenuPaths();
+    $log.debug('value of vm.hamburderHidden:  ', vm.hamburgerHidden );
   });
 
 
