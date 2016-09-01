@@ -1,5 +1,5 @@
 <main class="scorecard-form-main" style="border: black 2px solid; padding: 10px; max-width: 900px">
-<form name="scorecardHeader" ng-submit="submitForm(scorecardHeader.$valid)" class="form-inline score-card-header-form" novalidate>
+<form name="scorecardHeader" ng-submit="createScorecardFormCtrl.createComp(createScorecardFormCtrl.competition)" class="form-inline score-card-header-form" novalidate>
   <div class="form-group scorecard-admin" ng-class="{'has-error': scorecardHeader.firstName.$invalid && !scorecardHeader.firstname.$pristine}">
     <label for="firstName">First Name</label>
     <input type="text" class="form-control scorecard-form-admin" id="firstName"  name="firstName" ng-model="createScorecardFormCtrl.user.firstName" required style="margin: 0 5 5 0; width: 250px; position: float-left">
