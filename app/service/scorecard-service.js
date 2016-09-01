@@ -7,12 +7,13 @@ angular.module('appShooter').factory('scorecardService', ['$log', '$q','$window'
 
 
 function scorecardService($log, $q, $window, $http) {
-  $log.debug('entered scorecardService');
   let service = {};
+  $log.debug('entered scorecardService', service);
   let token = $window.localStorage.getItem('token');
-  service.data = [];
 
-
+  service.sayHello = function(){
+    console.log('entered sayHello');
+  };
   service.createCompetition = function(data) {
     let url ='https://shooters-log-staging.herokuapp.com/api/competition';
 
@@ -22,6 +23,7 @@ function scorecardService($log, $q, $window, $http) {
         'Authorization':`Bearer ${token}`
       }
     };
+    console.log('This is the data', data);
     return $http.post(url, data, config)
     .then(res => {
       $log.info('Success', res.data);
@@ -33,5 +35,6 @@ function scorecardService($log, $q, $window, $http) {
       return $q.reject(err);
     });
   };
+  $log.debug('entered scorecardService', service);
   return service;
 }
