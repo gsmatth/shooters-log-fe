@@ -49,6 +49,7 @@ require('./view/home');
 require('./view/scorecard-form');
 
 // angular components
+require('./component/logo');
 require('./component/nav');
 require('./component/menu');
 require('./component/scorecard');
