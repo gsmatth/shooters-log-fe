@@ -3,10 +3,11 @@
 
 const angular = require('angular');
 
-angular.module('demoApp').factory('scorecardService', ['$log', '$q','$window', '$http', scorecardService]);
+angular.module('appShooter').factory('scorecardService', ['$log', '$q','$window', '$http', scorecardService]);
 
 
 function scorecardService($log, $q, $window, $http) {
+  $log.debug('entered scorecardService');
   let service = {};
   let token = $window.localStorage.getItem('token');
   service.data = [];
