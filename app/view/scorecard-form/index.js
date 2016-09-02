@@ -6,7 +6,7 @@ const appShooter = angular.module('appShooter');
 
 appShooter.controller('CreateScorecardFormController', ['$log','$scope', 'scorecardService', CreateScorecardFormController]);
 
-function CreateScorecardFormController($log, $scope, scorecardService){
+function CreateScorecardFormController($log, scorecardService){
   $log.debug('enetered CreateScorecardFormController');
   const vm = this;
 

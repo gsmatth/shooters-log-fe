@@ -7,15 +7,15 @@ angular.module('appShooter').factory('scorecardService', ['$log', '$q','$window'
 
 
 function scorecardService($log, $q, $window, $http) {
+  $log.debug('entered scorecardService');
   let service = {};
-  $log.debug('entered scorecardService', service);
   let token = $window.localStorage.getItem('token');
+  service.data = [];
+  service.competitions = [];
 
-  service.sayHello = function(){
-    console.log('entered sayHello');
-  };
+
   service.createCompetition = function(data) {
-    let url ='https://shooters-log-staging.herokuapp.com/api/competition';
+    let url =`${__API_URL__}/api/competition`;
 
     let config = {
       headers: {
