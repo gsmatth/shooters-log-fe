@@ -1,12 +1,12 @@
 <main class="app-scorecard-get" style="border: black 2px solid; padding: 10px; max-width: 900px">
   <div class="competitionInfo">
-     <h5 ng-model="scorecard">Date {{scorecard.competition.dateOf}}</h5>
-     <h5 for="location">Range Name: {{scorecard.competition.location}}</h5>
-     <h5 class="ng-model">Distance: {{scorecard.competition.matches[0].distance}}</h5>
-     <h5 for="targetNumber">Target #{{scorecard.competition.matches[0].distanceToTarget}}</h5> <h5 for="relay">Relay # {{scorecard.competition.matches[0].relay}}</h5>
+     <h5 ng-model="scorecard">Date {{scorecardCtrl.scorecard.competition.dateOf}}</h5>
+     <h5 for="location">Range Name: {{scorecardCtrl.scorecard.competition.location}}</h5>
+     <h5 class="ng-model">Distance: {{scorecardCtrl.scorecard.competition.matches[0].distance}}</h5>
+     <h5 for="targetNumber">Target #{{scorecardCtrl.scorecard.competition.matches[0].distanceToTarget}}</h5> <h5 for="relay">Relay # {{scorecardCtrl.scorecard.competition.matches[0].relay}}</h5>
   </div>
  <div class="Rifle">
-   <h5 for="caliber">Caliber: {{scorecard.competition.caliber}} </h5>
-   <h5 for="action">Action: {{scorecard.competition.action}}</h5>
+   <h5 for="caliber">Caliber: {{scorecardCtrl.scorecard.competition.caliber}} </h5>
+   <h5 for="action">Action: {{scorecardCtrl.scorecard.competition.action}}</h5>
  </div>
 </main>
