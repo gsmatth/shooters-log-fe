@@ -17,5 +17,5 @@ angular.module('appShooter').directive('appScorecardGet', function(){
 });
 
 function ScorecardController($log, scorecardService){
-  scorecardService.getScorecard()
+  scorecardService.getScorecard('5775cdcd8023621100ee87f6')
 }
