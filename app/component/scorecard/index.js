@@ -1,43 +1,32 @@
-<<<<<<< HEAD
 'use strict';
-=======
-'use strict'
->>>>>>> origin/getScorecard
 
 require('./scorecard.scss');
 const angular = require('angular');
-angular.module('appShooter').directive('appScorecardGet', function(){
+const appShooter = angular.module('appShooter');
+appShooter.directive('appScorecardGet', function(){
   return {
     restrict: 'E',
     replace: true,
     template: require('./scorecard.html'),
-    controller: ['$log', 'scorecardService', ScorecardController],
+    controller: 'ScorecardController',
     controllerAs: 'scorecardCtrl',
     bindToController: true,
     scope: {
-      scorecard: '=',
+      // scorecard: '=',
     },
-<<<<<<< HEAD
   };
 });
 
-function ScorecardController($log, scorecardService){
-  scorecardService.getScorecard();
-}
-=======
-  }
-});
-
-function ScorecardController($log, scorecardService){
+appShooter.controller('ScorecardController', ['$log', 'scorecardService', function($log, scorecardService){
   $log.debug('scorecardCtrl.fetchScorecard');
+  this.scorecard;
   scorecardService.getScorecard('57c8dfd81bd175dd17ffd2d8')
   .then( scorecard => {
-    console.log("scorecard", scorecard);
-    scorecardService.competitions.push(scorecard);
-    // this.scorecard = scorecard;
+    this.scorecard = scorecard;
+    console.log('this.scorecard', this.scorecard);
   })
-    .catch( () => {
-      alert('Sad dog, no fetch')
-    });
-};
->>>>>>> origin/getScorecard
+  .catch( () => {
+    $log.error('Sad dog, no fetch');
+  });
+
+}]);
