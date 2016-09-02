@@ -1,6 +1,6 @@
 'use strict';
 
-require('./scorecard.scss');
+require('./_scorecard.scss');
 const angular = require('angular');
 const appShooter = angular.module('appShooter');
 appShooter.directive('appScorecardGet', function(){

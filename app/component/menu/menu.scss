@@ -1,13 +1,25 @@
+@import "_theme";
+
 .app-menu {
   position: relative;
-  border: blue 3px solid;
   z-index: 101;
 
   .fa-bars {
   position: fixed;
-  color: white;
   z-index: 110;
-  font-size: 40px;
+  border: thin solid white;
+  border-radius: 5%;
+
+  left: 10%;
+  top: 2%;
+  padding: .5% .5% .5% .5%;
+
+  color: $app-lightgreen;
+  font-size: 3em;
+
+    &:hover {
+      background-color: white;
+    }
   }
 }
 
@@ -30,9 +42,8 @@
 @keyframes my_fade_animation {
   from {
     left: 0;
-
   } to {
-    left: -150px;
+    left: -15%;
   }
 
 }
