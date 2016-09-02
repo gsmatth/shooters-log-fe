@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 require('./scorecard.scss');
 const angular = require('angular');
@@ -14,18 +14,18 @@ appShooter.directive('appScorecardGet', function(){
     scope: {
       // scorecard: '=',
     },
-  }
+  };
 });
 
-appShooter.controller("ScorecardController", ['$log', 'scorecardService', function($log, scorecardService){
+appShooter.controller('ScorecardController', ['$log', 'scorecardService', function($log, scorecardService){
   $log.debug('scorecardCtrl.fetchScorecard');
   this.scorecard;
   scorecardService.getScorecard('57c8dfd81bd175dd17ffd2d8')
   .then( scorecard => {
     this.scorecard = scorecard;
-    console.log("this.scorecard", this.scorecard);
+    console.log('this.scorecard', this.scorecard);
   })
     .catch( () => {
-      alert('Sad dog, no fetch')
+      $log.err('Sad dog, no fetch');
     });
 }]);

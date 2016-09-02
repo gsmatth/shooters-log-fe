@@ -48,7 +48,7 @@ function scorecardService($log, $q, $window, $http) {
     .then(res => {
       $log.info('Success', res.data);
       console.log(res.data);
-      this.competitions.push(res.data)
+      this.competitions.push(res.data);
       resolve(res.data);
     })
     .catch(err => {
@@ -58,8 +58,8 @@ function scorecardService($log, $q, $window, $http) {
   };
 
   service.getScorecard = function(compId) {
-    let url =`http://localhost:3000/api/scorecard/${compId}`
-    console.log("token in get scorecard:", compId );
+    let url =`http://localhost:3000/api/scorecard/${compId}`;
+    console.log('token in get scorecard:', compId );
     let config = {
       headers: {
         'Content-Type':'application/json',
