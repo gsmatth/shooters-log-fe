@@ -19,6 +19,10 @@
     font-size: 1.5em;
   }
 
+  input {
+    box-shadow: 3px 3px 3px #888888;
+  }
+
   button{
     width: 150px;
     margin: 5% auto 0 auto;
@@ -27,6 +31,10 @@
 
   .userPass {
     margin-top: 5%;
+
+    input{
+      box-shadow: 3px 3px 3px #888888;
+    }
   }
 
   .naming {
@@ -34,10 +42,18 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 5% auto 5% auto;
+
+    input {
+      box-shadow: 3px 3px 3px #888888;
+    }
   }
 
   .nameSuffix {
     margin: 0 3% 0 3%;
+
+    select{
+      box-shadow: 3px 3px 3px #888888;
+    }
   }
 
   .nraNumber {
