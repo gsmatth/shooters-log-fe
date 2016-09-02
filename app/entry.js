@@ -52,3 +52,4 @@ require('./view/scorecard-form');
 require('./component/logo');
 require('./component/nav');
 require('./component/menu');
+require('./component/scorecard');
