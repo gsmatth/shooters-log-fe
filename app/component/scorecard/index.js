@@ -17,5 +17,14 @@ angular.module('appShooter').directive('appScorecardGet', function(){
 });
 
 function ScorecardController($log, scorecardService){
-  scorecardService.getScorecard('5775cdcd8023621100ee87f6')
-}
+  $log.debug('scorecardCtrl.fetchScorecard');
+  scorecardService.getScorecard('57c8dfd81bd175dd17ffd2d8')
+  .then( scorecard => {
+    console.log("scorecard", scorecard);
+    scorecardService.competitions.push(scorecard);
+    // this.scorecard = scorecard;
+  })
+    .catch( () => {
+      alert('Sad dog, no fetch')
+    });
+};

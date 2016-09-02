@@ -58,15 +58,15 @@ function scorecardService($log, $q, $window, $http) {
   };
 
   service.getScorecard = function(compId) {
-    let url =`https://shooters-log-staging.herokuapp.com/api/scorecard/${compId}`
-
+    let url =`http://localhost:3000/api/scorecard/${compId}`
+    console.log("token in get scorecard:", compId );
     let config = {
       headers: {
         'Content-Type':'application/json',
         'Authorization':`Bearer ${token}`
       }
     };
-    return $http.get(url, compId, config)
+    return $http.get(url, config)
     .then(res => {
       $log.info('Success', res.data);
       console.log(res.data);
