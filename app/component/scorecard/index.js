@@ -23,7 +23,6 @@ appShooter.controller("ScorecardController", ['$log', 'scorecardService', functi
   scorecardService.getScorecard('57c8dfd81bd175dd17ffd2d8')
   .then( scorecard => {
     this.scorecard = scorecard;
-    // this.scorecard = scorecard;
     console.log("this.scorecard", this.scorecard);
   })
     .catch( () => {
