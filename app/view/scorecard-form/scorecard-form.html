@@ -1,5 +1,5 @@
 <main class="scorecard-form-main" style="border: black 2px solid; padding: 10px; max-width: 900px">
-<form name="scorecardHeader" ng-submit="createScorecardFormCtrl.createComp(createScorecardFormCtrl.competition)" class="form-inline score-card-header-form" novalidate>
+<form name="scorecardHeader" ng-submit="createScorecardFormCtrl.createComp()" class="form-inline score-card-header-form" novalidate>
   <div class="form-group scorecard-admin" ng-class="{'has-error': scorecardHeader.firstName.$invalid && !scorecardHeader.firstname.$pristine}">
     <label for="firstName">First Name</label>
     <input type="text" class="form-control scorecard-form-admin" id="firstName"  name="firstName" ng-model="createScorecardFormCtrl.user.firstName" required style="margin: 0 5 5 0; width: 250px; position: float-left">
@@ -11,7 +11,7 @@
   </div>
   <div class="form-group">
     <label for="NRANumber">NRA Number</label>
-    <input type="text" class="form-control scorecard-form-admin" id="NRANumber" name="NRANumber" ng-model="createScorecardFormCtrl.user.NRANumber" style="margin: 0 5 5 0; width: 200px">
+    <input type="number" class="form-control scorecard-form-admin" id="NRANumber" name="NRANumber" ng-model="createScorecardFormCtrl.user.NRANumber" style="margin: 0 5 5 0; width: 200px">
     <label for="NRAQualification">NRA Qualification</label>
     <select class="form-control" name="NRAQualification" ng-model="createScorecardFormCtrl.user.NRAQualification" style="margin: 0 5 5 0; width: 125px">
       <option>High Master</option>
@@ -38,20 +38,20 @@
             required
             style="margin: 0 5 5 0; width: 125px"
     >
-      <option>300yd</option>
-      <option>500yd</option>
-      <option>600yd</option>
-      <option>800yd</option>
-      <option>1000yd</option>
+      <option>300</option>
+      <option>500</option>
+      <option>600</option>
+      <option>800</option>
+      <option>1000</option>
     </select>
     <label for="targetNumber">Target #</label>
-    <input type="text" class="form-control scorecard-form-admin" id="targetNumber" name="targetNumber" ng-model="createScorecardFormCtrl.match.targetNumber" required  style="margin: 0 5 5 0; width: 100px">
+    <input type="number" class="form-control scorecard-form-admin" id="targetNumber" name="targetNumber" ng-model="createScorecardFormCtrl.match.targetNumber" required  style="margin: 0 5 5 0; width: 100px">
     <label for="relay">Relay #</label>
-    <input type="text" class="form-control scorecard-form-admin" id="relay" name="relay" ng-model="createScorecardFormCtrl.match.relay" required style="margin: 0 5 5 0; width: 75px">
+    <input type="number" class="form-control scorecard-form-admin" id="relay" name="relay" ng-model="createScorecardFormCtrl.match.relay" required style="margin: 0 5 5 0; width: 75px">
   </div>
   <div class="form-group">
     <label for="caliber">Caliber</label>
-    <input type="text" class="form-control scorecard-form-admin" id="caliber" name="caliber" ng-model="createScorecardFormCtrl.competition.caliber" required style="margin: 0 5 5 0; width: 100px">
+    <input type="number" class="form-control scorecard-form-admin" id="caliber" name="caliber" ng-model="createScorecardFormCtrl.competition.caliber" required style="margin: 0 5 5 0; width: 100px">
     <label for="action">Action</label>
     <input type="text" class="form-control scorecard-form-admin" id="action" name="action" ng-model="createScorecardFormCtrl.competition.action" required style="margin: 0 5 5 0; width: 150px">
   </div>
@@ -61,8 +61,8 @@
       <input type="checkbox"> NRA Sanctioned Tournament
     </label>
   </div>
-  <button type="submit" class="btn btn-primary" ng-disabled="scorecardHeader.$invalid">Create Competition</button>
-</form>
+  <!--<button type="submit" class="btn btn-primary" ng-disabled="scorecardHeader.$invalid">Create Competition</button>-->
+<!--</form>-->
 
   <svg width="771px" height="49px" viewBox="0 -6 771 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
@@ -257,56 +257,56 @@
           <tspan x="716" y="35" fill="#FFFFFF">Total</tspan>
       </text>
   </svg>
-  <form class="scorecard-match-data" no validate>
+  <!--<form class="scorecard-match-data" no validate>-->
     <div class="form-group scorecard-match-outer-div">
       <div class="scorecard-match-inner-div">
         <i class="scorecard-match-i">Score</i>
       </div>
       <label for="shot1"></label>
-      <input type="text" class="form-control first-shot-score" id="shot1">
+      <input type="text" class="form-control first-shot-score" id="shot1" name="shot1" ng-model="createScorecardFormCtrl.match1Scores[0]">
       <label for="shot2"></label>
-      <input type="text" class="form-control shot-score" id="shot2">
+      <input type="text" class="form-control shot-score" id="shot2" name="shot2" ng-model="createScorecardFormCtrl.match1Scores[1]">
       <label for="shot3"></label>
-      <input type="text" class="form-control shot-score" id="shot3">
+      <input type="text" class="form-control shot-score" id="shot3" name="shot3" ng-model="createScorecardFormCtrl.match1Scores[2]">
       <label for="shot4"></label>
-      <input type="text" class="form-control shot-score" id="shot4">
+      <input type="text" class="form-control shot-score" id="shot4" name="shot4" ng-model="createScorecardFormCtrl.match1Scores[3]">
       <label for="shot5"></label>
-      <input type="text" class="form-control shot-score" id="shot5">
+      <input type="text" class="form-control shot-score" id="shot5" name="shot5" ng-model="createScorecardFormCtrl.match1Scores[4]">
       <label for="shot6"></label>
-      <input type="text" class="form-control shot-score" id="shot6">
+      <input type="text" class="form-control shot-score" id="shot6" name="shot6" ng-model="createScorecardFormCtrl.match1Scores[5]">
       <label for="shot7"></label>
-      <input type="text" class="form-control shot-score" id="shot7">
+      <input type="text" class="form-control shot-score" id="shot7" name="shot7" ng-model="createScorecardFormCtrl.match1Scores[6]">
       <label for="shot8"></label>
-      <input type="text" class="form-control shot-score" id="shot8">
+      <input type="text" class="form-control shot-score" id="shot8" name="shot8" ng-model="createScorecardFormCtrl.match1Scores[7]">
       <label for="shot9"></label>
-      <input type="text" class="form-control shot-score" id="shot9">
+      <input type="text" class="form-control shot-score" id="shot9" name="shot9" ng-model="createScorecardFormCtrl.match1Scores[8]">
       <label for="shot10"></label>
-      <input type="text" class="form-control shot-score" id="shot10">
+      <input type="text" class="form-control shot-score" id="shot10" name="shot10" ng-model="createScorecardFormCtrl.match1Scores[9]">
       <label for="shot11"></label>
-      <input type="text" class="form-control shot-score" id="shot11">
+      <input type="text" class="form-control shot-score" id="shot11" name="shot11" ng-model="createScorecardFormCtrl.match1Scores[10]">
       <label for="shot12"></label>
-      <input type="text" class="form-control shot-score" id="shot12">
+      <input type="text" class="form-control shot-score" id="shot12" name="shot12" ng-model="createScorecardFormCtrl.match1Scores[11]">
       <label for="shot13"></label>
-      <input type="text" class="form-control shot-score" id="shot13">
+      <input type="text" class="form-control shot-score" id="shot13" name="shot13" ng-model="createScorecardFormCtrl.match1Scores[12]">
       <label for="shot14"></label>
-      <input type="text" class="form-control shot-score" id="shot14">
+      <input type="text" class="form-control shot-score" id="shot14" name="shot14" ng-model="createScorecardFormCtrl.match1Scores[13]">
       <label for="shot15"></label>
-      <input type="text" class="form-control shot-score" id="shot15">
+      <input type="text" class="form-control shot-score" id="shot15" name="shot15" ng-model="createScorecardFormCtrl.match1Scores[14]">
       <label for="shot16"></label>
-      <input type="text" class="form-control shot-score" id="shot16">
+      <input type="text" class="form-control shot-score" id="shot16" name="shot16" ng-model="createScorecardFormCtrl.match1Scores[15]">
       <label for="shot17"></label>
-      <input type="text" class="form-control shot-score" id="shot17">
+      <input type="text" class="form-control shot-score" id="shot17" name="shot17" ng-model="createScorecardFormCtrl.match1Scores[16]">
       <label for="shot18"></label>
-      <input type="text" class="form-control shot-score" id="shot18">
+      <input type="text" class="form-control shot-score" id="shot18" name="shot18" ng-model="createScorecardFormCtrl.match1Scores[17]">
       <label for="shot19"></label>
-      <input type="text" class="form-control shot-score" id="shot19">
+      <input type="text" class="form-control shot-score" id="shot19" name="shot19" ng-model="createScorecardFormCtrl.match1Scores[18]">
       <label for="shot20"></label>
-      <input type="text" class="form-control shot-score" id="shot20">
+      <input type="text" class="form-control shot-score" id="shot20" name="shot20" ng-model="createScorecardFormCtrl.match1Scores[19]">
       <div>
         191
       </div>
     </div>
-  </form>
+  <!--</form>-->
   <svg width="771px" height="49px" viewBox="0 -6 771 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
       <desc>Created with Sketch.</desc>
@@ -500,56 +500,57 @@
           <tspan x="716" y="35" fill="#FFFFFF">Total</tspan>
       </text>
   </svg>
-  <form class="scorecard-match-data" no validate>
+  <!--<form class="scorecard-match-data" no validate>-->
     <div class="form-group scorecard-match-outer-div">
       <div class="scorecard-match-inner-div">
         <i class="scorecard-match-i">Score</i>
       </div>
       <label for="shot1"></label>
-      <input type="text" class="form-control first-shot-score" id="shot1">
+      <input type="text" class="form-control first-shot-score" id="shot1" name="shot1" ng-model="createScorecardFormCtrl.match2Scores[0]">
       <label for="shot2"></label>
-      <input type="text" class="form-control shot-score" id="shot2">
+      <input type="text" class="form-control shot-score" id="shot2" name="shot2" ng-model="createScorecardFormCtrl.match2Scores[1]">
       <label for="shot3"></label>
-      <input type="text" class="form-control shot-score" id="shot3">
+      <input type="text" class="form-control shot-score" id="shot3" name="shot3" ng-model="createScorecardFormCtrl.match2Scores[2]">
       <label for="shot4"></label>
-      <input type="text" class="form-control shot-score" id="shot4">
+      <input type="text" class="form-control shot-score" id="shot4" name="shot4" ng-model="createScorecardFormCtrl.match2Scores[3]">
       <label for="shot5"></label>
-      <input type="text" class="form-control shot-score" id="shot5">
+      <input type="text" class="form-control shot-score" id="shot5" name="shot5" ng-model="createScorecardFormCtrl.match2Scores[4]">
       <label for="shot6"></label>
-      <input type="text" class="form-control shot-score" id="shot6">
+      <input type="text" class="form-control shot-score" id="shot6" name="shot6" ng-model="createScorecardFormCtrl.match2Scores[5]">
       <label for="shot7"></label>
-      <input type="text" class="form-control shot-score" id="shot7">
+      <input type="text" class="form-control shot-score" id="shot7" name="shot7" ng-model="createScorecardFormCtrl.match2Scores[6]">
       <label for="shot8"></label>
-      <input type="text" class="form-control shot-score" id="shot8">
+      <input type="text" class="form-control shot-score" id="shot8" name="shot8" ng-model="createScorecardFormCtrl.match2Scores[7]">
       <label for="shot9"></label>
-      <input type="text" class="form-control shot-score" id="shot9">
+      <input type="text" class="form-control shot-score" id="shot9" name="shot9" ng-model="createScorecardFormCtrl.match2Scores[8]">
       <label for="shot10"></label>
-      <input type="text" class="form-control shot-score" id="shot10">
+      <input type="text" class="form-control shot-score" id="shot10" name="shot10" ng-model="createScorecardFormCtrl.match2Scores[9]">
       <label for="shot11"></label>
-      <input type="text" class="form-control shot-score" id="shot11">
+      <input type="text" class="form-control shot-score" id="shot11" name="shot11" ng-model="createScorecardFormCtrl.match2Scores[10]">
       <label for="shot12"></label>
-      <input type="text" class="form-control shot-score" id="shot12">
+      <input type="text" class="form-control shot-score" id="shot12" name="shot12" ng-model="createScorecardFormCtrl.match2Scores[11]">
       <label for="shot13"></label>
-      <input type="text" class="form-control shot-score" id="shot13">
+      <input type="text" class="form-control shot-score" id="shot13" name="shot13" ng-model="createScorecardFormCtrl.match2Scores[12]">
       <label for="shot14"></label>
-      <input type="text" class="form-control shot-score" id="shot14">
+      <input type="text" class="form-control shot-score" id="shot14" name="shot14" ng-model="createScorecardFormCtrl.match2Scores[13]">
       <label for="shot15"></label>
-      <input type="text" class="form-control shot-score" id="shot15">
+      <input type="text" class="form-control shot-score" id="shot15" name="shot15" ng-model="createScorecardFormCtrl.match2Scores[14]">
       <label for="shot16"></label>
-      <input type="text" class="form-control shot-score" id="shot16">
+      <input type="text" class="form-control shot-score" id="shot16" name="shot16" ng-model="createScorecardFormCtrl.match2Scores[15]">
       <label for="shot17"></label>
-      <input type="text" class="form-control shot-score" id="shot17">
+      <input type="text" class="form-control shot-score" id="shot17" name="shot17" ng-model="createScorecardFormCtrl.match2Scores[16]">
       <label for="shot18"></label>
-      <input type="text" class="form-control shot-score" id="shot18">
+      <input type="text" class="form-control shot-score" id="shot18" name="shot18" ng-model="createScorecardFormCtrl.match2Scores[17]">
       <label for="shot19"></label>
-      <input type="text" class="form-control shot-score" id="shot19">
+      <input type="text" class="form-control shot-score" id="shot19" name="shot19" ng-model="createScorecardFormCtrl.match2Scores[18]">
       <label for="shot20"></label>
-      <input type="text" class="form-control shot-score" id="shot20">
+      <input type="text" class="form-control shot-score" id="shot20" name="shot20" ng-model="createScorecardFormCtrl.match2Scores[19]">
       <div>
         189
       </div>
     </div>
-</form>
+
+<!--</form>-->
   <svg width="771px" height="49px" viewBox="0 -6 771 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
       <desc>Created with Sketch.</desc>
@@ -743,55 +744,55 @@
           <tspan x="716" y="35" fill="#FFFFFF">Total</tspan>
       </text>
   </svg>
-  <form class="scorecard-match-data" no validate>
+  <!--<form class="scorecard-match-data" no validate>-->
     <div class="form-group scorecard-match-outer-div">
       <div class="scorecard-match-inner-div">
         <i class="scorecard-match-i">Score</i>
       </div>
       <label for="shot1"></label>
-      <input type="text" class="form-control first-shot-score" id="shot1">
+      <input type="text" class="form-control first-shot-score" id="shot1" name="shot1" ng-model="createScorecardFormCtrl.match3Scores[0]">
       <label for="shot2"></label>
-      <input type="text" class="form-control shot-score" id="shot2">
+      <input type="text" class="form-control shot-score" id="shot2" name="shot2" ng-model="createScorecardFormCtrl.match3Scores[1]">
       <label for="shot3"></label>
-      <input type="text" class="form-control shot-score" id="shot3">
+      <input type="text" class="form-control shot-score" id="shot3" name="shot3" ng-model="createScorecardFormCtrl.match3Scores[2]">
       <label for="shot4"></label>
-      <input type="text" class="form-control shot-score" id="shot4">
+      <input type="text" class="form-control shot-score" id="shot4" name="shot4" ng-model="createScorecardFormCtrl.match3Scores[3]">
       <label for="shot5"></label>
-      <input type="text" class="form-control shot-score" id="shot5">
+      <input type="text" class="form-control shot-score" id="shot5" name="shot5" ng-model="createScorecardFormCtrl.match3Scores[4]">
       <label for="shot6"></label>
-      <input type="text" class="form-control shot-score" id="shot6">
+      <input type="text" class="form-control shot-score" id="shot6" name="shot6" ng-model="createScorecardFormCtrl.match3Scores[5]">
       <label for="shot7"></label>
-      <input type="text" class="form-control shot-score" id="shot7">
+      <input type="text" class="form-control shot-score" id="shot7" name="shot7" ng-model="createScorecardFormCtrl.match3Scores[6]">
       <label for="shot8"></label>
-      <input type="text" class="form-control shot-score" id="shot8">
+      <input type="text" class="form-control shot-score" id="shot8" name="shot8" ng-model="createScorecardFormCtrl.match3Scores[7]">
       <label for="shot9"></label>
-      <input type="text" class="form-control shot-score" id="shot9">
+      <input type="text" class="form-control shot-score" id="shot9" name="shot9" ng-model="createScorecardFormCtrl.match3Scores[8]">
       <label for="shot10"></label>
-      <input type="text" class="form-control shot-score" id="shot10">
+      <input type="text" class="form-control shot-score" id="shot10" name="shot10" ng-model="createScorecardFormCtrl.match3Scores[9]">
       <label for="shot11"></label>
-      <input type="text" class="form-control shot-score" id="shot11">
+      <input type="text" class="form-control shot-score" id="shot11" name="shot11" ng-model="createScorecardFormCtrl.match3Scores[10]">
       <label for="shot12"></label>
-      <input type="text" class="form-control shot-score" id="shot12">
+      <input type="text" class="form-control shot-score" id="shot12" name="shot12" ng-model="createScorecardFormCtrl.match3Scores[11]">
       <label for="shot13"></label>
-      <input type="text" class="form-control shot-score" id="shot13">
+      <input type="text" class="form-control shot-score" id="shot13" name="shot13" ng-model="createScorecardFormCtrl.match3Scores[12]">
       <label for="shot14"></label>
-      <input type="text" class="form-control shot-score" id="shot14">
+      <input type="text" class="form-control shot-score" id="shot14" name="shot14" ng-model="createScorecardFormCtrl.match3Scores[13]">
       <label for="shot15"></label>
-      <input type="text" class="form-control shot-score" id="shot15">
+      <input type="text" class="form-control shot-score" id="shot15" name="shot15" ng-model="createScorecardFormCtrl.match3Scores[14]">
       <label for="shot16"></label>
-      <input type="text" class="form-control shot-score" id="shot16">
+      <input type="text" class="form-control shot-score" id="shot16" name="shot16" ng-model="createScorecardFormCtrl.match3Scores[15]">
       <label for="shot17"></label>
-      <input type="text" class="form-control shot-score" id="shot17">
+      <input type="text" class="form-control shot-score" id="shot17" name="shot17" ng-model="createScorecardFormCtrl.match3Scores[16]">
       <label for="shot18"></label>
-      <input type="text" class="form-control shot-score" id="shot18">
+      <input type="text" class="form-control shot-score" id="shot18" name="shot18" ng-model="createScorecardFormCtrl.match3Scores[17]">
       <label for="shot19"></label>
-      <input type="text" class="form-control shot-score" id="shot19">
+      <input type="text" class="form-control shot-score" id="shot19" name="shot19" ng-model="createScorecardFormCtrl.match3Scores[18]">
       <label for="shot20"></label>
-      <input type="text" class="form-control shot-score" id="shot20">
-    </div>
+      <input type="text" class="form-control shot-score" id="shot20" name="shot20" ng-model="createScorecardFormCtrl.match3Scores[19]">
     <div>
       184
     </div>
+        <button type="submit" class="btn btn-primary">Create Scores</button>
 </form>
 <section class="scorecard-scoring-totals">
   <div class="subtotal-score-data">
