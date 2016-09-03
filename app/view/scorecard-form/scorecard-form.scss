@@ -1,3 +1,7 @@
+
+.form-inline .form-control {
+  width: 32px;
+}
 .scorecard-form-main {
   border: black 2px solid;
   margin: 50px 0px 0px 50px;
@@ -34,10 +38,10 @@
 
 .scorecard-match-outer-div {
   border: black 2px solid;
-  width:766px;
+  width:875px;
   height:25px;
   margin-top:0px;
-  margin-left: 0px
+  margin-left: 0px;
 }
 .scorecard-match-inner-div {
   width:40px;
