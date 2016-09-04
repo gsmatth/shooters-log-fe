@@ -15,8 +15,10 @@ function scorecardService($log, $q, $window, $http) {
 
 
   service.createCompetition = function(data) {
-    let url =`${__API_URL__}/api/competition`;
+    $log.debug('entered service.createCompetition');
+    let url ='http://localhost:3000/api/competition';
 
+    console.log('the token in is', data);
     let config = {
       headers: {
         'Content-Type':'application/json',
@@ -27,11 +29,83 @@ function scorecardService($log, $q, $window, $http) {
     return $http.post(url, data, config)
     .then(res => {
       $log.info('Success', res.data);
-      console.log(res.data);
+      console.log('newly created competition: ',res.data);
       return (res.data);
     })
     .catch(err => {
       $log.error('Failed to return createCompetition data', err);
+      return $q.reject(err);
+    });
+  };
+
+
+  service.createMatches = function(matchModel, competitionId) {
+    $log.debug('entered service.createMatches');
+
+    let url =`${__API_URL__}/api/competition/${competitionId}/match`;
+
+    let config = {
+      headers: {
+        'Content-Type':'application/json',
+        'Authorization':`Bearer ${token}`
+      }
+    };
+
+
+    let matches = [];
+    for (var i = 1; i < 4; i++ ){
+      var newMatch = angular.copy(matchModel);
+      newMatch.matchNumber = i;
+      console.log('this is the matchNumber: ', newMatch.matchNumber);
+      console.log('this is the newMatch: ', newMatch);
+      matches.push($http.post(url, newMatch, config));
+    }
+
+    return $q.all(matches)
+    .then((matches) => {
+      return $q.resolve(matches);
+    })
+    .catch( err => {
+      return $q.reject(err);
+    });
+  };
+
+  service.createMatchShots = function(competitionId, matches, allMatchScores, shotModel) {
+    $log.debug('entered service.createMatchShots');
+
+    var config = {
+      headers: {
+        'Content-Type':'application/json',
+        'Authorization':`Bearer ${token}`
+      }
+    };
+
+    var shots = [];
+
+    for (var i = 0; i < 3; i++ ){
+      var matchId = matches[i].data._id;
+      for (var ii = 0; ii < 20; ii++) {
+        var url =`${__API_URL__}/api/competition/${competitionId}/match/${matchId}/shot`;
+        var newShot = angular.copy(shotModel);
+        newShot.userId = matches[i].data.userId;
+        newShot.matchId = matches[i].data._id;
+        newShot.score = allMatchScores[i][ii];
+        newShot.shotNumber = (ii + 1);
+        $log.log('newShot.shotNumber PROPERTY value: ', newShot.shotNumber);
+        if(newShot.score === 'X' || newShot.score === 'x') {
+          newShot.xValue = true;
+        } else {
+          newShot.xValue = false;
+        }
+        var shot = $http.post(url, newShot, config);
+        shots.push(shot);
+      }
+    }
+    return $q.all(shots)
+    .then((shots) => {
+      return $q.resolve(shots);
+    })
+    .catch( err => {
       return $q.reject(err);
     });
   };
@@ -50,7 +124,7 @@ function scorecardService($log, $q, $window, $http) {
       $log.info('Success', res.data);
       console.log(res.data);
       this.competitions.push(res.data);
-      resolve(res.data);
+      return $q.resolve(res.data);
     })
     .catch(err => {
       $log.error('Failed to return Competitions data', err);
@@ -78,6 +152,8 @@ function scorecardService($log, $q, $window, $http) {
       return $q.reject(err);
     });
   };
+
+  $log.debug('exiting scorecardService and returning service object', service);
 
   return service;
 }
