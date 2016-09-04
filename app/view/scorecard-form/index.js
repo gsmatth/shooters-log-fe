@@ -59,12 +59,40 @@ function CreateScorecardFormController($log, $scope, scorecardService){
   $log.debug('shot: ', vm.shot);
 
   vm.match1Scores =[];
+  vm.match1XCount = 0;
   vm.match2Scores =[];
   vm.match3Scores =[];
   vm.allMatchScores = [vm.match1Scores, vm.match2Scores, vm.match3Scores];
 
+  vm.match1Aggregate = [];
+  vm.testReduce = 0;
 
+  this.convertScore = (array) => {
 
+    vm.tempArray = array;
+    console.log('this is array.name', object.tempArray.name);
+    vm.xCheck(vm.tempArray);
+    vm.match1Aggregate = vm.tempArray.map(Number);
+    $log.debug('this is match1Aggregate after map function', vm.match1Aggregate);
+    // vm.aggregate(vm.match1Aggregate);
+    vm.testReduce = vm.match1Aggregate.reduce((acc, cur) => acc + cur, 0);
+    console.log('this is match1Aggregate after vm.aggregate', vm.match1Aggregate);
+    console.log('this is testReduce', vm.testReduce);
+  };
+
+  vm.xCheck = (array) =>{
+    $log.debug('entered xcheck');
+    $log.debug('this is the array passed in', array);
+    for (var i = 0; i < 20; i++){
+      $log.debug('entered for loop in xcheck');
+      if(array[i] === 'x' || array[i] === 'X'){
+        $log.debug('entered if statement in xcheck');
+        array.splice(i, 1, 10);
+      } else if(array[i] === 'm' || array[i] === 'M'){
+        array.splice(i,1,0);
+      }
+    }
+  };
   this.createComp = function(){
     scorecardService.createCompetition(vm.competition)
     .then((competition) => {
@@ -74,15 +102,9 @@ function CreateScorecardFormController($log, $scope, scorecardService){
       scorecardService.createMatches(vm.match, competitionId)
       .then((matches) => {
         $log.log('newly created matches array returned to createComp (): ', matches);
-        $log.log('matches[0]', matches[0]);
-        $log.log('matches[1]', matches[1]);
-        $log.log('matches[0].data._id: ', matches[0].data._id);
-        $log.log('matches[1].data._id: ', matches[1].data._id);
-        //var matchIds = [matches[0].data._id, matches[1].data._id, matches[2].data._id];
-        //$log.log('matchIds created in createComp: ', matches[0]);
         scorecardService.createMatchShots(competitionId, matches, vm.allMatchScores, vm.shot)
-        .then((scores) => {
-          $log.log('newly created scores array of arrays returned to createComp (): ', scores);
+        .then(() => {
+          $log.log('newly created scores array of arrays returned to createComp (): ', vm.allMatchScores);
         })
         .catch((err) => ('something', err));
       });
