@@ -124,11 +124,8 @@ function scorecardService($log, $q, $window, $http) {
       $log.info('Success', res.data);
       console.log(res.data);
       this.competitions.push(res.data);
-<<<<<<< HEAD
       return $q.resolve(res.data);
-=======
-      resolve(res.data);
->>>>>>> f030ba978f0e2eec9c5b7bfcfdf37473dd7c89b6
+
     })
     .catch(err => {
       $log.error('Failed to return Competitions data', err);
