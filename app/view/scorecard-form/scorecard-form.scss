@@ -1,12 +1,13 @@
-
 .form-inline .form-control {
   width: 32px;
 }
+
 .scorecard-form-main {
   border: black 2px solid;
-  margin: 50px 0px 0px 50px;
+  margin: 10% auto;
   padding: 10px;
-  max-width: 900px
+  max-width: 900px;
+  box-shadow: 3px 3px 3px #888888;
 }
 
 .scorecard-form-admin {

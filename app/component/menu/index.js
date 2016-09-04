@@ -18,7 +18,7 @@ function MenuController($log, $location, $scope){
   ];
 
   $log.debug('entered MenuController');
-  vm.showMenu = true;
+  vm.showMenu = false;
 
   vm.hamburgerHidden = checkIndexOfMenuPaths();
   $log.debug('past hamburgerHidden');

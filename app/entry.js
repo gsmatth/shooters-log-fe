@@ -3,6 +3,7 @@
 // webpack assets
 require('!!file?name=[name].[ext]!./html/index.html');
 require('./scss/base.scss');
+require('./scss/lib/font/dual/_dual.scss');
 
 // npm modules
 const angular = require('angular');
@@ -52,3 +53,4 @@ require('./view/scorecard-form');
 require('./component/logo');
 require('./component/nav');
 require('./component/menu');
+require('./component/scorecard');

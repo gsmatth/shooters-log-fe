@@ -7,13 +7,13 @@ angular.module('appShooter').factory('scorecardService', ['$log', '$q','$window'
 
 
 function scorecardService($log, $q, $window, $http) {
+  $log.debug('entered scorecardService');
   let service = {};
-  $log.debug('entered scorecardService', service);
   let token = $window.localStorage.getItem('token');
+  service.data = [];
+  service.competitions = [];
 
-  service.sayHello = function(){
-    console.log('entered sayHello');
-  };
+
   service.createCompetition = function(data) {
     let url ='http://localhost:3000/api/competition';
 
@@ -36,7 +36,6 @@ function scorecardService($log, $q, $window, $http) {
       return $q.reject(err);
     });
   };
-
 
 
   service.createMatches = function(matchModel, competitionId) {
@@ -66,7 +65,6 @@ function scorecardService($log, $q, $window, $http) {
       return $q.reject(err);
     });
   };
-
 
   service.createMatchShots = function(competitionId, matches, allMatchScores, shotModel) {
 
@@ -121,5 +119,6 @@ function scorecardService($log, $q, $window, $http) {
   };
 
   $log.debug('exiting scorecardService and returning service object', service);
+  
   return service;
 }
