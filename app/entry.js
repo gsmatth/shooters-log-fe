@@ -26,8 +26,8 @@ angular.module('appShooter', [ngRoute, ngAnimate])
   })
   .when('/home', {
     template: require('./view/home/home.html'),
-    // controller: 'HomeController',
-    // controllerAs: 'homeCtrl',
+    controller: 'HomeController',
+    controllerAs: 'homeCtrl',
   })
   .when('/createscorecard', {
     template: require('./view/scorecard-form/scorecard-form.html'),
