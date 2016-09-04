@@ -7,6 +7,7 @@ angular.module('appShooter').factory('scorecardService', ['$log', '$q','$window'
 
 
 function scorecardService($log, $q, $window, $http) {
+  $log.debug('entered scorecardService');
   let service = {};
   $log.debug('entered scorecardService', service);
   let token = $window.localStorage.getItem('token');
@@ -15,6 +16,7 @@ function scorecardService($log, $q, $window, $http) {
     console.log('entered sayHello');
   };
   service.createCompetition = function(data) {
+    $log.debug('entered service.createCompetition');
     let url ='http://localhost:3000/api/competition';
 
     console.log('the token in is', data);
@@ -40,6 +42,8 @@ function scorecardService($log, $q, $window, $http) {
 
 
   service.createMatches = function(matchModel, competitionId) {
+    $log.debug('entered service.createMatches');
+
     let url =`${__API_URL__}/api/competition/${competitionId}/match`;
 
     let config = {
@@ -69,9 +73,7 @@ function scorecardService($log, $q, $window, $http) {
 
 
   service.createMatchShots = function(competitionId, matches, allMatchScores, shotModel) {
-
-
-    // var url =`${__API_URL__}/api/competition/${competitionId}/match/${matches[].data._id}/shot`;
+    $log.debug('entered service.createMatchShots');
 
     var config = {
       headers: {
@@ -80,27 +82,17 @@ function scorecardService($log, $q, $window, $http) {
       }
     };
 
-    $log.log('This is the matches being passed in createMatchShots', matches);
-    $log.log('This is the allMatchScores being passed in createMatchShots', allMatchScores);
-    $log.log('This is the competitionId being passed in createMatchShots', competitionId);
-
     var shots = [];
-
-    //var newShot = angular.copy(shotModel);
 
     for (var i = 0; i < 3; i++ ){
       var matchId = matches[i].data._id;
       for (var ii = 0; ii < 20; ii++) {
         var url =`${__API_URL__}/api/competition/${competitionId}/match/${matchId}/shot`;
         var newShot = angular.copy(shotModel);
-        var shotNumberCounter = ii;
-        $log.log('shotNumberCounter value: ', shotNumberCounter);
         newShot.userId = matches[i].data.userId;
         newShot.matchId = matches[i].data._id;
         newShot.score = allMatchScores[i][ii];
-        $log.log('match specific array of score sin allMatchScores right before they are used: ', allMatchScores[i]);
-        $log.log('the current value for score: ', allMatchScores[i][ii]);
-        newShot.shotNumber = ii;
+        newShot.shotNumber = (ii + 1);
         $log.log('newShot.shotNumber PROPERTY value: ', newShot.shotNumber);
         if(newShot.score === 'X' || newShot.score === 'x') {
           newShot.xValue = true;
