@@ -16,7 +16,7 @@ function scorecardService($log, $q, $window, $http) {
 
   service.createCompetition = function(data) {
     $log.debug('entered service.createCompetition');
-    let url ='http://localhost:3000/api/competition';
+    let url =`${__API_URL__}/api/competition`;
 
     console.log('the token in is', data);
     let config = {
@@ -110,6 +110,6 @@ function scorecardService($log, $q, $window, $http) {
   };
 
   $log.debug('exiting scorecardService and returning service object', service);
-  
+
   return service;
 }
