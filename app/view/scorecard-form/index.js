@@ -78,7 +78,7 @@ function CreateScorecardFormController($log, $scope, scorecardService){
         $log.log('matches[1]', matches[1]);
         $log.log('matches[0].data._id: ', matches[0].data._id);
         $log.log('matches[1].data._id: ', matches[1].data._id);
-        var matchIds = [matches[0].data._id, matches[1].data._id, matches[1].data._id];
+        //var matchIds = [matches[0].data._id, matches[1].data._id, matches[2].data._id];
         //$log.log('matchIds created in createComp: ', matches[0]);
         scorecardService.createMatchShots(competitionId, matches, vm.allMatchScores, vm.shot)
         .then((scores) => {
