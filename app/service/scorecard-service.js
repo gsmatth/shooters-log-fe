@@ -51,6 +51,7 @@ function scorecardService($log, $q, $window, $http) {
       }
     };
 
+
     let matches = [];
     for (var i = 1; i < 4; i++ ){
       var newMatch = angular.copy(matchModel);
@@ -105,6 +106,50 @@ function scorecardService($log, $q, $window, $http) {
       return $q.resolve(shots);
     })
     .catch( err => {
+      return $q.reject(err);
+    });
+  };
+
+  service.getAllCompetitions = function() {
+    let url ='https://shooters-log-staging.herokuapp.com/api/competitions';
+
+    let config = {
+      headers: {
+        'Content-Type':'application/json',
+        'Authorization':`Bearer ${token}`
+      }
+    };
+    return $http.get(url, config)
+    .then(res => {
+      $log.info('Success', res.data);
+      console.log(res.data);
+      this.competitions.push(res.data);
+      return $q.resolve(res.data);
+
+    })
+    .catch(err => {
+      $log.error('Failed to return Competitions data', err);
+      return $q.reject(err);
+    });
+  };
+
+  service.getScorecard = function(compId) {
+    let url =`http://localhost:3000/api/scorecard/${compId}`;
+    console.log('token in get scorecard:', compId );
+    let config = {
+      headers: {
+        'Content-Type':'application/json',
+        'Authorization':`Bearer ${token}`
+      }
+    };
+    return $http.get(url, config)
+    .then(res => {
+      $log.info('Success', res.data);
+      console.log(res.data);
+      return (res.data);
+    })
+    .catch(err => {
+      $log.error('Failed to return Competitions data', err);
       return $q.reject(err);
     });
   };

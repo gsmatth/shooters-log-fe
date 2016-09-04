@@ -20,13 +20,12 @@ appShooter.directive('appScorecardGet', function(){
 appShooter.controller('ScorecardController', ['$log', 'scorecardService', function($log, scorecardService){
   $log.debug('scorecardCtrl.fetchScorecard');
   this.scorecard;
-  scorecardService.getScorecard('57c8dfd81bd175dd17ffd2d8')
+  scorecardService.getScorecard('57cb504931e300ca1493a3cb')
   .then( scorecard => {
     this.scorecard = scorecard;
     console.log('this.scorecard', this.scorecard);
   })
-  .catch( () => {
-    $log.error('Sad dog, no fetch');
-  });
-
+    .catch( () => {
+      $log.err('Sad dog, no fetch');
+    });
 }]);
