@@ -6,8 +6,8 @@ const appShooter = angular.module('appShooter');
 
 appShooter.controller('CreateScorecardFormController', ['$log','$scope', 'scorecardService', CreateScorecardFormController]);
 
-function CreateScorecardFormController($log, scorecardService){
-  $log.debug('enetered CreateScorecardFormController');
+function CreateScorecardFormController($log, $scope, scorecardService){
+  $log.debug('entered CreateScorecardFormController');
   const vm = this;
 
   vm.user = {
@@ -15,6 +15,7 @@ function CreateScorecardFormController($log, scorecardService){
     lastName:   null
   };
   $log.debug('user: ', vm.user);
+
   vm.competition = {
     location:   null,
     action:     null,
@@ -24,31 +25,67 @@ function CreateScorecardFormController($log, scorecardService){
   $log.debug('competition: ', vm.competition);
 
   vm.match = {
+    competitionId:    null,
+    //userId:           nul
     matchNumber:      null,
     targetNumber:     null,
     distanceToTarget: null,
     relay:            null,
-    startTime:        null,
-    temperature:      null,
-    windDirection:    null,
-    windSpeed:        null,
-    lightDirection:   null,
-    weather:          null
+    //startTime:        null,
+    //temperature:      null,
+    //windDirection:    null,
+    //windSpeed:        null,
+    //lightDirection:   null,
+    //weather:          null
   };
+
   $log.debug('match: ', vm.match);
 
-  // this.mockCompData = {
-  //   location: 'another test location',
-  //   action: 'another test action',
-  //   caliber: 308,
-  //   dateOf: 'May 28 2016'
-  // };
+  vm.shot = {
+    //userId:           null,
+    matchId:          null,
+    xValue:           null,
+    score:            null,
+    // dateOf:           null,
+    shotNumber:       null
+    // polarCoords:      null,
+    // cartesianCoords:  null,
+    // elevation:        null,
+    // windage:          null,
+    // practice:         null,
+    // sighter:          null,
+    // record:           null
+  };
+  $log.debug('shot: ', vm.shot);
 
-  $log.debug('entered CreateScorecardFormController');
-  this.createComp = function(data){
-    scorecardService.createCompetition(data)
+  vm.match1Scores =[];
+  vm.match2Scores =[];
+  vm.match3Scores =[];
+  vm.allMatchScores = [vm.match1Scores, vm.match2Scores, vm.match3Scores];
+
+
+
+  this.createComp = function(){
+    scorecardService.createCompetition(vm.competition)
     .then((competition) => {
-      console.log(competition);
+      $log.log('newly created competition returned to createComp (): ', competition);
+      let competitionId = competition._id;
+      vm.match.competitionId = competitionId;
+      scorecardService.createMatches(vm.match, competitionId)
+      .then((matches) => {
+        $log.log('newly created matches array returned to createComp (): ', matches);
+        $log.log('matches[0]', matches[0]);
+        $log.log('matches[1]', matches[1]);
+        $log.log('matches[0].data._id: ', matches[0].data._id);
+        $log.log('matches[1].data._id: ', matches[1].data._id);
+        //var matchIds = [matches[0].data._id, matches[1].data._id, matches[2].data._id];
+        //$log.log('matchIds created in createComp: ', matches[0]);
+        scorecardService.createMatchShots(competitionId, matches, vm.allMatchScores, vm.shot)
+        .then((scores) => {
+          $log.log('newly created scores array of arrays returned to createComp (): ', scores);
+        })
+        .catch((err) => ('something', err));
+      });
     });
   };
 }
