@@ -111,7 +111,7 @@ function scorecardService($log, $q, $window, $http) {
   };
 
   service.getAllCompetitions = function() {
-    let url ='https://shooters-log-staging.herokuapp.com/api/competitions';
+    let url =`${__API_URL__}/api/competitions`;
 
     let config = {
       headers: {
@@ -122,7 +122,7 @@ function scorecardService($log, $q, $window, $http) {
     return $http.get(url, config)
     .then(res => {
       $log.info('Success', res.data);
-      console.log(res.data);
+      console.log('scorecard-service.getAllCompetitions res.data', res.data);
       this.competitions.push(res.data);
       return $q.resolve(res.data);
 
@@ -134,8 +134,7 @@ function scorecardService($log, $q, $window, $http) {
   };
 
   service.getScorecard = function(compId) {
-    let url =`http://localhost:3000/api/scorecard/${compId}`;
-    console.log('token in get scorecard:', compId );
+    let url =`${__API_URL__}/api/scorecard/${compId}`;
     let config = {
       headers: {
         'Content-Type':'application/json',
@@ -144,9 +143,8 @@ function scorecardService($log, $q, $window, $http) {
     };
     return $http.get(url, config)
     .then(res => {
-      $log.info('Success', res.data);
-      console.log(res.data);
-      return (res.data);
+      $log.warn('Success in getScorecard', res.data);
+      return $q.resolve(res.data);
     })
     .catch(err => {
       $log.error('Failed to return Competitions data', err);

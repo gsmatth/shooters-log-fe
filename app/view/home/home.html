@@ -1,4 +1,9 @@
 <main class="app-home-page">
   <!-- add component for user profile  -->
-  <app-scorecard-get class="app-scorecard"> </app-scorecard-get>
+  <div class="app-scorecardWrapper"
+       ng-repeat="competition in homeCtrl.displayScorecards"
+  >
+    <app-scorecard-get class="app-scorecard" comp-to-display="competition"> </app-scorecard-get>
+  </div>
+
 </main>
