@@ -30,7 +30,7 @@ function HomeController($log, scorecardService){
       return a>b ? -1 : a<b ? 1 : 0;
     });
 
-    this.displayScorecards = this.competitions.slice(0, 1);
+    this.displayScorecards = this.competitions.slice(0, 5);
 
     console.log('homeCtrl competitions', competitions);
     console.log('homeCtrl displayScorecards', this.displayScorecards);
