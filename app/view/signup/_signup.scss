@@ -5,12 +5,22 @@
   padding: 5%;
   margin: 5% auto 0 auto;
   background-color: $app-default;
+  border: thick solid $app-lightgreen;
   border-radius: 10px 10px 10px 10px;
 
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+
+  label {
+    font-family: biko-regular;
+    font-size: 1.5em;
+  }
+
+  input {
+    box-shadow: 3px 3px 3px #888888;
   }
 
   button{
@@ -21,6 +31,10 @@
 
   .userPass {
     margin-top: 5%;
+
+    input{
+      box-shadow: 3px 3px 3px #888888;
+    }
   }
 
   .naming {
@@ -28,10 +42,18 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 5% auto 5% auto;
+
+    input {
+      box-shadow: 3px 3px 3px #888888;
+    }
   }
 
   .nameSuffix {
     margin: 0 3% 0 3%;
+
+    select{
+      box-shadow: 3px 3px 3px #888888;
+    }
   }
 
   .nraNumber {

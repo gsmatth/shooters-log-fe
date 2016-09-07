@@ -3,6 +3,7 @@
 // webpack assets
 require('!!file?name=[name].[ext]!./html/index.html');
 require('./scss/base.scss');
+require('./scss/lib/font/dual/_dual.scss');
 
 // npm modules
 const angular = require('angular');
@@ -25,8 +26,8 @@ angular.module('appShooter', [ngRoute, ngAnimate])
   })
   .when('/home', {
     template: require('./view/home/home.html'),
-    // controller: 'HomeController',
-    // controllerAs: 'homeCtrl',
+    controller: 'HomeController',
+    controllerAs: 'homeCtrl',
   })
   .when('/createscorecard', {
     template: require('./view/scorecard-form/scorecard-form.html'),
@@ -52,3 +53,4 @@ require('./view/scorecard-form');
 require('./component/logo');
 require('./component/nav');
 require('./component/menu');
+require('./component/scorecard');

@@ -4,9 +4,10 @@
   position:fixed;
   top: 0;
   left: 0;
-  width: 150px;
+  width: 15%;
   height: 100%;
-  padding-top: 40px;
+  padding-top: 10%;
+  border-right: thick solid $app-lightgreen;
   background-color: $app-dark;
   z-index: 100;
 
@@ -16,15 +17,22 @@
     padding: 0px;
 
     li {
-      border-bottom: white 2px solid;
+      border: white 2px solid;
+      border-radius: 5px;
       padding: 5px;
-      margin: 5px;
+      margin: 4% 5% 4% 5%;
+      font-family: biko-regular;
       text-align: center;
-      font-size: 15px;
+      font-size: 1.5em;
+
+      &:hover {
+        background-color: white;
+      }
     }
 
     a{
       text-decoration: none;
+      color: $app-lightgreen;
     }
   }
 }
