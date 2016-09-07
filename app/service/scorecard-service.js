@@ -18,18 +18,15 @@ function scorecardService($log, $q, $window, $http) {
     $log.debug('entered service.createCompetition');
     let url =`${__API_URL__}/api/competition`;
 
-    console.log('the token in is', data);
     let config = {
       headers: {
         'Content-Type':'application/json',
         'Authorization':`Bearer ${token}`
       }
     };
-    console.log('This is the data', data);
     return $http.post(url, data, config)
     .then(res => {
       $log.info('Success', res.data);
-      console.log('newly created competition: ',res.data);
       return (res.data);
     })
     .catch(err => {
@@ -56,8 +53,6 @@ function scorecardService($log, $q, $window, $http) {
     for (var i = 1; i < 4; i++ ){
       var newMatch = angular.copy(matchModel);
       newMatch.matchNumber = i;
-      console.log('this is the matchNumber: ', newMatch.matchNumber);
-      console.log('this is the newMatch: ', newMatch);
       matches.push($http.post(url, newMatch, config));
     }
 
@@ -89,7 +84,7 @@ function scorecardService($log, $q, $window, $http) {
         var newShot = angular.copy(shotModel);
         newShot.userId = matches[i].data.userId;
         newShot.matchId = matches[i].data._id;
-        newShot.score = allMatchScores[i][ii];
+        newShot.score = allMatchScores[i].hiddenScores[ii];
         newShot.shotNumber = (ii + 1);
         $log.log('newShot.shotNumber PROPERTY value: ', newShot.shotNumber);
         if(newShot.score === 'X' || newShot.score === 'x') {
