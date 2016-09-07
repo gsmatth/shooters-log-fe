@@ -84,7 +84,7 @@ function scorecardService($log, $q, $window, $http) {
         var newShot = angular.copy(shotModel);
         newShot.userId = matches[i].data.userId;
         newShot.matchId = matches[i].data._id;
-        newShot.score = allMatchScores[i].hiddenScores[ii];
+        newShot.score = allMatchScores[i].scores[ii];
         newShot.shotNumber = (ii + 1);
         $log.log('newShot.shotNumber PROPERTY value: ', newShot.shotNumber);
         if(newShot.score === 'X' || newShot.score === 'x') {
