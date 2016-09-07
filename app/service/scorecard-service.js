@@ -135,7 +135,6 @@ function scorecardService($log, $q, $window, $http) {
 
   service.getScorecard = function(compId) {
     let url =`${__API_URL__}/api/scorecard/${compId}`;
-    console.log('token in get scorecard:', compId );
     let config = {
       headers: {
         'Content-Type':'application/json',
@@ -144,9 +143,8 @@ function scorecardService($log, $q, $window, $http) {
     };
     return $http.get(url, config)
     .then(res => {
-      $log.info('Success in getScorecard', res);
-      console.log(res.data);
-      return (res.data);
+      $log.warn('Success in getScorecard', res.data);
+      return $q.resolve(res.data);
     })
     .catch(err => {
       $log.error('Failed to return Competitions data', err);

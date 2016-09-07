@@ -19,14 +19,13 @@ appShooter.directive('appScorecardGet', function(){
 
 appShooter.controller('ScorecardController', ['$log', 'scorecardService', function($log, scorecardService){
   $log.debug('scorecardCtrl.fetchScorecard');
-  $log.warn(this.compToDisplay);
-  this.scorecard = {};
-  scorecardService.getScorecard(this.compToDisplay._id)
-  .then( scorecard => {
-    this.scorecard = scorecard;
-    console.log('this.scorecard', this.scorecard);
-  })
-    .catch( () => {
-      $log.err('Sad dog, no fetch');
-    });
+  this.fetchScorecard = function(){
+    scorecardService.getScorecard(this.compToDisplay._id)
+    .then( scorecard => {
+      this.scorecard = scorecard;
+    })
+      .catch( () => {
+        $log.err('Sad dog, no fetch');
+      });
+  };
 }]);
