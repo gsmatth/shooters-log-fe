@@ -58,31 +58,49 @@ function CreateScorecardFormController($log, $scope, scorecardService){
   };
   $log.debug('shot: ', vm.shot);
 
-  vm.match1Scores =[];
-  vm.match2Scores =[];
-  vm.match3Scores =[];
+  //vm.match1Scores =[];
+  vm.match1Scores = {scores: [], xCount:0, matchAggregate:[], matchScoreTotal: 0, hiddenScores: []};
+  vm.match2Scores ={scores: [], xCount:0, matchAggregate:[], matchScoreTotal: 0, hiddenScores: []};
+  vm.match3Scores = {scores: [], xCount:0, matchAggregate:[], matchScoreTotal: 0, hiddenScores: []};
   vm.allMatchScores = [vm.match1Scores, vm.match2Scores, vm.match3Scores];
 
+  vm.match1Aggregate = [];
+  vm.testReduce = 0;
+  vm.totalCompScore = 0;
+  vm.totalXCount = 0;
 
+  this.convertScore = (matchObject) => {
 
+    vm.matchObject = matchObject;
+    vm.matchObject.hiddenScores = angular.copy( vm.matchObject.scores);
+    vm.xCheck(vm.matchObject);
+    vm.matchObject.matchAggregate = vm.matchObject.hiddenScores.map(Number);
+    vm.matchObject.matchScoreTotal = vm.matchObject.matchAggregate.reduce((acc, cur) => acc + cur, 0);
+    vm.totalCompScore = vm.match1Scores.matchScoreTotal + vm.match2Scores.matchScoreTotal + vm.match3Scores.matchScoreTotal;
+    vm.totalXCount = vm.match1Scores.xCount + vm.match2Scores.xCount + vm.match3Scores.xCount;
+  };
+
+  vm.xCheck = (matchObject) =>{
+    matchObject.xCount = 0;
+    for (var i = 0; i < 20; i++){
+      if(matchObject.scores[i] === 'x' || matchObject.scores[i] === 'X'){
+        matchObject.xCount ++;
+        matchObject.hiddenScores.splice(i, 1, 10);
+      } else if(matchObject.scores[i] === 'm' || matchObject.scores[i] === 'M'){
+        matchObject.hiddenScores.splice(i,1,0);
+      }
+    }
+  };
   this.createComp = function(){
     scorecardService.createCompetition(vm.competition)
     .then((competition) => {
-      $log.log('newly created competition returned to createComp (): ', competition);
       let competitionId = competition._id;
       vm.match.competitionId = competitionId;
       scorecardService.createMatches(vm.match, competitionId)
       .then((matches) => {
-        $log.log('newly created matches array returned to createComp (): ', matches);
-        $log.log('matches[0]', matches[0]);
-        $log.log('matches[1]', matches[1]);
-        $log.log('matches[0].data._id: ', matches[0].data._id);
-        $log.log('matches[1].data._id: ', matches[1].data._id);
-        //var matchIds = [matches[0].data._id, matches[1].data._id, matches[2].data._id];
-        //$log.log('matchIds created in createComp: ', matches[0]);
         scorecardService.createMatchShots(competitionId, matches, vm.allMatchScores, vm.shot)
-        .then((scores) => {
-          $log.log('newly created scores array of arrays returned to createComp (): ', scores);
+        .then(() => {
+          $log.log('newly created scores array of arrays returned to createComp (): ', vm.allMatchScores);
         })
         .catch((err) => ('something', err));
       });
