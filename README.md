@@ -44,24 +44,24 @@
   ****
 
   #Set up of Local Development Environment
-  * You must download, install, configure, and run both a front end application and the supporting backend infrastructure for the local development environment.
+  * You must download, install, configure, and run both a front end application and the supporting backend infrastructure for the local development environment.  
   * **Prerequisite**:  mongo database must be installed prior to the installation of the backend on your local environment.  These instructions do not cover the installation of mongo or the use of the mongo client. For guidance on installling and using these two items, view the following:
     * https://docs.mongodb.com/manual/
     * https://docs.mongodb.com/manual/mongo/  
   * Back-End:   
     * Install:  
-      * navigate to the [shooter-log git repo](https://github.com/gsmatth/shooters-log)
+      * navigate to the [shooter-log git repo](https://github.com/gsmatth/shooters-log)  
       * in the upper right corner of page, click on "clone or download" button to view pull down  
 
-        ![screen shot 2016-09-08 at 2 21 47 pm](https://cloud.githubusercontent.com/assets/13153982/18367374/a9397ef8-75cf-11e6-98f6-e28c4ba44f28.png)
-      * click on the clip-board icon to save the repo link.
-      * In your CLI, navigate to where you want the project folder to be on you local system.
-      * type in "git clone", enter a space, and then paste the link you copied into the CLI so it is appended to the end of the current line.  The full line should look like this: _git clone https://github.com/gsmatth/shooters-log.git_
-      * press the enter key and the shooter-log repo will be cloned to your local environment.
-      * cd to the newly created directory
-      * type in  _npm init_ and press enter
-      * once complete, type _npm install_ so that all the npm modules required for the backend are installed.
-    * Configure and Run:
+        ![screen shot 2016-09-08 at 2 21 47 pm](https://cloud.githubusercontent.com/assets/13153982/18367374/a9397ef8-75cf-11e6-98f6-e28c4ba44f28.png)  
+      * click on the clip-board icon to save the repo link.  
+      * In your CLI, navigate to where you want the project folder to be on you local system.  
+      * type in "git clone", enter a space, and then paste the link you copied into the CLI so it is appended to the end of the current line.  The full line should look like this: _git clone https://github.com/gsmatth/shooters-log.git_  
+      * press the enter key and the shooter-log repo will be cloned to your local environment.  
+      * cd to the newly created directory  
+      * type in  _npm init_ and press enter  
+      * once complete, type _npm install_ so that all the npm modules required for the backend are installed.  
+    * Configure and Run:  
       * in your CLI, navigate to the root of the shooters-log application  
       * type in the following:  *mongod --dbpath ./db*  
       * open second CLI window and ensure you have navigated to the shooters-log root directory.  Type in the following:  *mongo*   
@@ -121,7 +121,10 @@
 
         ![scorecard-form-600x401](https://cloud.githubusercontent.com/assets/13153982/18364812/9fec2ffe-75c4-11e6-92b1-36facbb4f1c0.png)
 
-      * explain the view    
+      * The "view" specific files include index.js, scorecard-form.html, and scorecard-form.scss.  
+        * scorecard-form.html:  an angular template consisting of inputs, svgs, texts, and a single button of type "submit."  In addition to the form and input directives...  
+        * index.js: The main controller for this view....   
+        * scorecard-form.html:   
       * explain the service  
       * explain the component  
       * make sure to cover validation of data       
@@ -140,17 +143,19 @@
 *****
 #Testing Framework
 
-*jasmine  
-  * jasmine-core  
+* scope: explain what we are testing (focus area) and show an example test  
 
-*karma    
-  * karma  
-  * karma-jasmine  
-  * karma-webpack  
-  * karma-chrome-launcher
-  * karma-babel-preprocessor
-  * karma-phantomjs-launcher  
+  * jasmine (explain high level)  
+    * jasmine-core  
 
-*angular-mock  
+  * karma (explain high level)    
+    * karma  
+    * karma-jasmine  
+    * karma-webpack  
+    * karma-chrome-launcher
+    * karma-babel-preprocessor
+    * karma-phantomjs-launcher  
 
-*eslint  
+  * angular-mock  (explain high level)
+
+  * eslint   (explain high level)
