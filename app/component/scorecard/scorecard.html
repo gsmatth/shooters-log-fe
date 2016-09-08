@@ -1,4 +1,4 @@
-<main class="app-scorecard-get" style="border: black 2px solid; padding: 10px; max-width: 900px"
+<main class="app-scorecard-get"
   ng-init="scorecardCtrl.fetchScorecard()">
   <div class="scorecard-admin" >
   <div class="competitionInfo">
@@ -250,9 +250,6 @@
       <span class="form-control shot-score" id="shot19">{{scorecardCtrl.scorecard.shots[0][18].score}}</span>
       <label for="shot20"></label>
       <span class="form-control shot-score" id="shot20">{{scorecardCtrl.scorecard.shots[0][19].score}}</span>
-      <div>
-        191
-      </div>
     </div>
   </table>
   <svg width="771px" height="49px" viewBox="0 -6 771 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -493,9 +490,6 @@
       <span class="form-control shot-score" id="shot19">{{scorecardCtrl.scorecard.shots[1][18].score}}</span>
       <label for="shot20"></label>
       <span class="form-control shot-score" id="shot20">{{scorecardCtrl.scorecard.shots[1][19].score}}</span>
-      <div>
-        189
-      </div>
     </div>
   </table>
   <svg width="771px" height="49px" viewBox="0 -6 771 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -737,7 +731,16 @@
       <label for="shot20"></label>
       <span class="form-control shot-score" id="shot20">{{scorecardCtrl.scorecard.shots[2][19].score}}</span>
     </div>
-    <div>
-    </div>
+    <section  class="scorecard-scoring-totals">
+      <div class="subtotal-score-data">
+        <p>Match #1 Score:  {{scorecardCtrl.match1Scores.matchScoreTotal}}     X-Count:  {{scorecardCtrl.match1Scores.xCount}}</p>
+        <p>Match #2 Score:  {{scorecardCtrl.match2Scores.matchScoreTotal}}     X-Count:  {{scorecardCtrl.match2Scores.xCount}}</p>
+        <p>Match #3 Score:  {{scorecardCtrl.match3Scores.matchScoreTotal}}     X-Count:  {{scorecardCtrl.match3Scores.xCount}}</p>
+      </div>
+      <div class="aggregate-score-data">
+        <p>Match Aggregate Score: {{scorecardCtrl.totalCompScore}}</p>
+        <p>X-Count: {{scorecardCtrl.totalXCount}}</p>
+      </div>
+    </section>
   </table>
 </main>

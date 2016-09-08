@@ -6,6 +6,7 @@
   border: black 2px solid;
   margin: 10% auto;
   padding: 10px;
+  min-height: 600px;
   max-width: 900px;
   box-shadow: 3px 3px 3px #888888;
 }
@@ -15,26 +16,33 @@
 }
 
 .first-shot-score {
-  display: inline-block;
+  float:left;
   background-color: #C7C7C7;
   font-weight: bold;
-  width: 32px;
+  width: 29px !important;
   height: 25px;
-  margin:-50px 0px 0px 58px;
+  margin:0px 0px 0px 57px;
   padding:0px 2px 0px 2px;
   border-width:0px 3px 0px 3px;
   border-right-style: outset
 }
 
 .shot-score {
-  display: inline-block;
+  float:left;
+  margin-left: 2px;
   background-color: #C7C7C7;
   font-weight: bold;
-  width: 27px;
+  width: 29px !important;
   height: 25px;
   padding:0px 2px 0px 2px;
   border-color: black;
   border-width:0px 3px 0px 0px;
+
+
+}
+
+.shot-score.ng-invalid {
+  background-color: red;
 }
 
 .scorecard-match-outer-div {
