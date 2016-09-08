@@ -691,11 +691,9 @@
         <i class="scorecard-match-i">Score</i>
       </div>
       <label for="shot1"></label>
-      <span class="form-control first-shot-score" id="shot1"
-      ng-init="scorecardCtrl.convertScore(scorecardCtrl.match3Scores)" ng-model="scorecardCtrl.match3Scores.scores[0]" >{{scorecardCtrl.scorecard.shots[2][0].score}}</span>
+      <span class="form-control first-shot-score" id="shot1">{{scorecardCtrl.scorecard.shots[2][0].score}}</span>
       <label for="shot2"></label>
-      <span class="form-control shot-score" id="shot2"
-      ng-init="scorecardCtrl.convertScore(scorecardCtrl.match3Scores)" ng-model="scorecardCtrl.match3Scores.scores[1]">{{scorecardCtrl.scorecard.shots[2][1].score}}</span>
+      <span class="form-control shot-score" id="shot2">{{scorecardCtrl.scorecard.shots[2][1].score}}</span>
       <label for="shot3"></label>
       <span class="form-control shot-score" id="shot3">{{scorecardCtrl.scorecard.shots[2][2].score}}</span>
       <label for="shot4"></label>
