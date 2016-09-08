@@ -9,7 +9,7 @@ appShooter.controller('CreateScorecardFormController', ['$log','$scope', 'scorec
 function CreateScorecardFormController($log, $scope, scorecardService){
   $log.debug('entered CreateScorecardFormController');
   const vm = this;
-
+  vm.scoreInputValidation = /^([MmxX]|[056789]|[1][0])$/;
   vm.user = {
     firstName:  null,
     lastName:   null
@@ -71,6 +71,14 @@ function CreateScorecardFormController($log, $scope, scorecardService){
 
   this.convertScore = (matchObject) => {
 
+    for (var i = 0; i < matchObject.scores.length; i++){
+      if(/^([MmxX]|[056789]|[1][0])$/g.exec(matchObject.scores[i])){
+        console.log('thats a good entry');
+      } else {
+        console.log('thats a bad entry at shot number' , i + 1);
+        return;
+      }
+    }
     vm.matchObject = matchObject;
     vm.matchObject.hiddenScores = angular.copy( vm.matchObject.scores);
     vm.xCheck(vm.matchObject);
