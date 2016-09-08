@@ -41,6 +41,7 @@ appShooter.controller('ScorecardController', ['$log', 'scorecardService', functi
     });
   };
 
+  // match totaling logic
   vm.match1Scores = {scores: [], xCount:0, matchAggregate:[], matchScoreTotal: 0, hiddenScores: []};
   vm.match2Scores ={scores: [], xCount:0, matchAggregate:[], matchScoreTotal: 0, hiddenScores: []};
   vm.match3Scores = {scores: [], xCount:0, matchAggregate:[], matchScoreTotal: 0, hiddenScores: []};
