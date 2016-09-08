@@ -56,15 +56,32 @@
         ![screen shot 2016-09-08 at 2 21 47 pm](https://cloud.githubusercontent.com/assets/13153982/18367374/a9397ef8-75cf-11e6-98f6-e28c4ba44f28.png)
       * click on the clip-board icon to save the repo link.
       * In your CLI, navigate to where you want the project folder to be on you local system.
-      * type in "git clone", enter a space, and then paste the link you copied into the CLI so it is appended to the end of the current line.  The full line should look like this:
-        * git clone https://github.com/gsmatth/shooters-log.git
+      * type in "git clone", enter a space, and then paste the link you copied into the CLI so it is appended to the end of the current line.  The full line should look like this: _git clone https://github.com/gsmatth/shooters-log.git_
       * press the enter key and the shooter-log repo will be cloned to your local environment.
+      * cd to the newly created directory
+      * type in  _npm init_ and press enter
+      * once complete, type _npm install_ so that all the npm modules required for the backend are installed.
+    * Configure and Run:
+      * in your CLI, navigate to the root of the shooters-log application  
+      * type in the following:  *mongod --dbpath ./db*  
+      * open second CLI window and ensure you have navigated to the shooters-log root directory.  Type in the following:  *mongo*   
+      * open third CLI window and ensure you have navigated to the shooters-log root directory.  
+      * type in the following: _APP_SECRET="typeSomeStringIn" DEBUG=shooter* node server.js_
+
+
+  * Front-End:   
+    * Install:  
+      * navigate to https://github.com/gsmatth/shooters-log-fe    
+      * clone this repo by clicking on the "clone or download" button just like you did when setting up the back-end.  Click the clipboard icon to save the link.
+      * In your CLI, navigate to where you want the project folder to be on you local system.
+      * type in "git clone", enter a space, and then paste the link you copied into the CLI so it is appended to the end of the current line.  The full line should look like this:
+        * git clone https://github.com/gsmatth/shooters-log-fe
+      * press the enter key and the shooter-log-fe repo will be cloned to your local environment.
       * cd to the newly created directory
       * type "npm init" and press enter
       * once complete, type "npm install" so that all the npm modules required for the backend are installed.
     * Configure and Run:
-
-  * Front-End:
+      * make sure the you have followed the steps to "Configure and Run" in the Back-End section above before you start this process.   
 
   ****
 
@@ -73,9 +90,9 @@
     ![screen shot 2016-09-08 at 1 59 39 pm](https://cloud.githubusercontent.com/assets/13153982/18366731/bac435e4-75cc-11e6-8a4a-8a005958f514.png)
 
     ![screen shot 2016-09-08 at 1 59 27 pm](https://cloud.githubusercontent.com/assets/13153982/18366765/dafa6d1a-75cc-11e6-856c-239eab4cc52c.png)
-  * The automatic deployment of updates into heroku utilizes the integration of our git repo/branches with our heroku applications.  When a pull request is merged in the git staging branch, it is automatically deployed to the heroku staging application and a build occurs on heroku.   At the end of each day, the project manager tests staging.  If tests are successful, the project manager creates a pull request from staging to merge staging updates into master branch.  
+  * The automatic deployment of updates into heroku utilizes the integration of our git repo/branches with our heroku applications.  When a pull request is merged in the git staging branch, it is automatically deployed to the heroku **staging** application and a build occurs on heroku.   At the end of each day, the project manager tests staging.  If tests are successful, the project manager creates a pull request from staging to merge staging updates into master branch.  
     ![screen shot 2016-09-08 at 2 12 55 pm](https://cloud.githubusercontent.com/assets/13153982/18367137/82ae4300-75ce-11e6-877e-c6f56be9b8aa.png)
-  * The merging of staging and master triggers and automatic update of the heroku production branch from the newly updated master branch on git and an application build occurs on the production application on heroku.
+  * The merging of staging and master triggers an automatic update of the heroku **production** branch from the newly updated master branch on git and an application build occurs on the production application on heroku.
 
 
 
