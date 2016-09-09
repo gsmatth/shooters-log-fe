@@ -264,7 +264,7 @@
       </div>
       <label for="shot1"></label>
       <input type="text"
-      ng-pattern="/^([MmxX]|[056789]|[1][0])$/g"
+      ng-pattern="createScorecardFormCtrl.scoreInputValidation"
       ng-blur = "createScorecardFormCtrl.convertScore(createScorecardFormCtrl.match1Scores)" class="form-control first-shot-score" id="shot1" name="shot1" ng-model="createScorecardFormCtrl.match1Scores.scores[0]">
       <label for="shot2"></label>
       <input type="text"

@@ -6,6 +6,7 @@
   border: black 2px solid;
   margin: 10% auto;
   padding: 10px;
+  padding-left: 35px;
   min-height: 600px;
   max-width: 900px;
   min-height: 650px;
@@ -42,16 +43,16 @@
 
 }
 
-.shot-score.ng-invalid {
+.shot-score.ng-invalid, .first-shot-score.ng-invalid {
   background-color: red;
 }
 
+
 .scorecard-match-outer-div {
   border: black 2px solid;
-  width:825px;
+  width:771px;
   height:27px;
-  //margin-top:0px;
-  //margin-left: 0px;
+
 }
 .scorecard-match-inner-div {
   width:40px;
@@ -72,6 +73,7 @@
   width: 35px;
   float: left;
   margin-left: 15px;
+  margin-top: -18px;
   font-size: 16px;
   font-weight: bold;
 }
