@@ -5,7 +5,7 @@
 [![Throughput Graph](https://graphs.waffle.io/gsmatth/shooters-log-fe/throughput.svg)](https://waffle.io/gsmatth/shooters-log-fe/metrics/throughput)
 
 
-#Shooter-Log-FrontEnd Web Application
+#Shooter-Log-FE Web Application
 
 *****
 #Overview
@@ -138,9 +138,9 @@
         *  the regex value of the property _scoreInputValidation_ is:   /^([MmxX]|[056789]|[1][0])$/    
       * To provide immediate feedback to the user as they update each score, we leverage the **ng-blur** directive on each score input element. When a user enter s a score and then clicks on the next score input box, ng-blur will call  a function that does two things:  
         *  converts any "X" or "M" entered into their corresponding number values (10 and 0)  
-        * updates an array of scores with the most recently added score. The array that is updated, uses angular **data binding** to provide real time updates to the "Total" in each match as well as the Match Scores and X-Counts for the match and competition at the bottom of the form.  
+        * updates an array of scores with the most recently added score. The array that is updated, uses angular **data binding** to provide real time updates to the "Total" in each match as well as the Match Scores and X-Counts for the matches and the competition at the bottom of the form.  
       * When a user clicks the *Create Scorecard* button, the *CreateComp()* is called and makes 64 POST requests to the backend shooter-log RESTful API. Those requests create the following items in the mongo database: (1)competition, (3) matches, (60) shots. The *CreateComp()* is a good example of how to chain a series of promises.  We chained these because each function called in the overall function is dependent on data returned from the previous promise:   
-          * this.createComp = function(){
+          * this.createComp = function(){  
             scorecardService.createCompetition(vm.competition)  
             **.then**((competition) => {  
               let competitionId = competition._id;  
