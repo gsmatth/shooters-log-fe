@@ -14,10 +14,10 @@
 
   ![scorecard750x580](https://cloud.githubusercontent.com/assets/13153982/16515546/69d733b0-3f27-11e6-9653-1148ff7f485a.png)
 
-* The primary purpose of the front-end site is to store and serve out the web application on demand.  Once the user's browser has downloaded the files served out by this server, the angularJS application in the browser behaves as a client side application and interacts with the shooters-log back-end RESTful API to perform its intended function.  
+* The primary purpose of the front-end site is to store and serve out the web application on demand.  Once the user's browser has downloaded the files served out by this server, the angularJS application in the browser behaves as a client side application and interacts with the shooters-log back-end RESTful API to perform its intended function. The combination of the back-end and the front-end represents a full MEAN stack (Mongo Express Angular Node) deployment solution.
 
   ![shooters-log-fe-v2-525x584](https://cloud.githubusercontent.com/assets/13153982/18381236/26ed9694-7630-11e6-999b-d77580a5827e.png)  
-  
+
 
   ****
   #Current Version (0.1.0)
@@ -99,7 +99,7 @@
 
 
 
-*****
+  *****  
 
   #Application Structure  
 
@@ -120,14 +120,14 @@
   * signin  
   * home
   * scorecard-form:    
-      * This page is used to create a new scorecard and saving that scorecard to a database by making a request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log).  
+      * This page is used to create and save a new scorecard to a database by making a request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log).  
 
         ![scorecard-form-700x506](https://cloud.githubusercontent.com/assets/13153982/18380758/c54d7122-762d-11e6-8f95-9c6daeb0f1db.png)  
 
-      * The "view" of this form is provided by the scorecard-form.html file.  This angular template is a complex form. The top section of the form contains input elements for administrative data used to create 1 competition and 3 matches in the backend database.  
-      * Data input validation is handled using angular and bootstrap.  As an example, each of the 50 inputs for a shot have the following validation:  
+      * The "view" of this form is provided by the scorecard-form.html file.  This angular template is a complex form. The top section of the form contains input elements for administrative data used to create one competition and three matches in the backend database.  The remaining 60 input elements are used to create 60 individual shots in the backend database.  To aid in data visualization and analysis, each shot that is created in the database references the match it belongs to.  Each match created in the database references the competition it belongs to.
+      * Data input validation is handled using angular and bootstrap.  The *Create Scorecard* button remains disabled until all required data for a scorecard is entered and validated.  As an example, each of the 60 inputs for a shot are checked to ensure that they are valid entries using the **ng-pattern** on each element.  If the scores do not pass validation, then the input box background-color is set to red as shown in two input fields in the diagram above. The syntax used for the score input validation is:
         * ng-pattern="createScorecardFormCtrl.scoreInputValidation"   
-          *  the value of the property scoreInputValidation is:   /^([MmxX]|[056789]|[1][0])$/;  
+        *  the regex value of the property _scoreInputValidation_ is:   /^([MmxX]|[056789]|[1][0])$/    
       * The value of "Total" for each Match as well as the ng-blur = "createScorecardFormCtrl.convertScore(createScorecardFormCtrl.match1Scores)"  
         *    
       * The large number of inputs in the lower section, is used to create individual shots.  when you click on the "create Scorecard" button  
