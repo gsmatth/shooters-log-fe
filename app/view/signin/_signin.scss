@@ -32,4 +32,14 @@
     align-content: center;
     margin: 5% 20% 5% 20%;
   }
+
+  .app-redirect {
+    align-content: center;
+    margin: 5% 15% 0 15%;
+    font-size: 1.25em;
+
+    a {
+      color: $app-lightgreen;
+    }
+  }
 }
