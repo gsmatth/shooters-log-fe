@@ -1,5 +1,25 @@
+@import "_theme";
+
 .app-home-page {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+  button {
+    position: fixed;
+    top: 5%;
+    left: 45%;
+    width: 10vw;
+    font-family: dual-300;
+    line-height: 1.5;
+
+    border: white 2px solid;
+    border-radius: 5px;
+    background-color: $app-lightgreen;
+
+    &:hover {
+      background-color: $app-default;
+      border-color: $app-lightgreen;
+    }
+  }
 }

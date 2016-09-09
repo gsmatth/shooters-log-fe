@@ -1,11 +1,45 @@
+@import "_theme";
+
 .app-scorecard {
-  margin: 10% auto;
+  margin: 11vh auto 0 auto;
   box-shadow: 3px 3px 3px #888888;
 }
 
 .app-scorecard-get {
   border: black 2px solid;
   padding: 10px;
-  min-height: 600px;
-  max-width: 900px
+  min-height: 550px;
+  max-width: 900px;
+}
+
+.competitionInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: solid 2px $app-default;
+}
+
+.rifle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.scorecard-scoring-totals {
+  margin: 3% 10% 3% 10%;
+}
+
+.scorecard-match-outer-div {
+  max-width: 771px;
+}
+
+.score-field {
+  margin-left: 5%;
+}
+
+.total-field {
+  width: 11%;
+  height: 10%;
+  line-height: 10%;
+  margin-top: -18px;
 }
