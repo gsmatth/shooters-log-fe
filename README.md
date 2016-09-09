@@ -107,12 +107,14 @@
 
         ![signin200x331](https://cloud.githubusercontent.com/assets/13153982/18363587/945bcc12-75bf-11e6-97ea-5511bcb2f258.png)  
 
-      * explain the view
-      * explain the services used
-      * explain the components used
-      * make sure to cover validation of data  
-      * explain any calls or dependencies on APIs
-      * cover storage of token to local storage  
+      * The "view" specific files include index.js, signup.html, and \_signup.scss.  
+        * signup.html:  an angular template consisting of inputs, a logo component, texts, and a single button of type "submit."  In addition to the form and input directives there is also logic to prevent the user form submitting without filling in the required fields  
+        * index.js: The main controller for this view contains a single function that is called when the user clicks the Create Account button it calls the auth-service and redirects to the home page when the auth-service returns a token
+    * This view utilities the auth-service signup function and expects a token returned before redirection the user to their home page.  
+    * explain the components used
+    * make sure to cover validation of data  
+    * explain any calls or dependencies on APIs
+    * cover storage of token to local storage  
 
   * signin  
   * home
