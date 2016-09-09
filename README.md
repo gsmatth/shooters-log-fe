@@ -125,7 +125,7 @@
       * explain any calls or dependencies on APIs
       * cover storage of token to local storage  
 
-  * ###signin  
+  * ###sign-in       
   * ###home  
   * ### create scorecard:    
       * This page is used to create and save a new scorecard to a database by making a series of POST request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log). You will not be able to view your scorecards on the homepage unless you have entered some scorecards from this page.
@@ -152,7 +152,7 @@
 
   * ### Services  
       * auth-service:  
-      * scorecard-service
+      * scorecard-service  
   * ####Components  
       * signup:
       * logo:  
