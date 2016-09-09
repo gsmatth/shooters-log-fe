@@ -48,10 +48,10 @@
 
   #Set up of Local Development Environment
   * You must download, install, configure, and run both a front end application and the supporting backend infrastructure for the local development environment.  
-  * **Prerequisite**:  mongo database must be installed prior to the installation of the backend on your local environment.  These instructions do not cover the installation of mongo or the use of the mongo client. For guidance on installing and using these two items, view the following:
+  * **Prerequisite**:  mongo database must be installed prior to the installation of the backend on your local environment.  This README does not cover the installation of mongo or the use of the mongo client. For guidance on installing and using these two items, view the following:
     * https://docs.mongodb.com/manual/
     * https://docs.mongodb.com/manual/mongo/  
-  * Back-End:   
+  * ### Back-End:   
     * Install:  
       * navigate to the [shooter-log git repo](https://github.com/gsmatth/shooters-log)  
       * in the upper right corner of page, click on "clone or download" button to view pull down  
@@ -75,7 +75,7 @@
         * shooter:server express app up on port:  +1ms 3000  
 
 
-  * Front-End:   
+  * ###Front-End:   
     * Install:  
       * navigate to https://github.com/gsmatth/shooters-log-fe    
       * clone this repo by clicking on the "clone or download" button just like you did when setting up the back-end.  Click the clipboard icon to save the link.
@@ -113,7 +113,7 @@
 
   * This angularJS based application is structured around views that utilize services and components.  
 
-  * signup:  
+  * ###signup:  
       * A user must first create an account with a username, password, first name, and last name to use this application.  The creation of that account occurs on the signup page.
 
         ![signin200x331](https://cloud.githubusercontent.com/assets/13153982/18363587/945bcc12-75bf-11e6-97ea-5511bcb2f258.png)  
@@ -125,9 +125,9 @@
       * explain any calls or dependencies on APIs
       * cover storage of token to local storage  
 
-  * signin  
-  * home
-  * scorecard-form:    
+  * ### sign-in  
+  * ### home  
+  * ### create scorecard:    
       * This page is used to create and save a new scorecard to a database by making a series of POST request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log). You will not be able to view your scorecards on the homepage unless you have entered some scorecards from this page.
 
         ![scorecard-form-700x506](https://cloud.githubusercontent.com/assets/13153982/18380758/c54d7122-762d-11e6-8f95-9c6daeb0f1db.png)  
@@ -150,10 +150,10 @@
                 scorecardService.createMatchShots(competitionId, matches,   vm.allMatchScores, vm.shot)  
                 **.then**(() => {      
 
-  * Services  
+  * ### Services  
       * auth-service:  
-      * scorecard-service
-  * Components  
+      * scorecard-service  
+  * ### Components  
       * signup:
       * logo:  
       * menu:  
