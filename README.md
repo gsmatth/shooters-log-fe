@@ -48,7 +48,7 @@
 
   #Set up of Local Development Environment
   * You must download, install, configure, and run both a front end application and the supporting backend infrastructure for the local development environment.  
-  * **Prerequisite**:  mongo database must be installed prior to the installation of the backend on your local environment.  These instructions do not cover the installation of mongo or the use of the mongo client. For guidance on installing and using these two items, view the following:
+  * **Prerequisite**:  mongo database must be installed prior to the installation of the backend on your local environment.  This README does not cover the installation of mongo or the use of the mongo client. For guidance on installing and using these two items, view the following:
     * https://docs.mongodb.com/manual/
     * https://docs.mongodb.com/manual/mongo/  
   * ### Back-End:   
@@ -125,8 +125,8 @@
       * explain any calls or dependencies on APIs
       * cover storage of token to local storage  
 
-  * ###sign-in       
-  * ###home  
+  * ### sign-in  
+  * ### home  
   * ### create scorecard:    
       * This page is used to create and save a new scorecard to a database by making a series of POST request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log). You will not be able to view your scorecards on the homepage unless you have entered some scorecards from this page.
 
@@ -153,7 +153,7 @@
   * ### Services  
       * auth-service:  
       * scorecard-service  
-  * ####Components  
+  * ### Components  
       * signup:
       * logo:  
       * menu:  
