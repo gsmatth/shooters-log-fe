@@ -45,7 +45,7 @@
 
   #Set up of Local Development Environment
   * You must download, install, configure, and run both a front end application and the supporting backend infrastructure for the local development environment.  
-  * **Prerequisite**:  mongo database must be installed prior to the installation of the backend on your local environment.  These instructions do not cover the installation of mongo or the use of the mongo client. For guidance on installling and using these two items, view the following:
+  * **Prerequisite**:  mongo database must be installed prior to the installation of the backend on your local environment.  These instructions do not cover the installation of mongo or the use of the mongo client. For guidance on installing and using these two items, view the following:
     * https://docs.mongodb.com/manual/
     * https://docs.mongodb.com/manual/mongo/  
   * Back-End:   
@@ -86,7 +86,7 @@
   ****
 
   #Deployment
-  * This application is currently deployed in a two tiered, single pipeline heroko environment.  The two applications are staging and production.  
+  * This application is currently deployed in a two tiered, single pipeline heroku environment.  The two applications are staging and production.  
     ![screen shot 2016-09-08 at 1 59 39 pm](https://cloud.githubusercontent.com/assets/13153982/18366731/bac435e4-75cc-11e6-8a4a-8a005958f514.png)
 
     ![screen shot 2016-09-08 at 1 59 27 pm](https://cloud.githubusercontent.com/assets/13153982/18366765/dafa6d1a-75cc-11e6-856c-239eab4cc52c.png)
@@ -107,25 +107,39 @@
 
         ![signin200x331](https://cloud.githubusercontent.com/assets/13153982/18363587/945bcc12-75bf-11e6-97ea-5511bcb2f258.png)  
 
-      * The "view" specific files include index.js, signup.html, and \_signup.scss.  
-        * signup.html:  an angular template consisting of inputs, a logo component, texts, and a single button of type "submit."  In addition to the form and input directives there is also logic to prevent the user form submitting without filling in the required fields  
-        * index.js: The main controller for this view contains a single function that is called when the user clicks the Create Account button it calls the auth-service and redirects to the home page when the auth-service returns a token
-    * This view utilities the auth-service signup function and expects a token returned before redirection the user to their home page.  
-    * explain the components used
-    * make sure to cover validation of data  
-    * explain any calls or dependencies on APIs
-    * cover storage of token to local storage  
+      * explain the view
+      * explain the services used
+      * explain the components used
+      * make sure to cover validation of data  
+      * explain any calls or dependencies on APIs
+      * cover storage of token to local storage  
 
   * signin  
   * home
   * scorecard-form:    
-      * This page is used to create a new scorecard and save that scorecard to a database leveraging the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log).  
+      * This page is used to create a new scorecard and saving that scorecard to a database by making a request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log).  
 
         ![scorecard-form-600x401](https://cloud.githubusercontent.com/assets/13153982/18364812/9fec2ffe-75c4-11e6-92b1-36facbb4f1c0.png)
 
-      * The "view" specific files include index.js, scorecard-form.html, and scorecard-form.scss.  
-        * scorecard-form.html:  an angular template consisting of inputs, svgs, texts, and a single button of type "submit."  In addition to the form and input directives...  
-        * index.js: The main controller for this view....   
+      * The "view" is provided by the scorecard-form.html file.  This angular template has inputs for administrative data as well as the scores for each shot.     
+      * The top section of the form contains administrative data used to create 1 competition and 3 matches.
+      * Data input validation is handled using angular and bootstrap.  As an example, each of the 50 inputs for a shot have the following validation:  
+        * ng-pattern="createScorecardFormCtrl.scoreInputValidation"   
+          *  the value of the property scoreInputValidation is:   /^([MmxX]|[056789]|[1][0])$/;  
+      * The value of "Total" for each Match as well as the ng-blur = "createScorecardFormCtrl.convertScore(createScorecardFormCtrl.match1Scores)"  
+        *    
+      * The large number of inputs in the lower section, is used to create individual shots.  when you click on the "create Scorecard" button  
+      * scorecard-form.html:  an angular template consisting of inputs, svgs, texts, and a single button of type "submit."  In addition to the form and input directives...  
+        * index.js: The main controller for this view.... talk about shooter-log RESTful API models (users, competitions, matches, scores).    
+          * this.createComp = function(){
+            scorecardService.createCompetition(vm.competition)
+            .then((competition) => {
+              let competitionId = competition._id;
+              vm.match.competitionId = competitionId;
+              scorecardService.createMatches(vm.match, competitionId)
+              .then((matches) => {
+                scorecardService.createMatchShots(competitionId, matches, vm.allMatchScores, vm.shot)
+                .then(() => {  
         * scorecard-form.html:   
       * explain the service  
       * explain the component  
