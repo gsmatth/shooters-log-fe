@@ -16,7 +16,8 @@
 
 * The primary purpose of the front-end site is to store and serve out the web application on demand.  Once the user's browser has downloaded the files served out by this server, the angularJS application in the browser behaves as a client side application and interacts with the shooters-log back-end RESTful API to perform its intended function.  
 
-  ![high-level-archv2-650x722](https://cloud.githubusercontent.com/assets/13153982/18380548/b542f6ae-762c-11e6-85ad-edf1b752ee65.png)
+  ![shooters-log-fe-v2-525x584](https://cloud.githubusercontent.com/assets/13153982/18381236/26ed9694-7630-11e6-999b-d77580a5827e.png)  
+  
 
   ****
   #Current Version (0.1.0)
