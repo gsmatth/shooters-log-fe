@@ -136,9 +136,11 @@
       * Data input validation is handled using built in angular directives and functionality.  The *Create Scorecard* button remains disabled until all required data for a scorecard is entered and validated.  Each of the 60 inputs for a shot are checked to ensure that they are valid entries using the angular  **ng-pattern** directive on each element.  If the scores do not pass validation, then background-color of the input box is set to red as shown in two input fields in the diagram above. The syntax used for the score input validation is:
         * ng-pattern="createScorecardFormCtrl.scoreInputValidation"   
         *  the regex value of the property _scoreInputValidation_ is:   /^([MmxX]|[056789]|[1][0])$/    
-      * To provide immediate feedback to the user as they update each score, we leverage the **ng-blur** directive on each score input element. When a user enter s a score and then clicks on the next score input box, ng-blur will call  a function that does two things:  
+      * To provide immediate feedback to the user as they update each score, we leverage the **ng-blur** directive on each score input element. When a user enter s a score and then clicks on the next score input box, ng-blur will call  a function that does the following:  
         *  converts any "X" or "M" entered into their corresponding number values (10 and 0)  
-        * updates an array of scores with the most recently added score. The array that is updated, uses angular **data binding** to provide real time updates to the "Total" in each match as well as the Match Scores and X-Counts for the matches and the competition at the bottom of the form.  
+        * converts all score values from strings to numbers using *Array.map(Number)*  
+        * sums the number in each match array using *Array.reduce((acc, cur) => acc + cur, 0)*    
+      * Using Angular **data binding** with the arrays updated in the previous step, provides real time updates to the "Total" in each match as well as the Match Scores and X-Counts for the matches and the competition at the bottom of the form.  
       * When a user clicks the *Create Scorecard* button, the *CreateComp()* is called and makes 64 POST requests to the backend shooter-log RESTful API. Those requests create the following items in the mongo database: (1)competition, (3) matches, (60) shots. The *CreateComp()* is a good example of how to chain a series of promises.  We chained these because each function called in the overall function is dependent on data returned from the previous promise:   
           * this.createComp = function(){  
             scorecardService.createCompetition(vm.competition)  
@@ -149,6 +151,7 @@
               **.then**((matches) => {   
                 scorecardService.createMatchShots(competitionId, matches,   vm.allMatchScores, vm.shot)  
                 **.then**(() => {      
+      *  When a scorecard is created successfully on the backend mongo database, the users view will change to the homepage, where the newly created scorecard will be displayed.  
 
   * ### Services  
       * auth-service:  
