@@ -1,3 +1,5 @@
+@import "_theme";
+
 .app-scorecard {
   margin: 10% auto;
   box-shadow: 3px 3px 3px #888888;
@@ -14,6 +16,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  border-bottom: solid 2px $app-default;
 }
 
 .rifle {
@@ -32,4 +35,11 @@
 
 .score-field {
   margin-left: 5%;
+}
+
+.total-field {
+  width: 11%;
+  height: 10%;
+  line-height: 10%;
+  margin-top: -18px;
 }

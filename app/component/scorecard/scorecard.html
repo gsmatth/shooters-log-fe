@@ -2,14 +2,14 @@
   ng-init="scorecardCtrl.fetchScorecard()">
   <div class="scorecard-admin" >
   <div class="competitionInfo">
-     <h5 ng-model="scorecard">Date: {{scorecardCtrl.scorecard.competition.dateOf}}</h5>
-     <h5 for="location">Range Name: {{scorecardCtrl.scorecard.competition.location}}</h5>
-     <h5 class="ng-model">Distance: {{scorecardCtrl.scorecard.matches[0].distanceToTarget}}</h5>
-     <h5 for="targetNumber">Target #: {{scorecardCtrl.scorecard.matches[0].targetNumber}}</h5> <h5 for="relay">Relay # {{scorecardCtrl.scorecard.competition.matches[0].relay}}</h5>
+     <h5 ng-model="scorecard"><strong>Date</strong>: {{scorecardCtrl.scorecard.competition.dateOf}}</h5>
+     <h5 for="location"><strong>Range Name</strong>: {{scorecardCtrl.scorecard.competition.location}}</h5>
+     <h5 class="ng-model"><strong>Distance</strong>: {{scorecardCtrl.scorecard.matches[0].distanceToTarget}}</h5>
+     <h5 for="targetNumber"><strong>Target #</strong>: {{scorecardCtrl.scorecard.matches[0].targetNumber}}</h5> <h5 for="relay">Relay # {{scorecardCtrl.scorecard.competition.matches[0].relay}}</h5>
   </div>
  <div class="rifle">
-   <h5 for="caliber">Caliber: {{scorecardCtrl.scorecard.competition.caliber}} </h5>
-   <h5 for="action">Action: {{scorecardCtrl.scorecard.competition.action}}</h5>
+   <h5 for="caliber"><strong>Caliber</strong>: {{scorecardCtrl.scorecard.competition.caliber}} </h5>
+   <h5 for="action"><strong>Action</strong>: {{scorecardCtrl.scorecard.competition.action}}</h5>
  </div>
 
   <div class="score-field">
@@ -251,6 +251,7 @@
         <span class="form-control shot-score" id="shot19">{{scorecardCtrl.scorecard.shots[0][18].score}}</span>
         <label for="shot20"></label>
         <span class="form-control shot-score" id="shot20">{{scorecardCtrl.scorecard.shots[0][19].score}}</span>
+        <pre class="total-field">{{scorecardCtrl.match1Scores.matchScoreTotal}}</pre>
       </div>
     </table>
     <svg width="771px" height="49px" viewBox="0 -6 771 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -491,6 +492,7 @@
         <span class="form-control shot-score" id="shot19">{{scorecardCtrl.scorecard.shots[1][18].score}}</span>
         <label for="shot20"></label>
         <span class="form-control shot-score" id="shot20">{{scorecardCtrl.scorecard.shots[1][19].score}}</span>
+        <pre class="total-field">{{scorecardCtrl.match2Scores.matchScoreTotal}}</pre>
       </div>
     </table>
     <svg width="771px" height="49px" viewBox="0 -6 771 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -731,6 +733,7 @@
         <span class="form-control shot-score" id="shot19">{{scorecardCtrl.scorecard.shots[2][18].score}}</span>
         <label for="shot20"></label>
         <span class="form-control shot-score" id="shot20">{{scorecardCtrl.scorecard.shots[2][19].score}}</span>
+        <pre class="total-field">{{scorecardCtrl.match3Scores.matchScoreTotal}}</pre>
       </div>
     </div>
     <section  class="scorecard-scoring-totals">
