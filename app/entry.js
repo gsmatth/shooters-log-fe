@@ -4,6 +4,7 @@
 require('!!file?name=[name].[ext]!./html/index.html');
 require('./scss/base.scss');
 require('./scss/lib/font/dual/_dual.scss');
+require('./scss/lib/font/signpainter-housescript/_signpainter.scss');
 
 // npm modules
 const angular = require('angular');
