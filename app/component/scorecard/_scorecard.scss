@@ -6,6 +6,30 @@
 .app-scorecard-get {
   border: black 2px solid;
   padding: 10px;
-  min-height: 600px;
-  max-width: 900px
+  min-height: 550px;
+  max-width: 900px;
+}
+
+.competitionInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.rifle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.scorecard-scoring-totals {
+  margin: 3% 10% 3% 10%;
+}
+
+.scorecard-match-outer-div {
+  max-width: 771px;
+}
+
+.score-field {
+  margin-left: 5%;
 }

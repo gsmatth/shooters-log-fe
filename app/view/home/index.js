@@ -17,7 +17,7 @@ function HomeController($log, scorecardService){
       return this.displayScorecards = this.competitions;
     }
     if (this.displayAllCards === false){
-      return this.displayScorecards = this.competitions.slice(0, 1);
+      return this.displayScorecards = this.competitions.slice(0, 5);
     }
   };
 
