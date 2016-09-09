@@ -15,12 +15,12 @@ function HomeController($log, scorecardService){
   this.toggle = function(){
     this.displayRecentCards = !this.displayRecentCards;
     if (this.displayRecentCards === true) {
-      this.buttonTxt = 'View Recent Scorecards';
-      return this.displayScorecards = this.competitions;
-    }
-    if (this.displayRecentCards === false){
       this.buttonTxt = 'View All Scorecards';
       return this.displayScorecards = this.competitions.slice(0, 5);
+    }
+    if (this.displayRecentCards === false){
+      this.buttonTxt = 'View Recent Scorecards';
+      return this.displayScorecards = this.competitions;
     }
   };
 
