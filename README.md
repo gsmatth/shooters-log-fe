@@ -10,11 +10,13 @@
 *****
 #Overview
 
-* This front end provides a client web application that allows an authenticated user to view, create, and store scorecards (shown below) for competitive shooting matches.  To support this functionality, this app consumes the services provided by [shooter-log RESTful API](https://github.com/gsmatth/shooters-log).  The primary technologies leveraged in this app include AngularJS, BootStrap, HTLM5, and CSS3.  This application is designed for the entry and viewing of large data sets and as such is targeted for use on a laptop or desktop with adequate sized viewport.  For entry and viewing of smaller data sets, like a single scorecard, we recommend the use of the IOS tablet focused application "someName".
-
+* This front end provides a client web application that allows an authenticated user to view, create, and store scorecards (shown below) for competitive shooting matches.  To support this functionality, this app consumes the services provided by [shooter-log RESTful API](https://github.com/gsmatth/shooters-log).  The primary technologies leveraged in this app include AngularJS, BootStrap, HTLM5, and CSS3.  This application is designed for the entry and viewing of large data sets and as such is targeted for use on a laptop or desktop with adequate sized viewport.  For entry and viewing of smaller data sets, like a single scorecard, we recommend the use of the IOS tablet focused application "someName".  
 
   ![scorecard750x580](https://cloud.githubusercontent.com/assets/13153982/16515546/69d733b0-3f27-11e6-9653-1148ff7f485a.png)
 
+* The primary purpose of the front-end site is to store and serve out the web application on demand.  Once the user's browser has downloaded the files served out by this server, the angularJS application in the browser behaves as a client side application and interacts with the shooters-log back-end RESTful API to perform its intended function.  
+
+  ![high-level-archv2-650x722](https://cloud.githubusercontent.com/assets/13153982/18380548/b542f6ae-762c-11e6-85ad-edf1b752ee65.png)
 
   ****
   #Current Version (0.1.0)
@@ -119,10 +121,9 @@
   * scorecard-form:    
       * This page is used to create a new scorecard and saving that scorecard to a database by making a request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log).  
 
-        ![scorecard-form-600x401](https://cloud.githubusercontent.com/assets/13153982/18364812/9fec2ffe-75c4-11e6-92b1-36facbb4f1c0.png)
+        ![scorecard-form-700x506](https://cloud.githubusercontent.com/assets/13153982/18380758/c54d7122-762d-11e6-8f95-9c6daeb0f1db.png)  
 
-      * The "view" is provided by the scorecard-form.html file.  This angular template has inputs for administrative data as well as the scores for each shot.     
-      * The top section of the form contains administrative data used to create 1 competition and 3 matches.
+      * The "view" of this form is provided by the scorecard-form.html file.  This angular template is a complex form. The top section of the form contains input elements for administrative data used to create 1 competition and 3 matches in the backend database.  
       * Data input validation is handled using angular and bootstrap.  As an example, each of the 50 inputs for a shot have the following validation:  
         * ng-pattern="createScorecardFormCtrl.scoreInputValidation"   
           *  the value of the property scoreInputValidation is:   /^([MmxX]|[056789]|[1][0])$/;  
