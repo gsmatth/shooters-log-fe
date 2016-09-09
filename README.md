@@ -142,16 +142,19 @@
         * sums the number in each match array using *Array.reduce((acc, cur) => acc + cur, 0)*    
       * Using Angular **data binding** with the arrays updated in the previous step, provides real time updates to the "Total" in each match as well as the Match Scores and X-Counts for the matches and the competition at the bottom of the form.  
       * When a user clicks the *Create Scorecard* button, the *CreateComp()* is called and makes 64 POST requests to the backend shooter-log RESTful API. Those requests create the following items in the mongo database: (1)competition, (3) matches, (60) shots. The *CreateComp()* is a good example of how to chain a series of promises.  We chained these because each function called in the overall function is dependent on data returned from the previous promise:   
-          * this.createComp = function(){  
+```javascript
+          this.createComp = function(){  
             scorecardService.createCompetition(vm.competition)  
-            **.then**((competition) => {  
+            .then((competition) => {  
               let competitionId = competition._id;  
               vm.match.competitionId = competitionId;  
               scorecardService.createMatches(vm.match, competitionId)  
-              **.then**((matches) => {   
+              .then((matches) => {   
                 scorecardService.createMatchShots(competitionId, matches,   vm.allMatchScores, vm.shot)  
-                **.then**(() => {      
-      *  When a scorecard is created successfully on the backend mongo database, the users view will change to the homepage, where the newly created scorecard will be displayed.  
+                .then(() => {
+
+```   
+  *  When a scorecard is created successfully on the backend mongo database, the users view will change to the homepage and the newly created scorecard will be displayed.  
 
   * ### Services  
       * auth-service:  
