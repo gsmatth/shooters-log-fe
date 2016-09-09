@@ -4,9 +4,9 @@ require('./scorecard-form.scss');
 const angular = require('angular');
 const appShooter = angular.module('appShooter');
 
-appShooter.controller('CreateScorecardFormController', ['$log','$scope', 'scorecardService', CreateScorecardFormController]);
+appShooter.controller('CreateScorecardFormController', ['$log','$scope', '$location', 'scorecardService', CreateScorecardFormController]);
 
-function CreateScorecardFormController($log, $scope, scorecardService){
+function CreateScorecardFormController($log, $scope, $location, scorecardService){
   $log.debug('entered CreateScorecardFormController');
   const vm = this;
   vm.scoreInputValidation = /^([MmxX]|[056789]|[1][0])$/;
@@ -107,8 +107,9 @@ function CreateScorecardFormController($log, $scope, scorecardService){
         scorecardService.createMatchShots(competitionId, matches, vm.allMatchScores, vm.shot)
         .then(() => {
           $log.log('newly created scores array of arrays returned to createComp (): ', vm.allMatchScores);
+          $location.path('/home');
         })
-        .catch((err) => ('something', err));
+        .catch((err) => ('something', $log.error(err)));
       });
     });
   };
