@@ -1,6 +1,35 @@
 @import "_theme";
 
 .app-signin {
+  width: 40vw;
   padding: 5%;
+  margin: 5% auto 0 auto;
   background-color: $app-default;
+  border: thick solid $app-lightgreen;
+  border-radius: 10px 10px 10px 10px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  label {
+    font-family: biko-regular;
+    font-size: 1.5em;
+  }
+
+  input {
+    box-shadow: 3px 3px 3px #888888;
+  }
+
+  button{
+    width: 150px;
+    margin: 5% auto 0 auto;
+    border: solid thin $app-dark;
+  }
+  .logo-div {
+    align-content: center;
+    margin: 5% 20% 5% 20%;
+  }
 }
