@@ -51,7 +51,7 @@
   * **Prerequisite**:  mongo database must be installed prior to the installation of the backend on your local environment.  These instructions do not cover the installation of mongo or the use of the mongo client. For guidance on installing and using these two items, view the following:
     * https://docs.mongodb.com/manual/
     * https://docs.mongodb.com/manual/mongo/  
-  * ##### Back-End:   
+  * ### Back-End:   
     * Install:  
       * navigate to the [shooter-log git repo](https://github.com/gsmatth/shooters-log)  
       * in the upper right corner of page, click on "clone or download" button to view pull down  
@@ -75,7 +75,7 @@
         * shooter:server express app up on port:  +1ms 3000  
 
 
-  * #####Front-End:   
+  * ###Front-End:   
     * Install:  
       * navigate to https://github.com/gsmatth/shooters-log-fe    
       * clone this repo by clicking on the "clone or download" button just like you did when setting up the back-end.  Click the clipboard icon to save the link.
