@@ -8,6 +8,7 @@
   padding: 10px;
   min-height: 600px;
   max-width: 900px;
+  min-height: 650px;
   box-shadow: 3px 3px 3px #888888;
 }
 
@@ -34,7 +35,7 @@
   font-weight: bold;
   width: 29px !important;
   height: 25px;
-  padding:0px 2px 0px 2px;
+  padding:0px 2px 0px 8px;
   border-color: black;
   border-width:0px 3px 0px 0px;
 
@@ -47,10 +48,10 @@
 
 .scorecard-match-outer-div {
   border: black 2px solid;
-  width:875px;
-  height:25px;
-  margin-top:0px;
-  margin-left: 0px;
+  width:825px;
+  height:27px;
+  //margin-top:0px;
+  //margin-left: 0px;
 }
 .scorecard-match-inner-div {
   width:40px;
@@ -67,8 +68,17 @@
   font-weight:bold
 }
 
+.match-score-total {
+  width: 35px;
+  float: left;
+  margin-left: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
 .scorecard-scoring-totals {
   font-size: 18px;
+  margin-top: 50px;
 }
 
 .subtotal-score-data {

@@ -328,7 +328,7 @@
       <label for="shot20"></label>
       <input type="text"
       ng-pattern="createScorecardFormCtrl.scoreInputValidation" ng-blur = "createScorecardFormCtrl.convertScore(createScorecardFormCtrl.match1Scores)"class="form-control shot-score" id="shot20" name="shot20" ng-model="createScorecardFormCtrl.match1Scores.scores[19]">
-      <div>
+      <div class="match-score-total">
         {{createScorecardFormCtrl.match1Scores.matchScoreTotal}}
       </div>
     </div>
@@ -590,7 +590,7 @@
       <label for="shot20"></label>
       <input type="text"
       ng-pattern="createScorecardFormCtrl.scoreInputValidation" ng-blur = "createScorecardFormCtrl.convertScore(createScorecardFormCtrl.match2Scores)" class="form-control shot-score" id="shot20" name="shot20" ng-model="createScorecardFormCtrl.match2Scores.scores[19]">
-      <div>
+      <div class="match-score-total">
         {{createScorecardFormCtrl.match2Scores.matchScoreTotal}}
       </div>
     </div>
@@ -854,18 +854,18 @@
       <label for="shot20"></label>
       <input type="text"
       ng-pattern="createScorecardFormCtrl.scoreInputValidation" ng-blur = "createScorecardFormCtrl.convertScore(createScorecardFormCtrl.match3Scores)" class="form-control shot-score" id="shot20" name="shot20" ng-model="createScorecardFormCtrl.match3Scores.scores[19]">
-    <div>
+    <div class="match-score-total">
       {{createScorecardFormCtrl.match3Scores.matchScoreTotal}}
     </div>
 <section  class="scorecard-scoring-totals">
   <div class="subtotal-score-data">
-    <p>Match #1 Score:  {{createScorecardFormCtrl.match1Scores.matchScoreTotal}}     X-Count:  {{createScorecardFormCtrl.match1Scores.xCount}}</p>
-    <p>Match #2 Score:  {{createScorecardFormCtrl.match2Scores.matchScoreTotal}}     X-Count:  {{createScorecardFormCtrl.match2Scores.xCount}}</p>
-    <p>Match #3 Score:  {{createScorecardFormCtrl.match3Scores.matchScoreTotal}}     X-Count:  {{createScorecardFormCtrl.match3Scores.xCount}}</p>
+    <pre>Match #1 Score:  {{createScorecardFormCtrl.match1Scores.matchScoreTotal}}     X-Count:  {{createScorecardFormCtrl.match1Scores.xCount}}</pre>
+    <pre>Match #2 Score:  {{createScorecardFormCtrl.match2Scores.matchScoreTotal}}     X-Count:  {{createScorecardFormCtrl.match2Scores.xCount}}</pre>
+    <pre>Match #3 Score:  {{createScorecardFormCtrl.match3Scores.matchScoreTotal}}     X-Count:  {{createScorecardFormCtrl.match3Scores.xCount}}</pre>
   </div>
   <div class="aggregate-score-data">
-    <p>Match Aggregate Score: {{createScorecardFormCtrl.totalCompScore}}</p>
-    <p>X-Count: {{createScorecardFormCtrl.totalXCount}}</p>
+    <pre>Match Aggregate Score: {{createScorecardFormCtrl.totalCompScore}}</pre>
+    <pre>X-Count: {{createScorecardFormCtrl.totalXCount}}</pre>
   </div>
 </section>
   <br><br><br>
