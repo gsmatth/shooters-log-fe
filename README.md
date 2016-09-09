@@ -14,7 +14,7 @@
 
   ![scorecard750x580](https://cloud.githubusercontent.com/assets/13153982/16515546/69d733b0-3f27-11e6-9653-1148ff7f485a.png)
 
-* The primary purpose of the front-end site is to store and serve out the web application on demand.  Once the user's browser has downloaded the files served out by this server, the angularJS application in the browser behaves as a client side application and interacts with the shooters-log back-end RESTful API to perform its intended function. The combination of the back-end and the front-end represents a full MEAN stack (Mongo Express Angular Node) deployment solution.
+* The primary purpose of the front-end site is to store and serve out the web application on demand.  Once the user's browser has downloaded the files provided by this server, the angularJS application in the browser behaves as a client side application and interacts with the shooters-log back-end RESTful API to perform its intended function. The combination of the back-end and the front-end represents a full MEAN stack (Mongo Express Angular Node) solution.
 
   ![shooters-log-fe-v2-525x584](https://cloud.githubusercontent.com/assets/13153982/18381236/26ed9694-7630-11e6-999b-d77580a5827e.png)  
 
@@ -69,7 +69,10 @@
       * type in the following:  *mongod --dbpath ./db*  
       * open second CLI window and ensure you have navigated to the shooters-log root directory.  Type in the following:  *mongo*   
       * open third CLI window and ensure you have navigated to the shooters-log root directory.  
-      * type in the following: _APP_SECRET="typeSomeStringIn" DEBUG=shooter* node server.js_
+      * type in the following: _APP_SECRET="typeSomeStringIn" DEBUG=shooter* node server.js  
+      * the output to the screen should be something similar to this:  
+        * shooter:server listen +0ms  
+        * shooter:server express app up on port:  +1ms 3000  
 
 
   * Front-End:   
@@ -84,7 +87,12 @@
       * type "npm init" and press enter
       * once complete, type "npm install" so that all the npm modules required for the backend are installed.
     * Configure and Run:
-      * make sure the you have followed the steps to "Configure and Run" in the Back-End section above before you start this process.   
+      * make sure the you have followed the steps to "Configure and Run" in the Back-End section above before you start this process.  
+      * In your CLI, navigate to the root directory of your front-end repo.
+      * type in *node server.js*  
+      * Launch your browser and type in the following url:  
+        *   http://localhost:8080/#/signup  
+      * The sign-in page will open.  Create a new account by filling in the form and hitting the submit button.     
 
   ****
 
@@ -120,32 +128,27 @@
   * signin  
   * home
   * scorecard-form:    
-      * This page is used to create and save a new scorecard to a database by making a request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log).  
+      * This page is used to create and save a new scorecard to a database by making a series of POST request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log). You will not be able to view your scorecards on the homepage unless you have entered some scorecards from this page.
 
         ![scorecard-form-700x506](https://cloud.githubusercontent.com/assets/13153982/18380758/c54d7122-762d-11e6-8f95-9c6daeb0f1db.png)  
 
-      * The "view" of this form is provided by the scorecard-form.html file.  This angular template is a complex form. The top section of the form contains input elements for administrative data used to create one competition and three matches in the backend database.  The remaining 60 input elements are used to create 60 individual shots in the backend database.  To aid in data visualization and analysis, each shot that is created in the database references the match it belongs to.  Each match created in the database references the competition it belongs to.
-      * Data input validation is handled using angular and bootstrap.  The *Create Scorecard* button remains disabled until all required data for a scorecard is entered and validated.  As an example, each of the 60 inputs for a shot are checked to ensure that they are valid entries using the **ng-pattern** on each element.  If the scores do not pass validation, then the input box background-color is set to red as shown in two input fields in the diagram above. The syntax used for the score input validation is:
+      * The "view" of this form represents the current state of the scorecard-form.html file.  This angular template is a complex form. The top section of the form is a bootstrap format which contains input elements for administrative data used to create one competition and three matches in the backend database.  The remaining 60 input elements in the rows labeled "Score", are used to create 60 individual shots in the backend database.  To aid in data visualization and analysis, each shot that is created in the database references the match it belongs to.  Each match created in the database references the competition it belongs to.
+      * Data input validation is handled using built in angular directives and functionality.  The *Create Scorecard* button remains disabled until all required data for a scorecard is entered and validated.  Each of the 60 inputs for a shot are checked to ensure that they are valid entries using the angular  **ng-pattern** directive on each element.  If the scores do not pass validation, then background-color of the input box is set to red as shown in two input fields in the diagram above. The syntax used for the score input validation is:
         * ng-pattern="createScorecardFormCtrl.scoreInputValidation"   
         *  the regex value of the property _scoreInputValidation_ is:   /^([MmxX]|[056789]|[1][0])$/    
-      * The value of "Total" for each Match as well as the ng-blur = "createScorecardFormCtrl.convertScore(createScorecardFormCtrl.match1Scores)"  
-        *    
-      * The large number of inputs in the lower section, is used to create individual shots.  when you click on the "create Scorecard" button  
-      * scorecard-form.html:  an angular template consisting of inputs, svgs, texts, and a single button of type "submit."  In addition to the form and input directives...  
-        * index.js: The main controller for this view.... talk about shooter-log RESTful API models (users, competitions, matches, scores).    
+      * To provide immediate feedback to the user as they update each score, we leverage the **ng-blur** directive on each score input element. When a user enter s a score and then clicks on the next score input box, ng-blur will call  a function that does two things:  
+        *  converts any "X" or "M" entered into their corresponding number values (10 and 0)  
+        * updates an array of scores with the most recently added score. The array that is updated, uses angular **data binding** to provide real time updates to the "Total" in each match as well as the Match Scores and X-Counts for the match and competition at the bottom of the form.  
+      * When a user clicks the *Create Scorecard* button, the *CreateComp()* is called and makes 64 POST requests to the backend shooter-log RESTful API. Those requests create the following items in the mongo database: (1)competition, (3) matches, (60) shots. The *CreateComp()* is a good example of how to chain a series of promises.  We chained these because each function called in the overall function is dependent on data returned from the previous promise:   
           * this.createComp = function(){
-            scorecardService.createCompetition(vm.competition)
-            .then((competition) => {
-              let competitionId = competition._id;
-              vm.match.competitionId = competitionId;
-              scorecardService.createMatches(vm.match, competitionId)
-              .then((matches) => {
-                scorecardService.createMatchShots(competitionId, matches, vm.allMatchScores, vm.shot)
-                .then(() => {  
-        * scorecard-form.html:   
-      * explain the service  
-      * explain the component  
-      * make sure to cover validation of data       
+            scorecardService.createCompetition(vm.competition)  
+            **.then**((competition) => {  
+              let competitionId = competition._id;  
+              vm.match.competitionId = competitionId;  
+              scorecardService.createMatches(vm.match, competitionId)  
+              **.then**((matches) => {   
+                scorecardService.createMatchShots(competitionId, matches,   vm.allMatchScores, vm.shot)  
+                **.then**(() => {      
 
   * Services  
       * auth-service:  
