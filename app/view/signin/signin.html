@@ -1,4 +1,9 @@
 <main ng-init="signinCtrl.getToken()" class="app-signin">
+
+  <div class="logo-div">
+    <app-logo class="app-logo"></app-logo>
+  </div>
+
     <form novalidate name="signinForm" ng-submit="signinCtrl.signin()">
       <section class="form-group">
         <label for="username">Username:</label>
