@@ -152,9 +152,9 @@
               .then((matches) => {   
                 scorecardService.createMatchShots(competitionId, matches,   vm.allMatchScores, vm.shot)  
                 .then(() => {
-                   
+
 ```   
-  *  When a scorecard is created successfully on the backend mongo database, the users view will change to the homepage, where the newly created scorecard will be displayed.  
+  *  When a scorecard is created successfully on the backend mongo database, the users view will change to the homepage and the newly created scorecard will be displayed.  
 
   * ### Services  
       * auth-service:  
