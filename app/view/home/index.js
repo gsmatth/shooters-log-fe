@@ -9,15 +9,18 @@ appShooter.controller('HomeController', ['$log', 'scorecardService', HomeControl
 function HomeController($log, scorecardService){
   console.log('homeCtrl hit');
 
+  this.buttonTxt = 'View All Scorecards';
   this.displayAllCards = false;
 
   this.toggle = function(){
     this.displayAllCards = !this.displayAllCards;
     if (this.displayAllCards === true) {
+      this.buttonTxt = 'View All Scorecards';
       return this.displayScorecards = this.competitions;
     }
     if (this.displayAllCards === false){
-      return this.displayScorecards = this.competitions.slice(0, 1);
+      this.buttonTxt = 'View Recent Scorecards';
+      return this.displayScorecards = this.competitions.slice(0, 5);
     }
   };
 

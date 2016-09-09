@@ -58,7 +58,6 @@ function CreateScorecardFormController($log, $scope, scorecardService){
   };
   $log.debug('shot: ', vm.shot);
 
-  //vm.match1Scores =[];
   vm.match1Scores = {scores: [], xCount:0, matchAggregate:[], matchScoreTotal: 0, hiddenScores: []};
   vm.match2Scores ={scores: [], xCount:0, matchAggregate:[], matchScoreTotal: 0, hiddenScores: []};
   vm.match3Scores = {scores: [], xCount:0, matchAggregate:[], matchScoreTotal: 0, hiddenScores: []};
@@ -73,9 +72,8 @@ function CreateScorecardFormController($log, $scope, scorecardService){
 
     for (var i = 0; i < matchObject.scores.length; i++){
       if(/^([MmxX]|[056789]|[1][0])$/g.exec(matchObject.scores[i])){
-        console.log('thats a good entry');
+        continue;
       } else {
-        console.log('thats a bad entry at shot number' , i + 1);
         return;
       }
     }

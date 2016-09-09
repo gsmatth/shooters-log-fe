@@ -6,8 +6,10 @@
   border: black 2px solid;
   margin: 10% auto;
   padding: 10px;
+  padding-left: 35px;
   min-height: 600px;
   max-width: 900px;
+  min-height: 650px;
   box-shadow: 3px 3px 3px #888888;
 }
 
@@ -34,23 +36,23 @@
   font-weight: bold;
   width: 29px !important;
   height: 25px;
-  padding:0px 2px 0px 2px;
+  padding:0px 2px 0px 8px;
   border-color: black;
   border-width:0px 3px 0px 0px;
 
 
 }
 
-.shot-score.ng-invalid {
+.shot-score.ng-invalid, .first-shot-score.ng-invalid {
   background-color: red;
 }
 
+
 .scorecard-match-outer-div {
   border: black 2px solid;
-  width:875px;
-  height:25px;
-  margin-top:0px;
-  margin-left: 0px;
+  width:771px;
+  height:27px;
+
 }
 .scorecard-match-inner-div {
   width:40px;
@@ -67,14 +69,24 @@
   font-weight:bold
 }
 
+.match-score-total {
+  width: 35px;
+  float: left;
+  margin-left: 15px;
+  margin-top: -18px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
 .scorecard-scoring-totals {
   font-size: 18px;
+  margin-top: 50px;
 }
 
 .subtotal-score-data {
   font-size: 18px;
   float: left;
-  margin: 0px 75px 35px 0px;
+  margin: 0px 50px 35px -80px;
 }
 
 .aggregate-score-data {

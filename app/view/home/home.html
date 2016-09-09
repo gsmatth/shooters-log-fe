@@ -1,6 +1,6 @@
 <main class="app-home-page">
   <!-- add component for user profile  -->
-  <button type="button" ng-click="homeCtrl.toggle()">View All Scorecards</button>
+  <button type="button" ng-click="homeCtrl.toggle()">{{homeCtrl.buttonTxt}}</button>
   <div ng-class="app-scorecardWrapper"
        ng-repeat="competition in homeCtrl.displayScorecards">
 
