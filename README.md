@@ -113,7 +113,7 @@
 
   * This angularJS based application is structured around views that utilize services and components.  
 
-  * #####signup:  
+  * ###signup:  
       * A user must first create an account with a username, password, first name, and last name to use this application.  The creation of that account occurs on the signup page.
 
         ![signin200x331](https://cloud.githubusercontent.com/assets/13153982/18363587/945bcc12-75bf-11e6-97ea-5511bcb2f258.png)  
@@ -125,9 +125,9 @@
       * explain any calls or dependencies on APIs
       * cover storage of token to local storage  
 
-  * #####signin  
-  * #####home
-  * ##### create scorecard:    
+  * ###signin  
+  * ###home  
+  * ### create scorecard:    
       * This page is used to create and save a new scorecard to a database by making a series of POST request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log). You will not be able to view your scorecards on the homepage unless you have entered some scorecards from this page.
 
         ![scorecard-form-700x506](https://cloud.githubusercontent.com/assets/13153982/18380758/c54d7122-762d-11e6-8f95-9c6daeb0f1db.png)  
@@ -150,10 +150,10 @@
                 scorecardService.createMatchShots(competitionId, matches,   vm.allMatchScores, vm.shot)  
                 **.then**(() => {      
 
-  * ##### Services  
+  * ### Services  
       * auth-service:  
       * scorecard-service
-  * ##### Components  
+  * ####Components  
       * signup:
       * logo:  
       * menu:  
