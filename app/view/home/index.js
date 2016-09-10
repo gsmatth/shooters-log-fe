@@ -10,17 +10,17 @@ function HomeController($log, scorecardService){
   console.log('homeCtrl hit');
 
   this.buttonTxt = 'View All Scorecards';
-  this.displayAllCards = false;
+  this.displayRecentCards = true;
 
   this.toggle = function(){
-    this.displayAllCards = !this.displayAllCards;
-    if (this.displayAllCards === true) {
+    this.displayRecentCards = !this.displayRecentCards;
+    if (this.displayRecentCards === true) {
       this.buttonTxt = 'View All Scorecards';
-      return this.displayScorecards = this.competitions;
-    }
-    if (this.displayAllCards === false){
-      this.buttonTxt = 'View Recent Scorecards';
       return this.displayScorecards = this.competitions.slice(0, 5);
+    }
+    if (this.displayRecentCards === false){
+      this.buttonTxt = 'View Recent Scorecards';
+      return this.displayScorecards = this.competitions;
     }
   };
 
