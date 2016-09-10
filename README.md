@@ -58,17 +58,17 @@
 
         ![screen shot 2016-09-08 at 2 21 47 pm](https://cloud.githubusercontent.com/assets/13153982/18367374/a9397ef8-75cf-11e6-98f6-e28c4ba44f28.png)  
       * click on the clip-board icon to save the repo link.  
-      * In your CLI, navigate to where you want the project folder to be on you local system.  
-      * type in "git clone", enter a space, and then paste the link you copied into the CLI so it is appended to the end of the current line.  The full line should look like this: _git clone https://github.com/gsmatth/shooters-log.git_  
+      * In your terminal, navigate to where you want the project folder to be on you local system.  
+      * type in "git clone", enter a space, and then paste the link you copied into the terminal so it is appended to the end of the current line.  The full line should look like this: _git clone https://github.com/gsmatth/shooters-log.git_  
       * press the enter key and the shooter-log repo will be cloned to your local environment.  
       * cd to the newly created directory  
       * type in  _npm init_ and press enter  
       * once complete, type _npm install_ so that all the npm modules required for the backend are installed.  
     * Configure and Run:  
-      * in your CLI, navigate to the root of the shooters-log application  
+      * in your terminal, navigate to the root of the shooters-log application  
       * type in the following:  *mongod --dbpath ./db*  
-      * open second CLI window and ensure you have navigated to the shooters-log root directory.  Type in the following:  *mongo*   
-      * open third CLI window and ensure you have navigated to the shooters-log root directory.  
+      * open second terminal window and ensure you have navigated to the shooters-log root directory.  Type in the following:  *mongo*   
+      * open third terminal window and ensure you have navigated to the shooters-log root directory.  
       * type in the following: _APP_SECRET="typeSomeStringIn" DEBUG=shooter* node server.js  
       * the output to the screen should be something similar to this:  
         * shooter:server listen +0ms  
@@ -79,8 +79,8 @@
     * Install:  
       * navigate to https://github.com/gsmatth/shooters-log-fe    
       * clone this repo by clicking on the "clone or download" button just like you did when setting up the back-end.  Click the clipboard icon to save the link.
-      * In your CLI, navigate to where you want the project folder to be on you local system.
-      * type in "git clone", enter a space, and then paste the link you copied into the CLI so it is appended to the end of the current line.  The full line should look like this:
+      * In your terminal, navigate to where you want the project folder to be on you local system.
+      * type in "git clone", enter a space, and then paste the link you copied into the terminal so it is appended to the end of the current line.  The full line should look like this:
         * git clone https://github.com/gsmatth/shooters-log-fe
       * press the enter key and the shooter-log-fe repo will be cloned to your local environment.
       * cd to the newly created directory
@@ -88,10 +88,12 @@
       * once complete, type "npm install" so that all the npm modules required for the backend are installed.
     * Configure and Run:
       * make sure the you have followed the steps to "Configure and Run" in the Back-End section above before you start this process.  
-      * In your CLI, navigate to the root directory of your front-end repo.
-      * type in *node server.js*  
-      * Launch your browser and type in the following url:  
-        *   http://localhost:8080/#/signup  
+      * In your terminal, navigate to the root directory of your front-end repo.
+      * type in *npm run watch*   
+        * this launches webpack and completes your build. After the build is complete you will see the following:  
+         ```webpack: bundle is now VALID.```  
+      * open another command line window and navigate to the root directory of the shooter-log-fe and type in *node server.js* .  The terminal output should be:  ```server up on 8080```    
+      * Launch your browser and type in the following url: ```http://localhost:8080/#/signup```  
       * The sign-in page will open.  Create a new account by filling in the form and hitting the submit button.     
 
   ****
@@ -113,7 +115,7 @@
 
   * This angularJS based application is structured around views that utilize services and components.  
 
-  * ###signup:  
+  * ### signup:  
       * A user must first create an account with a username, password, first name, and last name to use this application.  The creation of that account occurs on the signup page.
 
         ![signin200x331](https://cloud.githubusercontent.com/assets/13153982/18363587/945bcc12-75bf-11e6-97ea-5511bcb2f258.png)  
@@ -127,7 +129,7 @@
 
   * ### sign-in  
   * ### home  
-  * ### create scorecard:    
+  * ### create-scorecard    
       * This page is used to create and save a new scorecard to a database by making a series of POST request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log). You will not be able to view your scorecards on the homepage unless you have entered some scorecards from this page.
 
         ![scorecard-form-700x506](https://cloud.githubusercontent.com/assets/13153982/18380758/c54d7122-762d-11e6-8f95-9c6daeb0f1db.png)  
@@ -151,9 +153,11 @@
               scorecardService.createMatches(vm.match, competitionId)  
               .then((matches) => {   
                 scorecardService.createMatchShots(competitionId, matches,   vm.allMatchScores, vm.shot)  
-                .then(() => {
+                .then(() => {  
 
-```   
+```  
+
+
   *  When a scorecard is created successfully on the backend mongo database, the users view will change to the homepage and the newly created scorecard will be displayed.  
 
   * ### Services  
@@ -167,7 +171,7 @@
       * scorecard:     
 
 
-*****
+ *****
 #Testing Framework
 
 * scope: explain what we are testing (focus area) and show an example test  
