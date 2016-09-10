@@ -127,8 +127,17 @@
       * explain any calls or dependencies on APIs
       * cover storage of token to local storage  
 
-  * ### sign-in  
+  * ### sign-in
+      * Once a user has completed the signup form, they can sign back into the application through the sign-in page. Simply provide the Username and Password created during signup.
+
+      * This view is a simple form specified in signin.html.  With inputs for the users username and password. On submission of the form these are passed through the sign-in controller specified in signin/index.js. These credentials are then assigned to the user property on the sign-in controller.  The controller passes those properties into the angular service auth-service.js.  The sign-in function of the service then encrypts both pieces of the users credentials using a base-64 encoded ASCII string.  This string gets passed as a GET request to the backend at `${__API_URL__}`/api/signup which returns data used to set a token variable on the service.  The _setToken function is called which stores a token in the browsers local storage.  This token is used to authorize the user.
+
+
   * ### home  
+      * The home page displays the users created scorecards.  With the ability to toggle between the five most recently created scorecards, or all of the users scorecards.  Once the user creates a scorecard, they will automatically appear on the home page.
+
+      *
+
   * ### create-scorecard    
       * This page is used to create and save a new scorecard to a database by making a series of POST request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log). You will not be able to view your scorecards on the homepage unless you have entered some scorecards from this page.
 
