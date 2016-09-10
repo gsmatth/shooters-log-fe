@@ -130,7 +130,10 @@
   * ### sign-in
       * Once a user has completed the signup form, they can sign back into the application through the sign-in page. Simply provide the Username and Password created during signup.
 
-      * This view is a simple form specified in signin.html.  With inputs for the users username and password. On submission of the form these are passed through the sign-in controller specified in signin/index.js. These credentials are then assigned to the user property on the sign-in controller.  The controller passes those properties into the angular service auth-service.js.  The sign-in function of the service then encrypts both pieces of the users credentials using a base-64 encoded ASCII string.  This string gets passed as a GET request to the backend at `${__API_URL__}`/api/signup which returns data used to set a token variable on the service.  The _setToken function is called which stores a token in the browsers local storage.  This token is used to authorize the user.
+      * This view is a simple form specified in signin.html.  With inputs for the users username and password. The ng-model directive is used to bind the values in these input fields to the sign-in controller, specified in signin/index.js.  
+         (If a user has already signed in and a token is saved to local storage, this form runs the getToken() function on page load which bypasses the signin process and redirects the user to the home page.)
+
+      * On submission of the sign-in form, the signin() function of the sign-in controller is run. This function takes the user property set by the signin.html form inputs and passes them into the angular service auth-service.js. The sign-in function of the service then encrypts both pieces of the users credentials using a base-64 encoded ASCII string.  This string gets passed as a GET request to the backend at `${__API_URL__}`/api/signup which returns data used to set a token variable on the service.  The _setToken function is called which stores a token in the browsers local storage.  This token is used to authorize the user.
 
 
   * ### home  
