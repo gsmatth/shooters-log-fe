@@ -137,9 +137,9 @@
 
 
   * ### home  
-      * The home page displays the users created scorecards.  With the ability to toggle between the five most recently created scorecards, or all of the users scorecards.  Once the user creates a scorecard, they will automatically appear on the home page.
+      * The home page displays the user's created scorecards.  With the ability to toggle between the five most recently created scorecards, or all of the users scorecards.  Once the user creates a scorecard, they will automatically appear on the home page.
 
-      *
+      * The view for this page can be found in home.html.  This view uses the ng-repeat directive to display as many scorecards that are stored in the displayScorecards array on the home controller. The scorecards themselves consist of angular components specified in component/scorecard/scorcard.html.
 
   * ### create-scorecard    
       * This page is used to create and save a new scorecard to a database by making a series of POST request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log). You will not be able to view your scorecards on the homepage unless you have entered some scorecards from this page.
