@@ -21,7 +21,7 @@ describe('testing the signup and signin service', function(){
     this.$httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('signup should return a user', () => {
+  it('signup should return a token', () => {
     this.$httpBackend.expectPOST(`${url}/signup`, {username: 'test', password:'guest', firstName: 'test', lastName: 'er'}, headers).respond(200, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6IjhkMzcxZmExZGU2NmRjYjVhNjU4NzlhYmI4MDk5YjA0ODU0ODVlYWU3OGU0OTYyMTY1NGQ5ZWJlMzBhYmJiZTQiLCJ1c2VySWQiOiI1N2M2Mzg3NTU1NDEyMTExMDAzMjNkM2EiLCJpYXQiOjE0NzI2MDgzNzN9.UFaYBDCWqKzdFyPeKNxfxBX2T8zNlqYMkP2tJKp-kQI');
 
     this.authService.signup({username: 'test', password:'guest', firstName: 'test', lastName: 'er'})
