@@ -43,3 +43,23 @@
   line-height: 10%;
   margin-top: -18px;
 }
+
+@media (max-width: 1035px){
+  .app-scorecard {
+    margin-left: 20%;
+  }
+
+  @media (max-width: 900px){
+    .app-scorecard-get {
+      min-height: 750px;
+    }
+  }
+
+  .scorecard-scoring-totals {
+    margin-left: 15%;
+  }
+
+  .score-field{
+    margin-left: 0;
+  }
+}

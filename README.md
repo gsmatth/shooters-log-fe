@@ -116,16 +116,14 @@
   * This angularJS based application is structured around views that utilize services and components.  
 
   * ### signup:  
-      * A user must first create an account with a username, password, first name, and last name to use this application.  The creation of that account occurs on the signup page.
+    * A user must first create an account with a username, password, first name, and last name to use this application.  The creation of that account occurs on the signup page.
 
-        ![signin200x331](https://cloud.githubusercontent.com/assets/13153982/18363587/945bcc12-75bf-11e6-97ea-5511bcb2f258.png)  
+      ![signin200x331](https://cloud.githubusercontent.com/assets/13153982/18363587/945bcc12-75bf-11e6-97ea-5511bcb2f258.png)  
 
-      * explain the view
-      * explain the services used
-      * explain the components used
-      * make sure to cover validation of data  
-      * explain any calls or dependencies on APIs
-      * cover storage of token to local storage  
+    * The "view" is the current state of signup.html an angular template consisting of inputs, a logo component, texts, and a single button of type "submit" linked to our API. The user is required to input a first and last name their preferred username and a valid password, there are also included fields for additional suffixes and the user's NRA number that are not required. Using valid data from the form is posted to the database and a new user is created and the user is redirected to their home page.
+    * Validation is handled by angular directives and require that all the fields are filled with a minimum of three valid characters. If the user attempts to submit without valid input the fields lacking valid data will flash red to alert the user of what they missed.     
+
+    * The page utilities the our authentication service to make a POST request to the backend API, on success the authentication service will receive a token and redirect the user to the home view. Our Authentication token is stored in the browser's local storage to allow easy access both the signup and signin views will redirect the user to their home view if an existing token is detected.   
 
   * ### sign-in
       * Once a user has completed the signup form, they can sign back into the application through the sign-in page. Simply provide the Username and Password created during signup.
@@ -166,15 +164,15 @@
               .then((matches) => {   
                 scorecardService.createMatchShots(competitionId, matches,   vm.allMatchScores, vm.shot)  
                 .then(() => {  
-
 ```  
 
 
   *  When a scorecard is created successfully on the backend mongo database, the users view will change to the homepage and the newly created scorecard will be displayed.  
 
-  * ### Services  
-      * auth-service:  
-      * scorecard-service  
+### Services  
+  * auth-service: Our authentication service was constructed with five functions, and handles all authentication and authorization for Shooter' Log.  the .signin and .signup functions by their respective views to send POST or GET requests to our API while .getToken, \_setToken and .logout all deal with the authentication, storage and deletion of local storage passed access tokens.    
+  * scorecard-service: The Scorecard service handles all the POST and GET requests needed to create and retrieve user scorecards. It contains five functions each makes one or more calls to the API. The first service activated when a user access the home view is .getAllCompetions, which is run on page load to populate an array with all the competitions within the Mongo database that are attributed to that user.  The service can then call .getScorecard on any or all of these competition objects and will receive a larger object containing the competition, it's 3 matches three arrays of the 20 shots attributed to each match.  More importantly the service is also capable of performing the 64 POST requests required to add an completed score card to the database. The .createCompetition function uses user provided data to make a single POST request construction a competition entry in the database. Service.createMatches will take user generated data and a competitionID and create 3 matches linked to the competition. Finally .createMatchShots takes a competitionID, an array of 3 Matches and user generated scores and will create the 60 shot objects belonging to a competition.  
+
   * ### Components  
       * signup:
       * logo:  
@@ -186,7 +184,22 @@
  *****
 #Testing Framework
 
-* scope: explain what we are testing (focus area) and show an example test  
+* Our testing focused on the functional elements, services manipulating data sent or received form the API were of greatest concern.  Using our testing framework we are able to mock out responses from our API provided the service being test sends the expected request.
+    ```javascript
+    it('signup should return a token', () => {
+      this.$httpBackend.expectPOST(`${url}/signup`, {username: 'test', password:'guest', firstName: 'test', lastName: 'er'}, headers).respond(200, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6IjhkMzcxZmExZGU2NmRjYjVhNjU4NzlhYmI4MDk5YjA0ODU0ODVlYWU3OGU0OTYyMTY1NGQ5ZWJlMzBhYmJiZTQiLCJ1c2VySWQiOiI1N2M2Mzg3NTU1NDEyMTExMDAzMjNkM2EiLCJpYXQiOjE0NzI2MDgzNzN9.UFaYBDCWqKzdFyPeKNxfxBX2T8zNlqYMkP2tJKp-kQI');
+
+      this.authService.signup({username: 'test', password:'guest', firstName: 'test', lastName: 'er'})
+      .then( token => {
+        expect(token).toBe('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6IjhkMzcxZmExZGU2NmRjYjVhNjU4NzlhYmI4MDk5YjA0ODU0ODVlYWU3OGU0OTYyMTY1NGQ5ZWJlMzBhYmJiZTQiLCJ1c2VySWQiOiI1N2M2Mzg3NTU1NDEyMTExMDAzMjNkM2EiLCJpYXQiOjE0NzI2MDgzNzN9.UFaYBDCWqKzdFyPeKNxfxBX2T8zNlqYMkP2tJKp-kQI');
+      })
+      .catch(err => {
+        expect(err).toBe(undefined);
+      });
+
+      this.$httpBackend.flush();
+    });
+    ```
 
   * jasmine (explain high level)  
     * jasmine-core  
