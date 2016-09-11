@@ -38,7 +38,6 @@ function authService($log, $q, $http, $window){
     return $q.resolve();
   };
 
-  /********* CHECK API URL AND MAKE SURE IT MATCHES BACKEND *********/
   service.signup = function(user){
     console.log(`${__API_URL__}`);
     let url = `${__API_URL__}/api/signup`;
