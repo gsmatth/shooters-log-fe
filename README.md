@@ -125,8 +125,25 @@
 
     * The page utilities the our authentication service to make a POST request to the backend API, on success the authentication service will receive a token and redirect the user to the home view. Our Authentication token is stored in the browser's local storage to allow easy access both the signup and signin views will redirect the user to their home view if an existing token is detected.   
 
-  * ### sign-in  
+  * ### sign-in
+      * Once a user has completed the signup form, they can sign back into the application through the sign-in page. Simply provide the Username and Password created during signup.
+
+      * This view is a simple form specified in signin.html.  With inputs for the users username and password. The ng-model directive is used to bind the values in these input fields to the sign-in controller, specified in signin/index.js.  
+         (If a user has already signed in and a token is saved to local storage, this form runs the getToken() function on page load which bypasses the signin process and redirects the user to the home page.)
+
+      * On submission of the sign-in form, the signin() function of the sign-in controller is run. This function takes the user property set by the signin.html form inputs and passes them into the angular service auth-service.js. The sign-in function of the service then encrypts both pieces of the users credentials using a base-64 encoded ASCII string.  This string gets passed as a GET request to the backend at `${__API_URL__}`/api/signup which returns data used to set a token variable on the service.  The _setToken function is called which stores a token in the browsers local storage.  This token is used to authorize the user.
+
+
   * ### home  
+      * The home page displays the user's created scorecards.  With the ability to toggle between the five most recently created scorecards, or all of the users scorecards.  Once the user creates a scorecard, they will automatically appear on the home page.
+      <img width="600px" alt="screen shot 2016-09-10 at 10 23 10 pm" src="https://cloud.githubusercontent.com/assets/15336054/18415401/9f58c5d8-77a5-11e6-81ce-251cc66ed1f3.png">
+
+      * The view for this page can be found in home.html, which uses the ng-repeat directive to display scorecards to the user. The scorecards themselves consist of angular directive components specified in component/scorecard/scorcard.html.  The scorecard components take the data bound to the scorecard angular controller and display them to the user.  This data includes all the competition information the user supplies in the scorecard-form.
+
+      * When loading the home page, the scorecard controller calls the fetchScorecard() function. this function uses the angular scorecard service to retrieve the scorecard info stored on the backend as well as perform the logic to calculate aggregate scores.
+
+      * The scorecard service getScorecard() function calls a GET route on the backend server which returns an object containing all the information needed regarding a shooting competition.  This information is stored on the home controller home/index.js.  From here the controller can choose which competitions are grabbed by the scorecard directive to display to the user.
+
   * ### create-scorecard    
       * This page is used to create and save a new scorecard to a database by making a series of POST request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log). You will not be able to view your scorecards on the homepage unless you have entered some scorecards from this page.
 
