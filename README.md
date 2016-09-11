@@ -16,7 +16,7 @@
 
 * The primary purpose of the front-end site is to store and serve out the web application on demand.  Once the user's browser has downloaded the files provided by this server, the angularJS application in the browser behaves as a client side application and interacts with the shooters-log back-end RESTful API to perform its intended function. The combination of the back-end and the front-end represents a full MEAN stack (Mongo Express Angular Node) solution.
 
-  ![shooters-log-fe-v2-525x584](https://cloud.githubusercontent.com/assets/13153982/18381236/26ed9694-7630-11e6-999b-d77580a5827e.png)  
+  ![mean-arch-3-700x581](https://cloud.githubusercontent.com/assets/13153982/18415786/73a1d048-77b3-11e6-9752-13279d23ebec.png)
 
 
   ****
@@ -59,7 +59,8 @@
         ![screen shot 2016-09-08 at 2 21 47 pm](https://cloud.githubusercontent.com/assets/13153982/18367374/a9397ef8-75cf-11e6-98f6-e28c4ba44f28.png)  
       * click on the clip-board icon to save the repo link.  
       * In your terminal, navigate to where you want the project folder to be on you local system.  
-      * type in "git clone", enter a space, and then paste the link you copied into the terminal so it is appended to the end of the current line.  The full line should look like this: _git clone https://github.com/gsmatth/shooters-log.git_  
+      * type in "git clone", enter a space, and then paste the link you copied into the terminal so it is appended to the end of the current line.  The full line should look like this:   
+        * ``` git clone https://github.com/gsmatth/shooters-log.git ```      
       * press the enter key and the shooter-log repo will be cloned to your local environment.  
       * cd to the newly created directory  
       * type in  _npm init_ and press enter  
