@@ -107,13 +107,9 @@
 
         ![signin200x331](https://cloud.githubusercontent.com/assets/13153982/18363587/945bcc12-75bf-11e6-97ea-5511bcb2f258.png)  
 
-      * The "view" specific files include index.js, signup.html, and \_signup.scss.  
-        * signup.html:  an angular template consisting of inputs, a logo component, texts, and a single button of type "submit."  In addition to the form and input directives there is also logic to prevent the user form submitting without filling in the required fields  
-        * index.js: The main controller for this view contains a single function that is called when the user clicks the Create Account button it calls the auth-service and redirects to the home page when the auth-service returns a token
-    * This view utilities the auth-service signup function and expects a token returned before redirection the user to their home page.  
-    * explain the components used
-    * make sure to cover validation of data  
-    * explain any calls or dependencies on APIs
+    * The "view" is the current state of signup.html an angular template consisting of inputs, a logo component, texts, and a single button of type "submit" linked to our API. The user is required to input a first and last name their preferred username and a valid password, there are also included fields for additional suffixes and the user's NRA number that are not required. Using valid data from the form is posted to the database and a new user is created and the user is redirected to their home page.  
+    * Validation is handled by angular directives and require that all the fields are filled with a minimum of three valid characters. If the user attempts to submit without valid input the fields lacking valid data will flash red to alert the user of what they missed.     
+    * The page utilities the our authentication service to make a POST request to the backend API, on success the authentication service will receive a token and redirect the user to the home view.  
     * cover storage of token to local storage  
 
   * signin  

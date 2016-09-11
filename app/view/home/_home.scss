@@ -9,7 +9,7 @@
     position: fixed;
     top: 5%;
     left: 45%;
-    width: 10vw;
+    min-width: 10vw;
     font-family: dual-300;
     line-height: 1.5;
 
@@ -20,6 +20,10 @@
     &:hover {
       background-color: $app-default;
       border-color: $app-lightgreen;
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 }
