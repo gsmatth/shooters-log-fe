@@ -76,3 +76,13 @@
 
   }
 }
+
+@media (max-width: 550px){
+  .app-signup{
+    margin-top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    border-radius: none;
+  }
+}
