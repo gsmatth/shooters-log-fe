@@ -1,0 +1,11 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <style>.cls-1{fill:#03e8b1;}.cls-1,.cls-2,.cls-3{stroke:#fff;stroke-miterlimit:10;}.cls-1,.cls-3{stroke-width:10px;}.cls-2,.cls-3{fill:none;}.cls-2{stroke-linecap:round;stroke-width:20px;}</style>
+  </defs>
+  <title>scorecardForm</title>
+  <circle class="cls-1" cx="200" cy="200" r="192.8"/>
+  <line class="cls-2" x1="200" y1="390" x2="200" y2="10"/>
+  <line class="cls-2" x1="389" y1="200" x2="11" y2="200"/>
+  <circle class="cls-3" cx="200" cy="200" r="130.9"/>
+  <circle class="cls-3" cx="200" cy="200" r="65.4"/>
+</svg>

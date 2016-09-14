@@ -23,7 +23,7 @@
       margin: 4% 5% 4% 5%;
       font-family: dual-300;
       text-align: center;
-      font-size: 1.1vw;
+      font-size: 1.1em;
 
       list-style: none;
 
@@ -48,5 +48,30 @@
     .logo {
       width: 10vw;
     }
+  }
+
+  ul {
+    @media (max-width: 950px) {
+      .desktop {
+        display: none;
+      }
+
+      li {
+        width: 4em;
+        height: 4em;
+        margin: 4% auto 4% auto;
+      }
+    }
+
+    @media (min-width: 950px) {
+      .mobile {
+        display: none;
+      }
+    }
+  }
+
+  img{
+    width: 3em;
+    margin: 4% auto 4% auto;
   }
 }
