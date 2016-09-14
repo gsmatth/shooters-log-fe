@@ -139,7 +139,7 @@
       * The home page displays the user's created scorecards.  With the ability to toggle between the five most recently created scorecards, or all of the users scorecards.  Once the user creates a scorecard, they will automatically appear on the home page.
       <img width="600px" alt="screen shot 2016-09-10 at 10 23 10 pm" src="https://cloud.githubusercontent.com/assets/15336054/18415401/9f58c5d8-77a5-11e6-81ce-251cc66ed1f3.png">
 
-      * The view for this page can be found in home.html, which uses the ng-repeat directive to display scorecards to the user. The scorecards themselves consist of angular directive components specified in component/scorecard/scorcard.html.  The scorecard components take the data bound to the scorecard angular controller and display them to the user.  This data includes all the competition information the user supplies in the scorecard-form.
+      * The view for this page can be found in home.html, which uses the ng-repeat directive to display scorecards to the user.  This displays the competitions stored in the home controllers display scorecards array.  The scorecards themselves consist of angular directive components specified in component/scorecard/scorcard.html.  The scorecard components take the data bound to the scorecard angular controller and display them to the user.  This data includes all the competition information the user supplies in the scorecard-form.
 
       * When loading the home page, the scorecard controller calls the fetchScorecard() function. this function uses the angular scorecard service to retrieve the scorecard info stored on the backend as well as perform the logic to calculate aggregate scores.
 

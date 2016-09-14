@@ -1,9 +1,12 @@
 <nav class="app-nav">
   <ul>
-    <a href="#/home"><li>Home</li></a>
-    <a href="#/createscorecard"><li>Create Scorecard</li></a>
+    <a class="desktop" href="#/home"><li>Home</li></a>
+    <a class="mobile" href="#/home"><li><img ng-src="{{navCtrl.homeIcon}}" alt="Home Icon"></li></a>
+    <a class="desktop" href="#/createscorecard"><li>Create Scorecard</li></a>
+    <a class="mobile" href="#/createscorecard"><li><img ng-src="{{navCtrl.formIcon}}" alt="Create Scorecard Icon"></li></a>
     <!-- <a href=""><li>View All Scorecards</li></a> -->
-    <a href=""><li><i class="fa fa-exclamation-triangle" title="Under Construction" aria-hidden="true"></i>View Target Plot</li></a>
+    <a class="desktop" href=""><li><i class="fa fa-exclamation-triangle" title="Under Construction" aria-hidden="true"></i>View Target Plot</li></a>
+    <a class="mobile" href=""><li><i class="fa fa-exclamation-triangle" title="Under Construction" aria-hidden="true"></i></li></a>
   </ul>
 
   <div class="shooter-logo">
