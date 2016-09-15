@@ -38,15 +38,29 @@
     }
   }
 
-.shooter-logo{
-  background-color: $app-default;
-  border: 2px solid $app-lightgreen;
-  border-radius: 5px;
-  max-width: 10vw;
-  margin: 40vh auto;
+  .logout {
+    background-color: none;
+    margin: 100% 15% 10% 15%;
+    width: 10vw;
+    font-family: dual-300;
+    border: 2px solid white;
+    color: $app-dark;
+    background-color: $app-default;
+
+    &:hover{
+      background-color: white;
+    }
+  }
+
+  .shooter-logo{
+    background-color: $app-default;
+    border: 2px solid $app-lightgreen;
+    border-radius: 5px;
+    max-width: 11vw;
+    margin: 10vh auto 50px auto;
 
     .logo {
-      width: 10vw;
+      width: 10.5vw;
     }
   }
 

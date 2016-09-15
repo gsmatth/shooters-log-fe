@@ -9,10 +9,20 @@ appShooter.component('appNav', {
   controllerAs: 'navCtrl'
 });
 
-appShooter.controller('NavController', ['$log', NavController]);
+appShooter.controller('NavController', ['$log', '$location', 'authService', NavController]);
 
-function NavController($log){
-  $log.log('navController working');
+function NavController($log, $location, authService){
   this.homeIcon = require('../../scss/lib/asset/home.svg');
   this.formIcon = require('../../scss/lib/asset/createForm.svg');
+
+  this.logout = function(){
+    $log.debug('navController.logout');
+    authService.logout()
+    .then(() => {
+      $location.path('/signin');
+    })
+    .catch(err => {
+      $log.error('No Signout:', err);
+    });
+  };
 }
