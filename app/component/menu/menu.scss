@@ -22,6 +22,18 @@
       background-color: white;
     }
   }
+
+  @media (min-width: 900px){
+    .mobileMenu{
+      display: none;
+    }
+  }
+
+  @media (max-width: 899px){
+    .desktopMenu{
+      display: none;
+    }
+  }
 }
 
 

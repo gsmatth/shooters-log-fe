@@ -65,7 +65,7 @@
   }
 
   ul {
-    @media (max-width: 950px) {
+    @media (max-width: 899px) {
       .desktop {
         display: none;
       }
@@ -77,7 +77,7 @@
       }
     }
 
-    @media (min-width: 950px) {
+    @media (min-width: 900px) {
       .mobile {
         display: none;
       }
