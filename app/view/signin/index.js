@@ -14,17 +14,17 @@ function SigninController($log, $location, authService){
     .then(() => {
       $location.path('/home');
     });
+  };
 
-    this.signin = function(){
-      $log.debug('signinCtrl.signin');
-      authService.signin(this.user)
-      .then(token => {
-        $log.info('token', token);
-        $location.path('/home');
-      })
-      .catch(err => {
-        $log.error(err);
-      });
-    };
+  this.signin = function(){
+    $log.debug('signinCtrl.signin');
+    authService.signin(this.user)
+    .then(token => {
+      $log.info('token', token);
+      $location.path('/home');
+    })
+    .catch(err => {
+      $log.error(err);
+    });
   };
 }

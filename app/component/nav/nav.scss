@@ -6,7 +6,11 @@
   left: 0;
   width: 15%;
   height: 100%;
-  padding-top: 10%;
+
+  @media (max-width: 899px){
+    padding-top: 100px;
+  }
+
   border-right: thick solid $app-lightgreen;
   background-color: $app-dark;
   z-index: 100;
@@ -23,7 +27,7 @@
       margin: 4% 5% 4% 5%;
       font-family: dual-300;
       text-align: center;
-      font-size: 1.1vw;
+      font-size: 1.1em;
 
       list-style: none;
 
@@ -38,15 +42,68 @@
     }
   }
 
-.shooter-logo{
-  background-color: $app-default;
-  border: 2px solid $app-lightgreen;
-  border-radius: 5px;
-  max-width: 10vw;
-  margin: 40vh auto;
+  .logout {
+    background-color: none;
+    margin: 5px 15% 10% 15%;
+    width: 10vw;
+
+    @media (max-width: 900px){
+      margin-left: 20%;
+    }
+
+    @media (max-width: 450px){
+      width: 20vw;
+    }
+
+    font-family: dual-300;
+    border: 2px solid white;
+    color: $app-dark;
+    background-color: $app-default;
+
+    &:hover{
+      background-color: white;
+    }
+  }
+
+  .shooter-logo{
+    @media(max-width: 900px){
+      display: none;
+    }
+    background-color: $app-default;
+    border: 2px solid $app-lightgreen;
+    border-radius: 5px;
+    max-width: 11vw;
+    margin: 20px auto 10px auto;
 
     .logo {
-      width: 10vw;
+      width: 10.5vw;
     }
+  }
+
+  ul {
+    @media (max-width: 899px) {
+      .desktop {
+        display: none;
+      }
+
+      li {
+        width: 5em;
+        height: 5em;
+        margin: 5% auto 5% auto;
+        border-radius: 40px;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .mobile {
+        display: none;
+      }
+    }
+  }
+
+  img{
+    width: 3em;
+    line-height: 5em;
+    margin: 10% auto;
   }
 }

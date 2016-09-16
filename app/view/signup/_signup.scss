@@ -1,9 +1,9 @@
 @import "_theme";
 
 .app-signup {
-  width: 40vw;
+  width: 45vw;
   padding: 5%;
-  margin: 5% auto 0 auto;
+  margin: 5% auto 10% auto;
   background-color: $app-default;
   border: thick solid $app-lightgreen;
   border-radius: 10px 10px 10px 10px;
@@ -74,5 +74,22 @@
       color: $app-lightgreen;
     }
 
+  }
+}
+
+@media (max-width: 750px){
+  .app-signup{
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    border-radius: 0px;
+  }
+}
+
+@media (max-width: 880px){
+  .app-signup{
+    margin: 10vh auto;
+    padding: 2%;
   }
 }

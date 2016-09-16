@@ -16,25 +16,26 @@
     </div>
 
     <div class=naming>
-      <section class="form-group nameSuffix">
-        <label for="nameSuffix">Suffix:</label>
-        <select name="nameSuffix" class="form-control" ng-model="signupCtrl.user.nameSuffix">
-          <option value="Mr.">Mr.</option>
-          <option value="Mrs.">Mrs.</option>
-          <option value="Ms.">Ms.</option>
-          <option value="Dr.">Dr.</option>
-        </select>
-      </section>
       <section class="form-group has-error">
-        <label for="firstName">First Name:</label>
+        <label for="firstName">*First Name:</label>
         <input required class="form-control" name="firstName" ng-class="{appInvalid: signupForm.$submitted && signupForm.firstName.$invalid}"
         ng-model="signupCtrl.user.firstName" type="text">
       </section>
       <section class="form-group has-error">
-        <label for="LastName">Last Name:</label>
+        <label for="LastName">*Last Name:</label>
         <input required class="form-control" name="lastName"
         ng-class="{appInvalid: signupForm.$submitted && signupForm.lastName.$invalid}"
         ng-model="signupCtrl.user.lastName" type="text">
+      </section>
+      <section class="form-group nameSuffix">
+        <label for="nameSuffix">Suffix:</label>
+        <select name="nameSuffix" class="form-control" ng-model="signupCtrl.user.nameSuffix">
+          <option value="Sr.">Sr.</option>
+          <option value="Js.">Jr.</option>
+          <option value="I.">I</option>
+          <option value="II.">II</option>
+          <option value="III">III</option>
+        </select>
       </section>
     </div>
 

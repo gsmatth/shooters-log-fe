@@ -16,7 +16,7 @@
 
 * The primary purpose of the front-end site is to store and serve out the web application on demand.  Once the user's browser has downloaded the files provided by this server, the angularJS application in the browser behaves as a client side application and interacts with the shooters-log back-end RESTful API to perform its intended function. The combination of the back-end and the front-end represents a full MEAN stack (Mongo Express Angular Node) solution.
 
-  ![shooters-log-fe-v2-525x584](https://cloud.githubusercontent.com/assets/13153982/18381236/26ed9694-7630-11e6-999b-d77580a5827e.png)  
+  ![mean-arch-3-700x581](https://cloud.githubusercontent.com/assets/13153982/18415786/73a1d048-77b3-11e6-9752-13279d23ebec.png)
 
 
   ****
@@ -59,7 +59,8 @@
         ![screen shot 2016-09-08 at 2 21 47 pm](https://cloud.githubusercontent.com/assets/13153982/18367374/a9397ef8-75cf-11e6-98f6-e28c4ba44f28.png)  
       * click on the clip-board icon to save the repo link.  
       * In your terminal, navigate to where you want the project folder to be on you local system.  
-      * type in "git clone", enter a space, and then paste the link you copied into the terminal so it is appended to the end of the current line.  The full line should look like this: _git clone https://github.com/gsmatth/shooters-log.git_  
+      * type in "git clone", enter a space, and then paste the link you copied into the terminal so it is appended to the end of the current line.  The full line should look like this:   
+        * ``` git clone https://github.com/gsmatth/shooters-log.git ```      
       * press the enter key and the shooter-log repo will be cloned to your local environment.  
       * cd to the newly created directory  
       * type in  _npm init_ and press enter  
@@ -125,8 +126,25 @@
 
     * The page utilities the our authentication service to make a POST request to the backend API, on success the authentication service will receive a token and redirect the user to the home view. Our Authentication token is stored in the browser's local storage to allow easy access both the signup and signin views will redirect the user to their home view if an existing token is detected.   
 
-  * ### sign-in  
+  * ### sign-in
+      * Once a user has completed the signup form, they can sign back into the application through the sign-in page. Simply provide the Username and Password created during signup.
+
+      * This view is a simple form specified in signin.html.  With inputs for the users username and password. The ng-model directive is used to bind the values in these input fields to the sign-in controller, specified in signin/index.js.  
+         (If a user has already signed in and a token is saved to local storage, this form runs the getToken() function on page load which bypasses the signin process and redirects the user to the home page.)
+
+      * On submission of the sign-in form, the signin() function of the sign-in controller is run. This function takes the user property set by the signin.html form inputs and passes them into the angular service auth-service.js. The sign-in function of the service then encrypts both pieces of the users credentials using a base-64 encoded ASCII string.  This string gets passed as a GET request to the backend at `${__API_URL__}`/api/signup which returns data used to set a token variable on the service.  The _setToken function is called which stores a token in the browsers local storage.  This token is used to authorize the user.
+
+
   * ### home  
+      * The home page displays the user's created scorecards.  With the ability to toggle between the five most recently created scorecards, or all of the users scorecards.  Once the user creates a scorecard, they will automatically appear on the home page.
+      <img width="600px" alt="screen shot 2016-09-10 at 10 23 10 pm" src="https://cloud.githubusercontent.com/assets/15336054/18415401/9f58c5d8-77a5-11e6-81ce-251cc66ed1f3.png">
+
+      * The view for this page can be found in home.html, which uses the ng-repeat directive to display scorecards to the user.  This displays the competitions stored in the home controllers display scorecards array.  The scorecards themselves consist of angular directive components specified in component/scorecard/scorcard.html.  The scorecard components take the data bound to the scorecard angular controller and display them to the user.  This data includes all the competition information the user supplies in the scorecard-form.
+
+      * When loading the home page, the scorecard controller calls the fetchScorecard() function. this function uses the angular scorecard service to retrieve the scorecard info stored on the backend as well as perform the logic to calculate aggregate scores.
+
+      * The scorecard service getScorecard() function calls a GET route on the backend server which returns an object containing all the information needed regarding a shooting competition.  This information is stored on the home controller home/index.js.  From here the controller can choose which competitions are grabbed by the scorecard directive to display to the user.
+
   * ### create-scorecard    
       * This page is used to create and save a new scorecard to a database by making a series of POST request to the [shooter-log RESTful API](https://github.com/gsmatth/shooters-log). You will not be able to view your scorecards on the homepage unless you have entered some scorecards from this page.
 
