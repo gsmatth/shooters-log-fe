@@ -10,16 +10,28 @@
   border: thin solid white;
   border-radius: 5%;
 
-  left: 10%;
+  left: 3%;
   top: 2%;
   padding: .5% .5% .5% .5%;
 
   color: $app-lightgreen;
-  font-size: 3vw;
+  font-size: 3em;
 
     &:hover {
       color: $app-default;
       background-color: white;
+    }
+  }
+
+  @media (min-width: 900px){
+    .mobileMenu{
+      display: none;
+    }
+  }
+
+  @media (max-width: 899px){
+    .desktopMenu{
+      display: none;
     }
   }
 }

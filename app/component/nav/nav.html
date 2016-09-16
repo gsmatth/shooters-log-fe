@@ -1,4 +1,11 @@
 <nav class="app-nav">
+
+  <div class="shooter-logo">
+    <app-logo class="app-logo"></app-logo>
+  </div>
+
+  <button class="logout btn" ng-click="navCtrl.logout()"><strong>Logout</strong></button>
+
   <ul>
     <a class="desktop" href="#/home"><li>Home</li></a>
     <a class="mobile" href="#/home"><li><img ng-src="{{navCtrl.homeIcon}}" alt="Home Icon"></li></a>
@@ -9,9 +16,4 @@
     <a class="mobile" href=""><li><i class="fa fa-exclamation-triangle" title="Under Construction" aria-hidden="true"></i></li></a>
   </ul>
 
-  <button class="logout btn" ng-click="navCtrl.logout()"><strong>Logout</strong></button>
-
-  <div class="shooter-logo">
-    <app-logo class="app-logo"></app-logo>
-  </div>
 </nav>
