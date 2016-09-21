@@ -54,7 +54,9 @@ function authService($log, $q, $http, $window){
       return _setToken(res.data);
     })
     .catch(err => {
-      $log.error('failed',err);
+      if(err.status === 500){
+        alert('Username is unavailable.');
+      }
       return $q.reject(err);
     });
   };
@@ -77,7 +79,9 @@ function authService($log, $q, $http, $window){
       return _setToken(res.data);
     })
     .catch(err => {
-      $log.error('failure', err);
+      if(err.status === 500 || err.status === 401){
+        alert('Username or password is incorrect.');
+      }
       return $q.reject(err);
     });
   };
