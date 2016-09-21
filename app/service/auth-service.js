@@ -54,7 +54,9 @@ function authService($log, $q, $http, $window){
       return _setToken(res.data);
     })
     .catch(err => {
-      $log.error('failed',err);
+      if(err.status === 500){
+        alert('Username is unavailable.');
+      }
       return $q.reject(err);
     });
   };
