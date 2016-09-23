@@ -9,7 +9,7 @@ appShooter.controller('CreateScorecardFormController', ['$log','$scope', '$locat
 function CreateScorecardFormController($log, $scope, $location, scorecardService){
   $log.debug('entered CreateScorecardFormController');
   const vm = this;
-  vm.scoreInputValidation = /^([MmxX]|[056789]|[1][0])$/;
+  vm.scoreInputValidation = /^([MmxX]|[56789]|[1][0])$/;
   vm.user = {
     firstName:  null,
     lastName:   null
