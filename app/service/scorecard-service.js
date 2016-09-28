@@ -13,6 +13,28 @@ function scorecardService($log, $q, $window, $http) {
   service.data = [];
   service.competitions = [];
 
+  service.fetchUser = function(){
+    $log.debug('entered service.fetchUser');
+    let url = `${__API_URL__}/api/user`;
+
+    let config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    };
+
+    return $http.get(url, config)
+    .then(res => {
+      $log.warn('user fetch success', res.data);
+      this.user = res.data;
+      return $q.resolve(res.data);
+    })
+    .catch(err => {
+      $log.error('failed to return a user', err);
+      return $q.reject(err);
+    });
+  };
 
   service.createCompetition = function(data) {
     $log.debug('entered service.createCompetition');
@@ -27,7 +49,7 @@ function scorecardService($log, $q, $window, $http) {
     return $http.post(url, data, config)
     .then(res => {
       $log.info('Success', res.data);
-      return (res.data);
+      return $q.resolve(res.data);
     })
     .catch(err => {
       $log.error('Failed to return createCompetition data', err);
