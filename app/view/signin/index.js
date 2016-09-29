@@ -4,9 +4,9 @@ require('./_signin.scss');
 const angular = require('angular');
 const appShooter = angular.module('appShooter');
 
-appShooter.controller('SigninController', ['$log', '$location', 'authService', SigninController]);
+appShooter.controller('SigninController', ['$log', '$location', '$window', 'authService', SigninController]);
 
-function SigninController($log, $location, authService){
+function SigninController($log, $location, $window, authService){
   $log.debug('init signinController');
   this.getToken = function(){
     $log.debug('signinController.getToken');
@@ -22,6 +22,7 @@ function SigninController($log, $location, authService){
     .then(token => {
       $log.info('token', token);
       $location.path('/home');
+      $window.location.reload();
     })
     .catch(err => {
       $log.error(err);
