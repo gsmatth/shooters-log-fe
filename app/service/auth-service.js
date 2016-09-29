@@ -55,7 +55,7 @@ function authService($log, $q, $http, $window){
     })
     .catch(err => {
       if(err.status === 500){
-        alert('Username is unavailable.');
+        alert('Username or Email is unavailable.');
       }
       return $q.reject(err);
     });

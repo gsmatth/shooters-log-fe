@@ -13,6 +13,10 @@
         <label for="password"><span>*</span>Password:</label>
         <input required ng-minlength="4" name="password" class="form-control" ng-class="{appInvalid: signupForm.$submitted && signupForm.password.$invalid}" ng-model="signupCtrl.user.password" type="password">
       </section>
+      <section class="form-group has-error">
+        <label for="email"><span>*</span>Email Address:</label>
+        <input required name="email" class="form-control" ng-class="{appInvalid: signupForm.$submitted && signupForm.email.invalid}" ng-model="signupCtrl.user.emailAddress" type="email">
+      </section>
     </div>
 
     <div class=naming>
