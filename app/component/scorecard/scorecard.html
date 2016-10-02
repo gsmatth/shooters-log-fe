@@ -1,10 +1,15 @@
 <main class="app-scorecard-get"
   ng-init="scorecardCtrl.fetchScorecard()">
   <div class="scorecard-admin" >
+  <div class="userInfo">
+    <h3 for="firstName"><strong>First Name</strong>: {{scorecardCtrl.user.firstName}} &nbsp &nbsp</h3>
+    <h3 for="lastName"><strong>Last Name</strong>: {{scorecardCtrl.user.lastName}} &nbsp &nbsp</h3>
+    <h3 ng-show="scorecardCtrl.user.suffix" for="suffix"><strong>Suffix</strong>: {{scorecardCtrl.user.suffix}}</h3>
+  </div>
   <div class="competitionInfo">
      <h5 for="date"><strong>Date</strong>: {{scorecardCtrl.scorecard.competition.dateOf | date}}</h5>
      <h5 for="location"><strong>Range Name</strong>: {{scorecardCtrl.scorecard.competition.location}}</h5>
-     <h5 class="ng-model"><strong>Distance</strong>: {{scorecardCtrl.scorecard.matches[0].distanceToTarget}}</h5>
+     <h5 for="Distance"><strong>Distance</strong>: {{scorecardCtrl.scorecard.matches[0].distanceToTarget}}</h5>
      <h5 for="targetNumber"><strong>Target #</strong>: {{scorecardCtrl.scorecard.matches[0].targetNumber}}</h5>
      <h5 for="relay"><strong>Relay #</strong>: {{scorecardCtrl.scorecard.matches[0].relay}}</h5>
   </div>

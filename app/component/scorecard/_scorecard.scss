@@ -8,8 +8,15 @@
 .app-scorecard-get {
   border: black 2px solid;
   padding: 10px;
-  min-height: 550px;
+  min-height: 600px;
   max-width: 900px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 2vw;
 }
 
 .competitionInfo {
@@ -44,7 +51,7 @@
   margin-top: -18px;
 }
 
-@media (max-width: 1200px){
+@media (max-width: 1300px){
   .app-scorecard {
     margin-left: 20%;
   }
