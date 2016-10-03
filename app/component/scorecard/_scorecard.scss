@@ -32,23 +32,49 @@
   justify-content: space-around;
 }
 
-.scorecard-scoring-totals {
-  margin: 3% 10% 3% 10%;
-}
-
-.scorecard-match-outer-div {
-  max-width: 771px;
+.total-score-tables {
+  margin: 5% 25% 5% 25%;
 }
 
 .score-field {
-  margin-left: 5%;
+  margin: 0 auto;
+
+  .matchTable {
+    margin: 0 auto;
+    max-width: 771px;
+    max-height: 49px;
+    height: auto;
+    width: auto;
+  }
 }
 
-.total-field {
-  width: 11%;
-  height: 10%;
-  line-height: 10%;
-  margin-top: -18px;
+table, tr, td, th {
+  border: thin solid black;
+  border-collapse: collapse;
+}
+
+.shotNum {
+  background-color: grey;
+  color: white;
+}
+
+.scores {
+  text-align: center;
+  height: 2em;
+}
+
+th {
+  padding: 5px;
+  text-align: center;
+}
+
+.sf {
+  width: 25px;
+  text-align: center;
+}
+
+.total {
+  padding: 10px;
 }
 
 @media (max-width: 1300px){
@@ -60,13 +86,5 @@
     .app-scorecard-get {
       min-height: 750px;
     }
-  }
-
-  .scorecard-scoring-totals {
-    margin-left: 15%;
-  }
-
-  .score-field{
-    margin-left: 0;
   }
 }
