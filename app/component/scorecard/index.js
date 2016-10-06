@@ -19,9 +19,27 @@ appShooter.directive('appScorecardGet', function(){
 
 appShooter.controller('ScorecardController', ['$log', 'scorecardService', function($log, scorecardService){
   const vm = this;
+  vm.user = {
+    firstName: null,
+    lastName: null,
+    suffix: null
+  };
 
   $log.debug('scorecardCtrl.fetchScorecard');
+
   vm.fetchScorecard = function(){
+    scorecardService.fetchUser()
+    .then(user => {
+      this.user.firstName = user.firstName;
+      this.user.lastName = user.lastName;
+      this.user.suffix = user.nameSuffix;
+      this.user.nraNumber = user.nraNumber;
+      this.user.nraQualification = user.nraQualification;
+    })
+    .catch(err => {
+      $log.error('no user fetched', err.message);
+    });
+
     scorecardService.getScorecard(vm.compToDisplay._id)
     .then( scorecard => {
       this.scorecard = scorecard;

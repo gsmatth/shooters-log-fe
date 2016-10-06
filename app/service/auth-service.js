@@ -50,13 +50,10 @@ function authService($log, $q, $http, $window){
 
     return $http.post(url, user, config)
     .then(res => {
-      $log.info('success', res.data);
+      $log.info('signup success', res.data);
       return _setToken(res.data);
     })
     .catch(err => {
-      if(err.status === 500){
-        alert('Username is unavailable.');
-      }
       return $q.reject(err);
     });
   };
@@ -75,15 +72,18 @@ function authService($log, $q, $http, $window){
 
     return $http.get(url, config)
     .then(res => {
-      $log.info('success', res.data);
+      $log.warn('signin success', res.data);
       return _setToken(res.data);
     })
     .catch(err => {
-      if(err.status === 500 || err.status === 401){
-        alert('Username or password is incorrect.');
-      }
       return $q.reject(err);
     });
+  };
+
+  service.logTokens = function()  {
+    $log.debug('authService logTokens');
+    $log.warn(token ? 'private token exists' : 'private token missing');
+    $log.warn($window.localStorage.getItem('token') ? 'storage token exists' : 'storage token missing');
   };
 
   return service;

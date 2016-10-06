@@ -4,10 +4,20 @@ require('./_home.scss');
 const angular = require('angular');
 const appShooter = angular.module('appShooter');
 
-appShooter.controller('HomeController', ['$log', 'scorecardService', HomeController]);
+appShooter.controller('HomeController', ['$log', '$location', 'scorecardService', 'authService', HomeController]);
 
-function HomeController($log, scorecardService){
+function HomeController($log, $location, scorecardService, authService){
   console.log('homeCtrl hit');
+
+  authService.getToken()
+  .then(() => {
+    $location.path('/home');
+  })
+  .catch( err => {
+    $log.error(err);
+    alert('you must sigin or register with Shooters Log');
+    $location.path('/signin');
+  });
 
   this.buttonTxt = 'View All Scorecards';
   this.displayRecentCards = true;

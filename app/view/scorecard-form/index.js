@@ -9,10 +9,27 @@ appShooter.controller('CreateScorecardFormController', ['$log','$scope', '$locat
 function CreateScorecardFormController($log, $scope, $location, scorecardService){
   $log.debug('entered CreateScorecardFormController');
   const vm = this;
-  vm.scoreInputValidation = /^([MmxX]|[056789]|[1][0])$/;
+  vm.scoreInputValidation = /^([MmxX]|[56789]|[1][0])$/;
+
+  vm.fetchUserInfo = function(){
+    $log.debug('fetching user Info');
+    scorecardService.fetchUser()
+    .then(user => {
+      this.user.firstName = user.firstName;
+      this.user.lastName = user.lastName;
+      this.user.nameSuffix = user.nameSuffix;
+      this.user.nraNumber = user.nraNumber;
+    })
+    .catch(err => {
+      $log.error('no user fetched', err);
+    });
+  };
+
   vm.user = {
     firstName:  null,
-    lastName:   null
+    lastName:   null,
+    nameSuffix: null,
+    nraNumber:  null
   };
   $log.debug('user: ', vm.user);
 
