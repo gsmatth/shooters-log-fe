@@ -8,7 +8,7 @@ appShooter.controller('SignupController', ['$log', '$location', '$window', 'auth
 
 function SignupController($log, $location, $window, authService){
   $log.debug('signup controller init');
-
+  this.errorDisplay = false;
   this.signup = function(){
     $log.debug('signupCtrl.signup');
     authService.signup(this.user)
@@ -19,6 +19,7 @@ function SignupController($log, $location, $window, authService){
     })
     .catch(err => {
       $log.error(err);
+      this.errorDisplay= true;
     });
   };
 }
