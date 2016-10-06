@@ -43,4 +43,15 @@
       color: $app-lightgreen;
     }
   }
+  .error-message {
+    // background-color: red;
+    // border: 2px $app-lightgreen solid;
+    // border-radius: 10px;
+    color: hsla(9, 87%, 46%, 1);
+    border: 1px solid hsla(9, 87%, 46%, 1);
+    background-color: hsla(9, 15%, 97%, 1);
+    font-size: 16px;
+    padding: 15px 25px;
+    margin: 25px;
+  }
 }
