@@ -16,20 +16,44 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding-left: 2vw;
+  border-bottom: thin solid $app-default;
+
+  h5 {
+    margin-left: 5vw;
+  }
+}
+
+.nraInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: thin solid $app-default;
+
+  h5 {
+    margin-left: 5vw;
+  }
 }
 
 .competitionInfo {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  border-bottom: solid 2px $app-default;
+  justify-content: flex-start;
+  border-bottom: thin solid $app-default;
+
+  h5 {
+    margin-left: 5vw;
+  }
 }
 
 .rifle {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
+  border-bottom: 2px solid $app-lightgreen;
+
+  h5{
+    margin-left: 5vw;
+  }
 }
 
 .total-score-tables {
