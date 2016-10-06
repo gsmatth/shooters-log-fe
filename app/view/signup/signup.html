@@ -4,6 +4,12 @@
     <app-logo class="app-logo"></app-logo>
 
     <div class="userPass">
+      <div ng-show="signupCtrl.errorDisplay" class="error-message">
+
+        <i class="fa fa-exclamation-triangle" aria-hidden="true">
+            <span>Username or password not recognized</span>
+        </i>
+      </div>
       <section class="form-group has-error">
         <label for="username"><span>*</span>Username:</label>
         <input required class="form-control" name="username"
