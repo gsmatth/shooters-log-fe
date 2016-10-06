@@ -7,6 +7,7 @@ const appShooter = angular.module('appShooter');
 appShooter.controller('SigninController', ['$log', '$location', '$window', 'authService', SigninController]);
 
 function SigninController($log, $location, $window, authService){
+  this.errorDisplay = false;
   $log.debug('init signinController');
   this.getToken = function(){
     $log.debug('signinController.getToken');
@@ -26,6 +27,8 @@ function SigninController($log, $location, $window, authService){
     })
     .catch(err => {
       $log.error(err);
+      this.errorDisplay = true;
+      console.log(this.errorDisplay);
     });
   };
 }
