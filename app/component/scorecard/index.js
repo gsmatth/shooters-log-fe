@@ -33,6 +33,8 @@ appShooter.controller('ScorecardController', ['$log', 'scorecardService', functi
       this.user.firstName = user.firstName;
       this.user.lastName = user.lastName;
       this.user.suffix = user.nameSuffix;
+      this.user.nraNumber = user.nraNumber;
+      this.user.nraQualification = user.nraQualification;
     })
     .catch(err => {
       $log.error('no user fetched', err.message);

@@ -2,14 +2,18 @@
   ng-init="scorecardCtrl.fetchScorecard()">
   <!-- <div class="scorecard-admin" > -->
   <div class="userInfo">
-    <h3 for="firstName"><strong>First Name</strong>: {{scorecardCtrl.user.firstName}} &nbsp &nbsp</h3>
-    <h3 for="lastName"><strong>Last Name</strong>: {{scorecardCtrl.user.lastName}} &nbsp &nbsp</h3>
-    <h3 ng-show="scorecardCtrl.user.suffix" for="suffix"><strong>Suffix</strong>: {{scorecardCtrl.user.suffix}}</h3>
+    <h5 for="firstName"><strong>First Name</strong>: {{scorecardCtrl.user.firstName}} &nbsp &nbsp</h3>
+    <h5 for="lastName"><strong>Last Name</strong>: {{scorecardCtrl.user.lastName}} &nbsp &nbsp</h3>
+    <h5 ng-show="scorecardCtrl.user.suffix" for="suffix"><strong>Suffix</strong>: {{scorecardCtrl.user.suffix}}</h3>
   </div>
-  <div class="competitionInfo">
+  <div class="nraInfo">
+     <h5 for="nraNumber" ng-show="scorecardCtrl.user.nraNumber"><strong>NRA Number</strong>: {{scorecardCtrl.user.nraNumber}}</h5>
+     <h5 for="nraQualification" ng-show="scorecardCtrl.user.nraQualification"><strong>NRA Qualification</strong>: {{scorecardCtrl.user.nraQualification}}</h5>
      <h5 for="date"><strong>Date</strong>: {{scorecardCtrl.scorecard.competition.dateOf | date}}</h5>
+   </div>
+   <div class="competitionInfo">
      <h5 for="location"><strong>Range Name</strong>: {{scorecardCtrl.scorecard.competition.location}}</h5>
-     <h5 for="Distance"><strong>Distance</strong>: {{scorecardCtrl.scorecard.matches[0].distanceToTarget}}</h5>
+     <h5 for="Distance"><strong>Distance</strong>: {{scorecardCtrl.scorecard.matches[0].distanceToTarget}} yds</h5>
      <h5 for="targetNumber"><strong>Target #</strong>: {{scorecardCtrl.scorecard.matches[0].targetNumber}}</h5>
      <h5 for="relay"><strong>Relay #</strong>: {{scorecardCtrl.scorecard.matches[0].relay}}</h5>
   </div>
