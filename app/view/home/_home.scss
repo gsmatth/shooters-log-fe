@@ -4,12 +4,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-bottom: 5vh;
+  margin: 0 5vw 5vh 5vw;
 
   button {
     position: fixed;
     top: 5%;
-    left: 50vw;
+    left: 45vw;
     min-width: 10vw;
     font-family: dual-300;
     line-height: 1.5;
@@ -25,6 +25,23 @@
 
     &:focus {
       outline: none;
+    }
+  }
+
+  @media(max-width: 750px) {
+    flex-direction: row;
+    justify-content: center;
+    .app-scorecard {
+      display: none;
+    }
+    button {
+      display: none;
+    }
+  }
+
+  @media(min-width: 751px) {
+    app-scorecard-dash {
+      display: none;
     }
   }
 }

@@ -1,0 +1,11 @@
+<main class="app-scorecard-dash" ng-init="scorecardCtrl.fetchScorecard()">
+  <div class="header">
+    <h3 for="date">{{scorecardCtrl.scorecard.competition.dateOf | date}}</h3>
+    <h3 for="compName">{{scorecardCtrl.scorecard.competition.location}}</h3>
+    <h3 for="Distance">{{scorecardCtrl.scorecard.matches[0].distanceToTarget}} yds</h3>
+  </div>
+  <div class="compStats">
+    <h3 for="aggScore">Score: {{scorecardCtrl.totalCompScore}}</h3>
+    <h3 for="aggX">X-count: {{scorecardCtrl.totalXCount}}</h3>
+  </div>
+</main>
