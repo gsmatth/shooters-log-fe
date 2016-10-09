@@ -22,6 +22,16 @@ function HomeController($log, $location, scorecardService, authService){
   this.buttonTxt = 'View All Scorecards';
   this.displayRecentCards = true;
 
+  this.displayModal = false;
+  this.showModal = function(){
+    this.displayModal = true;
+  };
+  
+  this.hideModal = function(){
+    console.log('close modal working');
+    this.displayModal = false;
+  };
+
   this.toggle = function(){
     this.displayRecentCards = !this.displayRecentCards;
     if (this.displayRecentCards === true) {

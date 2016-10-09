@@ -34,13 +34,13 @@
     .app-scorecard {
       display: none;
     }
-    button {
+    #toggleScorecards {
       display: none;
     }
   }
 
   @media(min-width: 751px) {
-    app-scorecard-dash {
+    .app-scorecard-dash {
       display: none;
     }
   }

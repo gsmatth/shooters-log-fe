@@ -56,3 +56,4 @@ require('./component/nav');
 require('./component/menu');
 require('./component/scorecard');
 require('./component/scorecardDash');
+require('./component/scorecardModal');

@@ -106,9 +106,16 @@ th {
     margin-left: 20%;
   }
 
-  @media (max-width: 925px){
+  @media (max-width: 700px){
     .app-scorecard-get {
       min-height: 750px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .app-scorecard-get {
+      min-height: 200px;
+      max-height: 500px;
     }
   }
 }
