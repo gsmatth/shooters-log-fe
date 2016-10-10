@@ -2,14 +2,20 @@
   width: 32px;
 }
 
+#createForm {
+  width: 70vw;
+  font-size: 1em;
+  margin-right: 0;
+}
+
 .scorecard-form-main {
   border: black 2px solid;
-  margin: 10% auto;
+  margin: 10vh auto 0 20vw;
   padding: 10px;
-  padding-left: 35px;
-  min-height: 600px;
-  max-width: 900px;
+  padding-left: 25px;
   min-height: 650px;
+  max-width: 900px;
+  max-height: 775px;
   box-shadow: 3px 3px 3px #888888;
 }
 
@@ -39,8 +45,6 @@
   padding:0px 2px 0px 8px;
   border-color: black;
   border-width:0px 3px 0px 0px;
-
-
 }
 
 .shot-score.ng-invalid, .first-shot-score.ng-invalid {
@@ -94,5 +98,13 @@
   font-size: 20px;
   float: left;
   margin: 20px 40px 25px 0px;
+}
 
+@media(max-width: 500px) {
+  .scorecard-form-main{
+    margin-top: 20%;
+    margin-left: 0;
+    border: none;
+    box-shadow: none;
+  }
 }

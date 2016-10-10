@@ -1,19 +1,19 @@
 <main class="scorecard-form-main" ng-init="createScorecardFormCtrl.fetchUserInfo()">
-<form name="scorecardHeader" ng-submit="createScorecardFormCtrl.createComp()" class="form-inline score-card-header-form" novalidate>
+<form id="createForm" name="scorecardHeader" ng-submit="createScorecardFormCtrl.createComp()" class="form-inline score-card-header-form" novalidate>
   <div class="form-group scorecard-admin" ng-class="{'has-error': scorecardHeader.firstName.$invalid && !scorecardHeader.firstname.$pristine}">
     <label for="firstName">First Name</label>
-    <input type="text" class="form-control scorecard-form-admin" id="firstName"  name="firstName" ng-model="createScorecardFormCtrl.user.firstName" required style="margin: 0 5 5 0; width: 250px; position: float-left">
+    <input type="text" class="form-control scorecard-form-admin" id="firstName"  name="firstName" ng-model="createScorecardFormCtrl.user.firstName" required style="margin: 0 5 5 0; width: 175px; position: float-left">
     <p ng-show="scorecardHeader.firstName.$invalid && !scorecardHeader.firstName.$pristine" class="scorecardHeaderErrorMessage">A firstname is required</p>
     <label for="lastName">Last Name</label>
-    <input type="text" class="form-control" id="lastName" name="lastName" ng-model="createScorecardFormCtrl.user.lastName" required style="width:250px; margin: 0 5 5 0" >
+    <input type="text" class="form-control" id="lastName" name="lastName" ng-model="createScorecardFormCtrl.user.lastName" required style="width:175px; margin: 0 5 5 0" >
     <label for="nameSuffix">Suffix</label>
     <input type="text" class="form-control scorecard-form-admin"  id="nameSuffix" name="nameSuffix" ng-model="createScorecardFormCtrl.user.nameSuffix" size="10" style="margin: 0 5 5 0; width:100px" placeholder="Sr, Jr, II">
   </div>
   <div class="form-group">
     <label for="NRANumber">NRA Number</label>
-    <input type="number" class="form-control scorecard-form-admin" id="nraNumber" name="nraNumber" ng-model="createScorecardFormCtrl.user.nraNumber" style="margin: 0 5 5 0; width: 200px">
+    <input type="number" class="form-control scorecard-form-admin" id="nraNumber" name="nraNumber" ng-model="createScorecardFormCtrl.user.nraNumber" style="margin: 0 5 5 0; width: 150px">
     <label for="NRAQualification">NRA Qualification</label>
-    <select class="form-control" name="NRAQualification" ng-model="createScorecardFormCtrl.user.NRAQualification" style="margin: 0 5 5 0; width: 125px">
+    <select class="form-control" name="NRAQualification" ng-model="createScorecardFormCtrl.user.NRAQualification" style="margin: 0 5 5 0; width: 100px">
       <option>High Master</option>
       <option>Master</option>
       <option>Expert</option>
@@ -21,7 +21,7 @@
       <option>None</option>
     </select>
     <label for="dateOf">Date</label>
-    <input type="date" class="form-control scorecard-form-admin" id="dateOf" name="dateOf" ng-model="createScorecardFormCtrl.competition.dateOf" required  style="margin: 0 5 5 0; width: 200px">
+    <input type="date" class="form-control scorecard-form-admin" id="dateOf" name="dateOf" ng-model="createScorecardFormCtrl.competition.dateOf" required  style="margin: 0 5 5 0; padding-right: 0; width: 150px">
   </div>
   <div class="form-group">
     <label for="location">Range Name</label>
@@ -30,13 +30,13 @@
             id="location"
             name="location" ng-model="createScorecardFormCtrl.competition.location"
             required
-            style="margin: 0 5 5 0; width: 150px"
+            style="margin: 0 5 5 0; width: 100px"
     >
     <label for="distance">Distance</label>
     <select class="form-control"
             name="distanceToTarget" ng-model="createScorecardFormCtrl.match.distanceToTarget"
             required
-            style="margin: 0 5 5 0; width: 125px"
+            style="margin: 0 5 5 0; width: 100px"
     >
       <option>300</option>
       <option>500</option>
@@ -54,13 +54,14 @@
     <input type="number" class="form-control scorecard-form-admin" id="caliber" name="caliber" ng-model="createScorecardFormCtrl.competition.caliber" required style="margin: 0 5 5 0; width: 100px">
     <label for="action">Action</label>
     <input type="text" class="form-control scorecard-form-admin" id="action" name="action" ng-model="createScorecardFormCtrl.competition.action" required style="margin: 0 5 5 0; width: 150px">
-  </div>
   <br><br>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> NRA Sanctioned Tournament
-    </label>
+    <div class="checkbox">
+      <label style="display: block;">
+        <input type="checkbox"> NRA Sanctioned Tournament
+      </label>
+    </div>
   </div>
+
   <!--<button type="submit" class="btn btn-primary" ng-disabled="scorecardHeader.$invalid">Create Competition</button>-->
 <!--</form>-->
 
