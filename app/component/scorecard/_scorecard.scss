@@ -1,7 +1,7 @@
 @import "_theme";
 
 .app-scorecard {
-  margin: 11vh auto 0 auto;
+  margin: 11vh auto 0 22%;
   box-shadow: 3px 3px 3px #888888;
 }
 
@@ -106,9 +106,18 @@ th {
     margin-left: 20%;
   }
 
-  @media (max-width: 925px){
+  @media (max-width: 700px){
     .app-scorecard-get {
       min-height: 750px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .app-scorecard-get {
+      border: none;
+      height: auto;
+      min-height: 200px;
+      max-height: 85vh;
     }
   }
 }

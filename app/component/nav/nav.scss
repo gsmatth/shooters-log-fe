@@ -4,11 +4,12 @@
   position:fixed;
   top: 0;
   left: 0;
-  width: 15%;
+  width: 18vw;
   height: 100%;
 
   @media (max-width: 899px){
     padding-top: 100px;
+    width: 60vw;
   }
 
   border-right: thick solid $app-lightgreen;
@@ -44,15 +45,15 @@
 
   .logout {
     background-color: none;
-    margin: 5px 15% 10% 15%;
+    margin: 5px 23% 10% 23%;
     width: 10vw;
 
     @media (max-width: 900px){
-      margin-left: 20%;
+      margin-left: 22%;
     }
 
     @media (max-width: 450px){
-      width: 20vw;
+      width: 21vw;
     }
 
     font-family: dual-300;
@@ -72,11 +73,11 @@
     background-color: $app-default;
     border: 2px solid $app-lightgreen;
     border-radius: 5px;
-    max-width: 11vw;
+    max-width: 15vw;
     margin: 20px auto 10px auto;
 
     .logo {
-      width: 10.5vw;
+      width: 14.5vw;
     }
   }
 
@@ -87,10 +88,14 @@
       }
 
       li {
-        width: 5em;
-        height: 5em;
+        width: auto;
+        height: 2em;
         margin: 5% auto 5% auto;
-        border-radius: 40px;
+        border-radius: 0;
+        border-bottom: thin solid white;
+        border-top: none;
+        border-left: none;
+        border-right: none;
       }
     }
 

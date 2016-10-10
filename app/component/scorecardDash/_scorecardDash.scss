@@ -1,0 +1,51 @@
+@import "_theme";
+
+.app-scorecard-dash {
+  border-bottom: thin solid $app-lightgreen;
+  border-radius: 10px;
+  max-width: 35vw;
+  width: auto;
+  max-height: 20vh;
+  height: auto;
+  margin: 20vh auto 0 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: dual-300;
+
+  &:hover {
+    box-shadow: 5px 5px 5px $app-lightgreen;
+    cursor: default;
+  }
+
+  &:active {
+    border: thin solid grey;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  background-color: grey;
+  color: white;
+  border-radius: 10px 10px 0 0;
+
+  h3 {
+    font-size: 2.2vw;
+    margin: 8%;
+  }
+}
+
+.compStats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  h3 {
+    font-size: 2.2vw;
+  }
+}

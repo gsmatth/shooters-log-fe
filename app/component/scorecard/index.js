@@ -55,7 +55,7 @@ appShooter.controller('ScorecardController', ['$log', 'scorecardService', functi
       vm.convertScore(vm.match3Scores);
     })
     .catch( () => {
-      $log.err('Sad dog, no fetch');
+      $log.error('Sad dog, no fetch');
     });
   };
 

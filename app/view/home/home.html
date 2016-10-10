@@ -1,10 +1,12 @@
 <main class="app-home-page">
   <!-- add component for user profile  -->
-  <button type="button" ng-click="homeCtrl.toggle()">{{homeCtrl.buttonTxt}}</button>
+  <button id="toggleScorecards" type="button" ng-click="homeCtrl.toggle()">{{homeCtrl.buttonTxt}}</button>
+
   <div ng-class="app-scorecardWrapper"
        ng-repeat="competition in homeCtrl.displayScorecards">
 
+    <app-scorecard-dash ng-click="homeCtrl.showModal()" comp-to-display="competition"></app-scorecard-dash>
     <app-scorecard-get class="app-scorecard" comp-to-display="competition"> </app-scorecard-get>
   </div>
-
+  <app-scorecard-modal ng-show="homeCtrl.displayModal" close-modal="homeCtrl.hideModal()" modal-scorecard="homeCtrl.competitions[0]"></app-scorecard-modal>
 </main>

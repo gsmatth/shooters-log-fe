@@ -1,0 +1,30 @@
+.app-scorecard-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+
+  .modal {
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 12%;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    opacity: 1;
+  }
+
+  #closeModal {
+    position: fixed;
+    left: 50%;
+    top: 5%;
+    width: 15%;
+    height: 5%;
+    z-index: 110;
+  }
+}
