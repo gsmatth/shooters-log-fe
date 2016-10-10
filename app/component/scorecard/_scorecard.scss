@@ -112,10 +112,12 @@ th {
     }
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 450px) {
     .app-scorecard-get {
+      border: none;
+      height: auto;
       min-height: 200px;
-      max-height: 500px;
+      max-height: 85vh;
     }
   }
 }

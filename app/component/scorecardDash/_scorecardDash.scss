@@ -3,9 +3,9 @@
 .app-scorecard-dash {
   border-bottom: thin solid $app-lightgreen;
   border-radius: 10px;
-  max-width: 25vw;
+  max-width: 35vw;
   width: auto;
-  max-height: 15vh;
+  max-height: 20vh;
   height: auto;
   margin: 20vh auto 0 10%;
   display: flex;
@@ -34,7 +34,7 @@
   border-radius: 10px 10px 0 0;
 
   h3 {
-    font-size: 1.8vw;
+    font-size: 2.2vw;
     margin: 8%;
   }
 }
@@ -46,6 +46,6 @@
   flex-wrap: wrap;
 
   h3 {
-    font-size: 1.7vw;
+    font-size: 2.2vw;
   }
 }
