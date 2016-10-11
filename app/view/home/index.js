@@ -23,10 +23,12 @@ function HomeController($log, $location, scorecardService, authService){
   this.displayRecentCards = true;
 
   this.displayModal = false;
-  this.showModal = function(){
+  this.showModal = function(comp){
     this.displayModal = true;
+    this.modalScorecard = comp;
+    console.log(this.modalScorecard);
   };
-  
+
   this.hideModal = function(){
     console.log('close modal working');
     this.displayModal = false;
