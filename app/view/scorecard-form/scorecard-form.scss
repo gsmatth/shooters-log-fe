@@ -110,7 +110,13 @@
 
 @media(max-width: 500px) {
   .scorecard-form-main{
-    margin-top: 20%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: scroll;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 20vh;
     margin-left: 0;
   }
 }
@@ -135,6 +141,8 @@
 
 @media(max-width: 900px) {
   .scorecard-form-main {
-    margin-left: 10vw;
+    margin: 15vh 0 0 0;
+    padding-left: 10vw;
+    padding-bottom: 10vh;
   }
 }
