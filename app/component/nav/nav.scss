@@ -8,8 +8,8 @@
   height: 100%;
 
   @media (max-width: 899px){
-    padding-top: 100px;
-    width: 60vw;
+    padding-top: 2vh;
+    width: 225px;
   }
 
   border-right: thick solid $app-lightgreen;
@@ -49,11 +49,11 @@
     width: 10vw;
 
     @media (max-width: 900px){
-      margin-left: 22%;
+      margin-left: 22vw;
     }
 
     @media (max-width: 450px){
-      width: 21vw;
+      width: 25vw;
     }
 
     font-family: dual-300;

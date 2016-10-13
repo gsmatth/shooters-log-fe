@@ -10,8 +10,8 @@
   border: thin solid white;
   border-radius: 5%;
 
-  left: 3%;
-  top: 2%;
+  left: 3vw;
+  top: 2vh;
   padding: .5% .5% .5% .5%;
 
   color: $app-lightgreen;
@@ -56,7 +56,7 @@
   from {
     left: 0;
   } to {
-    left: -40%;
+    left: -225px;
   }
 
 }
