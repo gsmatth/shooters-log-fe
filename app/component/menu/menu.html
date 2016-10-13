@@ -2,7 +2,7 @@
 
   <div class="mobileMenu">
     <i class="fa fa-bars" ng-click=" $ctrl.showMenu = !$ctrl.showMenu"></i>
-    <app-nav ng-if="$ctrl.showMenu" class="menu-exit"></app-nav>
+    <app-nav ng-if="$ctrl.showMenu" class="menu-exit" close-menu="$ctrl.showMenu = false"></app-nav>
   </div>
 
   <div class="desktopMenu">

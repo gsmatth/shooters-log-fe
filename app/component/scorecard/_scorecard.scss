@@ -108,7 +108,9 @@ th {
 
   @media (max-width: 700px){
     .app-scorecard-get {
+      border: none;
       min-height: 750px;
+      max-height: 900px;
     }
   }
 

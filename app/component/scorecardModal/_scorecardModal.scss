@@ -4,6 +4,8 @@
   right: 0;
   width: 100vw;
   height: 100vh;
+  background-color: white;
+  overflow: scroll;
 
   .modal {
     position: absolute;
@@ -11,8 +13,7 @@
     left: 0;
     top: 12%;
     width: 100vw;
-    height: 100vh;
-    overflow: scroll;
+    height: 82vh;
     margin-left: auto;
     margin-right: auto;
     background-color: white;

@@ -3,10 +3,17 @@ require('./nav.scss');
 const angular = require('angular');
 const appShooter = angular.module('appShooter');
 
-appShooter.component('appNav', {
-  template: require('./nav.html'),
-  controller: 'NavController',
-  controllerAs: 'navCtrl'
+appShooter.directive('appNav', function(){
+  return {
+    restrict: 'E',
+    replace: true,
+    template: require('./nav.html'),
+    controller: 'NavController',
+    controllerAs: 'navCtrl',
+    scope: {
+      closeMenu: '&'
+    }
+  };
 });
 
 appShooter.controller('NavController', ['$log', '$location', 'authService', NavController]);
