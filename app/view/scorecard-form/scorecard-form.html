@@ -870,6 +870,6 @@
   </div>
 </section>
   <br><br><br>
-  <button type="submit" ng-disabled="scorecardHeader.$invalid" class="btn btn-primary create-scorecard-button">Create Scorecard</button>
+  <button type="submit" ng-disabled="scorecardHeader.$invalid || scorecardHeader.shot18.$pristine" class="btn btn-primary create-scorecard-button">Create Scorecard</button>
 </form>
 </main>
