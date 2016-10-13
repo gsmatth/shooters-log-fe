@@ -45,16 +45,8 @@
 
   .logout {
     background-color: none;
-    margin: 5px 23% 10% 23%;
-    width: 10vw;
-
-    @media (max-width: 900px){
-      margin-left: 22vw;
-    }
-
-    @media (max-width: 450px){
-      width: 25vw;
-    }
+    margin: 5px 23% 10vh 32%;
+    width: 75px;
 
     font-family: dual-300;
     border: 2px solid white;
@@ -63,6 +55,10 @@
 
     &:hover{
       background-color: white;
+    }
+
+    @media(max-width: 899px) {
+      margin: 5px 25px 5px 125px;
     }
   }
 
@@ -83,6 +79,8 @@
 
   ul {
     @media (max-width: 899px) {
+      margin-top: 50px;
+
       .desktop {
         display: none;
       }
