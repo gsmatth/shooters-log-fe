@@ -100,11 +100,43 @@
   margin: 20px 40px 25px 0px;
 }
 
+@media(min-width: 400px) {
+  .form-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
 @media(max-width: 500px) {
   .scorecard-form-main{
     margin-top: 20%;
     margin-left: 0;
-    border: none;
+  }
+}
+
+@media(min-width: 550px){
+  .form-text{
+    //display: flex;
+    flex-direction: row;
+    //justify-content: space-around;
+  }
+}
+
+@media(max-width: 1000px) {
+  .scorecard-form-main {
     box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+
+  #createForm {
+    margin: 0;
+  }
+}
+
+@media(max-width: 900px) {
+  .scorecard-form-main {
+    margin-left: 10vw;
   }
 }

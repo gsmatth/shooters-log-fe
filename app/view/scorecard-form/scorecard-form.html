@@ -1,6 +1,6 @@
 <main class="scorecard-form-main" ng-init="createScorecardFormCtrl.fetchUserInfo()">
 <form id="createForm" name="scorecardHeader" ng-submit="createScorecardFormCtrl.createComp()" class="form-inline score-card-header-form" novalidate>
-  <div class="form-group scorecard-admin" ng-class="{'has-error': scorecardHeader.firstName.$invalid && !scorecardHeader.firstname.$pristine}">
+  <div class="form-group scorecard-admin form-text" ng-class="{'has-error': scorecardHeader.firstName.$invalid && !scorecardHeader.firstname.$pristine}">
     <label for="firstName">First Name</label>
     <input type="text" class="form-control scorecard-form-admin" id="firstName"  name="firstName" ng-model="createScorecardFormCtrl.user.firstName" required style="margin: 0 5 5 0; width: 175px; position: float-left">
     <p ng-show="scorecardHeader.firstName.$invalid && !scorecardHeader.firstName.$pristine" class="scorecardHeaderErrorMessage">A firstname is required</p>
@@ -9,7 +9,7 @@
     <label for="nameSuffix">Suffix</label>
     <input type="text" class="form-control scorecard-form-admin"  id="nameSuffix" name="nameSuffix" ng-model="createScorecardFormCtrl.user.nameSuffix" size="10" style="margin: 0 5 5 0; width:100px" placeholder="Sr, Jr, II">
   </div>
-  <div class="form-group">
+  <div class="form-group form-text">
     <label for="NRANumber">NRA Number</label>
     <input type="number" class="form-control scorecard-form-admin" id="nraNumber" name="nraNumber" ng-model="createScorecardFormCtrl.user.nraNumber" style="margin: 0 5 5 0; width: 150px">
     <label for="NRAQualification">NRA Qualification</label>
@@ -23,7 +23,7 @@
     <label for="dateOf">Date</label>
     <input type="date" class="form-control scorecard-form-admin" id="dateOf" name="dateOf" ng-model="createScorecardFormCtrl.competition.dateOf" required  style="margin: 0 5 5 0; padding-right: 0; width: 150px">
   </div>
-  <div class="form-group">
+  <div class="form-group form-text">
     <label for="location">Range Name</label>
     <input type="text"
             class="form-control scorecard-form-admin"
@@ -49,7 +49,7 @@
     <label for="relay">Relay #</label>
     <input type="number" class="form-control scorecard-form-admin" id="relay" name="relay" ng-model="createScorecardFormCtrl.match.relay" required style="margin: 0 5 5 0; width: 75px">
   </div>
-  <div class="form-group">
+  <div class="form-group form-text">
     <label for="caliber">Caliber</label>
     <input type="number" class="form-control scorecard-form-admin" id="caliber" name="caliber" ng-model="createScorecardFormCtrl.competition.caliber" required style="margin: 0 5 5 0; width: 100px">
     <label for="action">Action</label>
