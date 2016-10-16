@@ -9,6 +9,14 @@
   border-radius: 10px 10px 10px 10px;
   height: 669px;
 
+  @media(max-width: 600px) {
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    border-radius: 0px;
+  }
+
   form {
     display: flex;
     flex-direction: column;
