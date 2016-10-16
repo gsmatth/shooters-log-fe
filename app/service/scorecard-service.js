@@ -1,6 +1,5 @@
 'use strict';
 
-
 const angular = require('angular');
 
 angular.module('appShooter').factory('scorecardService', ['$log', '$q','$window', '$http', scorecardService]);
@@ -139,7 +138,6 @@ function scorecardService($log, $q, $window, $http) {
     return $http.get(url, config)
     .then(res => {
       $log.info('Success', res.data);
-      console.log('scorecard-service.getAllCompetitions res.data', res.data);
       this.competitions.push(res.data);
       return $q.resolve(res.data);
 
