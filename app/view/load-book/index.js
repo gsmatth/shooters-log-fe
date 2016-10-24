@@ -7,9 +7,15 @@ appShooter.controller('LoadBookController', ['$log', 'loadBookService', LoadBook
 
 function LoadBookController($log, loadBookService) {
 
+  this.showModal = false;
   this.loadForm = false;
   this.showForm = function(){
     this.loadForm = true;
+  };
+
+  this.selectLoad = function(load){
+    this.showModal = true;
+    this.modalLoad = load;
   };
 
   loadBookService.getAllLoadBooks()

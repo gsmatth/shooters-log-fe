@@ -5,7 +5,7 @@
     <p ng-hide="loadBookCtrl.loads">You have no loads to display</p>
     <section class="user-loadBooks" ng-repeat="load in loadBookCtrl.loads">
 
-      <app-load-book-dash load-to-display="load"></app-load-book-dash>
+      <app-load-book-dash load-to-display="load" ng-click="loadBookCtrl.selectLoad(load)"></app-load-book-dash>
 
     </section>
 
