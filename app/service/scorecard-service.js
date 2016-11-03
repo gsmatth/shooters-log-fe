@@ -2,7 +2,7 @@
 
 const angular = require('angular');
 
-angular.module('appShooter').factory('scorecardService', ['$log', '$q','$window', '$http', scorecardService]);
+angular.module('appShooter').factory('scorecardService', ['$log', '$q', '$window', '$http', scorecardService]);
 
 
 function scorecardService($log, $q, $window, $http) {
