@@ -20,16 +20,16 @@ function LoadBookController($log, loadBookService) {
     this.modalLoad = load;
   };
 
-  loadBookService.getAllLoadBooks()
+  loadBookService.getAllLoads()
   .then(loads => {
     this.loads = loads;
     this.loads.sort(function(a, b) {
       a = new Date(a.dateOf);
       b = new Date(b.dateOf);
       return a>b ? -1 : a<b ? 1 : 0;
-    })
-    .catch(err => {
-      $log.error('Failed to fetch loads', err.message);
     });
+  })
+  .catch(err => {
+    $log.error('Failed to fetch loads', err.message);
   });
 }

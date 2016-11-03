@@ -1,15 +1,15 @@
 <main class="app-load-book">
-  <div class="load-book-dash">
+  <div class="load-list">
 
     <h3>Your Loads</h3>
-    <p ng-hide="loadBookCtrl.loads">You have no loads to display</p>
+    <p ng-hide="loadBookCtrl.loads[0]">You have no loads to display</p>
     <section class="user-loadBooks" ng-repeat="load in loadBookCtrl.loads">
 
       <app-load-book-dash load-to-display="load" ng-click="loadBookCtrl.selectLoad(load)"></app-load-book-dash>
 
     </section>
 
-    <h3>Create a Load <span ng-click="loadBookCtrl.showForm()">+</span></h3>
+    <h3 class="createLoad">Create a Load &nbsp<span ng-click="loadBookCtrl.showForm()" style="cursor:pointer">+</span></h3>
     <section class="loadBook-form" ng-if="loadBookCtrl.loadForm">
       <!-- Load form html -->
     </section>

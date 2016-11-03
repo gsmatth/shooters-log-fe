@@ -11,7 +11,7 @@ function loadBookService($log, $q, $http, $window) {
   service.loads = [];
 
   service.getAllLoads = function() {
-    let url = `${__API_URL__}/api/loads`;
+    let url = `${__API_URL__}/api/user/loads`;
 
     let config = {
       headers: {
