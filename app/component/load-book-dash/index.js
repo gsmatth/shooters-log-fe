@@ -3,7 +3,7 @@
 const angular = require('angular');
 const appShooter = angular.module('appShooter');
 
-angular.directive('appLoadBookDash', function(){
+appShooter.directive('appLoadBookDash', function(){
   return {
     restrict: 'E',
     replace: true,
@@ -19,7 +19,7 @@ angular.directive('appLoadBookDash', function(){
 
 appShooter.controller('LoadDisplayController', ['$log', 'loadBookService', 'testLoadService', function($log, loadBookService, testLoadService) {
   $log.debug('load-book-dash-controller fetching load');
-  
+
   loadBookService.getLoad(this.loadToDiplay._id)
   .then(load => {
     this.loadData = load;
