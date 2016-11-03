@@ -11,9 +11,7 @@ function LoadBookController($log, loadBookService) {
 
   this.showModal = false;
   this.loadForm = false;
-  this.showForm = function(){
-    this.loadForm = true;
-  };
+  this.showForm = function(){this.loadForm = true;};
 
   this.selectLoad = function(load){
     this.showModal = true;
@@ -32,4 +30,15 @@ function LoadBookController($log, loadBookService) {
   .catch(err => {
     $log.error('Failed to fetch loads', err.message);
   });
+
+  this.createLoad = function(loadData){
+    loadBookService.createLoad(loadData)
+    .then(load => {
+      $log.info('load created:', load);
+      this.loads.push(load);
+    })
+    .catch(err => {
+      $log.error('failed to create load', err.message);
+    });
+  };
 }

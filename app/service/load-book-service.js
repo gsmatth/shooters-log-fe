@@ -37,7 +37,8 @@ function loadBookService($log, $q, $http, $window) {
 
     let config = {
       headers: {
-        'Content-Type': 'application/json',        'Authorization': `Bearer ${token}`
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
       }
     };
     return $http.post(url, loadData, config)

@@ -2,23 +2,77 @@
 
 .load-list {
   font-family: 'Dual-300';
-  width: 50vw;
+  width: 60vw;
   margin: 10vh auto;
   text-align: center;
 
-  .createLoad {
-    font-size: 2.5em;
-    margin: 20%;
+  .createLoad-button {
+    font-size: 2em;
+    margin-top: 20%;
+    text-align: center;
 
     span{
       display: inline-block;
-      width: 35px;
-      height: 35px;
+      font-size: 2vw;
+      width: 2vw;
+      height: 2vw;
       border: thin solid $app-default;
 
       &:hover {
         background-color: $app-default;
       }
+    }
+  }
+
+  .loadBook-form {
+    width: 60vw;
+    font-size: 1.5em;
+    margin-top: 20%;
+
+    #load-name-wrapper {
+      width: 250px;
+      text-align: left;
+
+      label {
+        margin-left: 2px;
+      }
+
+      input{
+        width: 125px;
+        border-bottom: thin solid $app-default;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        outline: none;
+      };
+    }
+
+    .shooting-conditions, .load-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      padding: 10px;
+      border: thin solid grey;
+      border-radius: 5px;
+
+      input {
+        width: 100px;
+        border-bottom: thin solid $app-lightgreen;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        outline: none;
+      }
+
+      .input-wrapper {
+        margin: 5px;
+      }
+    }
+
+    .form-buttons {
+      margin-top: 10%;
     }
   }
 }
