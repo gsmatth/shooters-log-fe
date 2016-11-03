@@ -43,14 +43,14 @@ angular.module('appShooter', [ngRoute, ngAnimate])
 // angular services
 require('./service/auth-service');
 require('./service/scorecard-service');
-require('./service/load-book-service')
+require('./service/load-book-service');
 
 // angular controllers
 require('./view/signup');
 require('./view/signin');
 require('./view/home');
 require('./view/scorecard-form');
-require('./view/load-book')
+require('./view/load-book');
 
 // angular components
 require('./component/logo');
