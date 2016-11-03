@@ -1,5 +1,7 @@
 'use strict';
 
+require('./load-book.scss');
+
 const angular = require('angular');
 const appShooter = angular.module('appShooter');
 

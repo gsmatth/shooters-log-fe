@@ -48,6 +48,8 @@ angular.module('appShooter', [ngRoute, ngAnimate])
 // angular services
 require('./service/auth-service');
 require('./service/scorecard-service');
+require('./service/load-test-service');
+require('./service/load-book-service');
 
 // angular controllers
 require('./view/signup');
