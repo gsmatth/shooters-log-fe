@@ -15,7 +15,7 @@
         <button class="cancel-form-button" ng-click="loadBookCtrl.loadForm = false">X</button>
         <div id="load-name-wrapper">
           <label for="load-name">Load Name:</label>
-          <input required type="text">
+          <input required ng-model="loadBookCtrl.load.loadName" type="text">
         </div>
         <div class="shooting-conditions">
           <div class="input-wrapper">
@@ -24,37 +24,45 @@
           </div>
           <div class="input-wrapper">
             <label for="Time">Time: </label>
-            <input required ng-model="loadBookCtrl.load.time" type="text">
+            <input required ng-model="loadBookCtrl.load.time" type="time">
           </div>
           <div class="input-wrapper">
             <label for="Temp">Temp: </label>
-            <input required ng-model="loadBookCtrl.load.temperture" type="text">
+            <input class="measurement" required ng-model="loadBookCtrl.load.temperture" type="text">°
           </div>
           <div class="input-wrapper">
             <label for="Humidity">Humidity: </label>
-            <input required ng-model="loadBookCtrl.load.humidity" type="text">
+            <input class="measurement" required ng-model="loadBookCtrl.load.humidity" type="text">%
           </div>
           <div class="input-wrapper">
             <label for="Elevation">Elevation: </label>
-            <input required ng-model="loadBookCtrl.load.elevation" type="text">
+            <input class="measurement" required ng-model="loadBookCtrl.load.elevation" type="text">ft
           </div>
         </div>
         <div class="load-info">
+          <div class="input-wrapper">
+            <label for="Bullet name">Bullet Name: </label>
+            <input required ng-model="loadBookCtrl.load.bulletName" type="text">
+          </div>
           <div class="input-wrapper">
             <label for="Caliber">Caliber: </label>
             <input required ng-model="loadBookCtrl.load.bulletCaliber" type="text">
           </div>
           <div class="input-wrapper">
-            <label for="Bullet">Bullet: </label>
-            <input required ng-model="loadBookCtrl.load.bulletName" type="text">
+            <label for="Bullet Weight">Bullet Weight: </label>
+            <input required ng-model="loadBookCtrl.load.bulletWeight" type="text">
           </div>
           <div class="input-wrapper">
-            <label for="Primer">Brass: </label>
+            <label for="Brass Manufacturer">Brass Manufacturer: </label>
             <input required ng-model="loadBookCtrl.load.brassManufacturer" type="text">
           </div>
           <div class="input-wrapper">
-            <label for="Primer">Primer: </label>
+            <label for="Primer Manufacturer">Primer Manufacturer: </label>
             <input required ng-model="loadBookCtrl.load.primeManufacturer" type="text">
+          </div>
+          <div class="input-wrapper">
+            <label for="Primer Model">Primer Model: </label>
+            <input required ng-model="loadBookCtrl.load.primeModel" type="text">
           </div>
         </div>
         <div class="form-buttons">

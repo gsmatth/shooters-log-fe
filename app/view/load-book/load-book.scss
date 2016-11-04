@@ -43,7 +43,7 @@
     }
 
     #load-name-wrapper {
-      width: 250px;
+      width: 350px;
       text-align: left;
 
       label {
@@ -51,7 +51,7 @@
       }
 
       input{
-        width: 125px;
+        width: 225px;
         border-bottom: thin solid $app-default;
         border-top: none;
         border-left: none;
@@ -81,6 +81,10 @@
 
       .input-wrapper {
         margin: 10px;
+      }
+
+      .measurement {
+        width: 100px;
       }
     }
 
