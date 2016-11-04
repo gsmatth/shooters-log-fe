@@ -29,6 +29,19 @@
     font-size: 1.5em;
     margin-top: 20%;
 
+    .cancel-form-button {
+      height: 30px;
+      width: 30px;
+      margin-bottom: 20px;
+      border: thin solid $app-default;
+      border-radius: 5px;
+      background-color: white;
+
+      &:hover {
+        background-color: $app-default;
+      }
+    }
+
     #load-name-wrapper {
       width: 250px;
       text-align: left;
@@ -58,7 +71,7 @@
       border-radius: 5px;
 
       input {
-        width: 100px;
+        width: 200px;
         border-bottom: thin solid $app-lightgreen;
         border-left: none;
         border-right: none;
@@ -67,12 +80,23 @@
       }
 
       .input-wrapper {
-        margin: 5px;
+        margin: 10px;
       }
     }
 
     .form-buttons {
       margin-top: 10%;
+
+      input, button {
+        margin-top: 5px;
+        background-color: white;
+        border: thin solid $app-default;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: $app-lightgreen;
+        }
+      }
     }
   }
 }

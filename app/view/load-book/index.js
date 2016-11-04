@@ -31,8 +31,8 @@ function LoadBookController($log, loadBookService) {
     $log.error('Failed to fetch loads', err.message);
   });
 
-  this.createLoad = function(loadData){
-    loadBookService.createLoad(loadData)
+  this.createLoad = function(){
+    loadBookService.createLoad(this.load)
     .then(load => {
       $log.info('load created:', load);
       this.loads.push(load);
