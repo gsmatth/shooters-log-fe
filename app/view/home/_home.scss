@@ -6,6 +6,16 @@
   justify-content: space-around;
   margin: 0 5vw 5vh 5vw;
 
+  .noScorecards {
+    width: 50vw;
+    position: fixed;
+    text-align: center;
+    top: 20%;
+    left: 30vw;
+    font-size: 1.5em;
+    font-family: dual-300;
+  }
+
   button {
     position: fixed;
     top: 5%;

@@ -2,6 +2,8 @@
   <!-- add component for user profile  -->
   <button id="toggleScorecards" type="button" ng-click="homeCtrl.toggle()">{{homeCtrl.buttonTxt}}</button>
 
+  <p class="noScorecards" ng-hide="homeCtrl.competitions[0]">Your competition scorecards are displayed here <br><br> you currently have no scorecards to display</p>
+
   <div ng-class="app-scorecardWrapper"
        ng-repeat="competition in homeCtrl.displayScorecards">
 
