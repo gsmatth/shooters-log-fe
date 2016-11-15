@@ -17,7 +17,7 @@ appShooter.directive('appLoadBookDash', function(){
   };
 });
 
-appShooter.controller('LoadDisplayController', ['$log', 'loadBookService', 'testLoadService', function($log, loadBookService, testLoadService) {
+appShooter.controller('LoadDisplayController', ['$log', 'loadBookService', 'loadTestService', function($log, loadBookService, loadTestService) {
   $log.debug('load-book-dash-controller fetching load');
 
   loadBookService.getLoad(this.loadToDiplay._id)
