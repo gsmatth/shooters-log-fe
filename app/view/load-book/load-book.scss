@@ -6,6 +6,12 @@
   margin: 10vh auto;
   text-align: center;
 
+  #loadHeading {
+    width: 200px;
+    margin: 0 auto;
+    border-bottom: thin solid $app-default;
+  }
+
   .createLoad-button {
     font-size: 2em;
     margin-top: 20%;
@@ -17,6 +23,7 @@
       width: 2vw;
       height: 2vw;
       border: thin solid $app-default;
+      margin-left: 10px;
 
       &:hover {
         background-color: $app-default;

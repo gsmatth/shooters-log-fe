@@ -1,4 +1,5 @@
 'use strict';
+require('./_load-book-dash.scss');
 
 const angular = require('angular');
 const appShooter = angular.module('appShooter');
@@ -20,7 +21,7 @@ appShooter.directive('appLoadBookDash', function(){
 appShooter.controller('LoadDisplayController', ['$log', 'loadBookService', 'loadTestService', function($log, loadBookService, loadTestService) {
   $log.debug('load-book-dash-controller fetching load');
 
-  loadBookService.getLoad(this.loadToDiplay._id)
+  loadBookService.getLoad(this.loadToDisplay._id)
   .then(load => {
     this.loadData = load;
   })

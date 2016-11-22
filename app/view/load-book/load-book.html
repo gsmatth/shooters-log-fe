@@ -1,7 +1,7 @@
 <main class="app-load-book">
   <div class="load-list">
 
-    <h3>Your Loads</h3>
+    <h3 id="loadHeading"><strong>Your Loads</strong></h3>
     <p ng-hide="loadBookCtrl.loads[0]">You have no loads to display</p>
     <section class="user-loadBooks" ng-repeat="load in loadBookCtrl.loads">
 
@@ -9,7 +9,7 @@
 
     </section>
 
-    <h3 class="createLoad-button" ng-hide="loadBookCtrl.loadForm">Create Load &nbsp<span ng-click="loadBookCtrl.showForm()" style="cursor:pointer">+</span></h3>
+    <h3 class="createLoad-button" ng-hide="loadBookCtrl.loadForm">Create Load<span ng-click="loadBookCtrl.showForm()" style="cursor:pointer">+</span></h3>
     <section class="loadBook-form" ng-if="loadBookCtrl.loadForm">
       <form novalidate name="createLoadForm" ng-submit="loadBookCtrl.createLoad()">
         <button class="cancel-form-button" ng-click="loadBookCtrl.loadForm = false">X</button>
@@ -28,15 +28,15 @@
           </div>
           <div class="input-wrapper">
             <label for="Temp">Temp: </label>
-            <input class="measurement" required ng-model="loadBookCtrl.load.temperture" type="text">°
+            <input class="measurement" ng-model="loadBookCtrl.load.temperture" type="text">°
           </div>
           <div class="input-wrapper">
             <label for="Humidity">Humidity: </label>
-            <input class="measurement" required ng-model="loadBookCtrl.load.humidity" type="text">%
+            <input class="measurement" ng-model="loadBookCtrl.load.humidity" type="text">%
           </div>
           <div class="input-wrapper">
             <label for="Elevation">Elevation: </label>
-            <input class="measurement" required ng-model="loadBookCtrl.load.elevation" type="text">ft
+            <input class="measurement" ng-model="loadBookCtrl.load.elevation" type="text">ft
           </div>
         </div>
         <div class="load-info">

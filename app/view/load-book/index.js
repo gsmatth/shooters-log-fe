@@ -21,6 +21,7 @@ function LoadBookController($log, loadBookService) {
   loadBookService.getAllLoads()
   .then(loads => {
     this.loads = loads;
+    console.log('here\'s the loads:', this.loads);
     this.loads.sort(function(a, b) {
       a = new Date(a.dateOf);
       b = new Date(b.dateOf);

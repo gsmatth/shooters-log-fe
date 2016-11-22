@@ -1,19 +1,19 @@
 <main class="app-load-book-dash">
   <div class="loadName">
-    <h3>Load Test: </h3>
+    <h4>Load Test: <strong>No Load on model yet!</strong></h4>
   </div>
   <div class="locationInfo">
-    <h3>Date: </h3>
-    <h3>Time: </h3>
-    <h3>Temp: </h3>
-    <h3>Humidity: </h3>
-    <h3>Eleveation: </h3>
+    <h4>Date <br>     {{loadDisplayCtrl.loadData.dateCreated | date}}</h4>
+    <h4>Time <br>     {{loadDisplayCtrl.loadData.time | date:'shortTime'}}</h4>
+    <h4>Temp <br>     {{loadDisplayCtrl.loadData.temperature}}</h4>
+    <h4>Humidity <br> {{loadDisplayCtrl.loadData.humidity}}</h4>
+    <h4>Elevation <br>{{loadDisplayCtrl.loadData.elevation}}</h4>
   </div>
   <div class="generalLoadInfo">
-    <h3>Caliber: </h3>
-    <h3>Bullet: </h3>
-    <h3>Brass: </h3>
-    <h3>Primer: </h3>
+    <h4>Caliber <br> {{loadDisplayCtrl.loadData.bulletCaliber}}</h4>
+    <h4>Bullet <br>  {{loadDisplayCtrl.loadData.bulletName}} | {{loadDisplayCtrl.loadData.bulletWeight}}</h4>
+    <h4>Brass <br>   {{loadDisplayCtrl.loadData.brassManufacturer}}</h4>
+    <h4>Primer<br>  {{loadDisplayCtrl.loadData.primeManufacturer}} | {{loadDisplayCtrl.loadData.primeModel}}</h4>
   </div>
   <app-load-book-modal complete-load-info='loadBookCtrl.modalLoad'></app-load-book-modal>
 </main>

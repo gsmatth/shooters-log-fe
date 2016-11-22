@@ -10,6 +10,27 @@ function loadBookService($log, $q, $http, $window) {
   let service = {};
   service.loads = [];
 
+  service.getLoad = function(loadId){
+    let url = `${__API_URL__}/api/user/load/${loadId}`;
+
+    let config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    };
+    return $http.get(url, config)
+    .then(res => {
+      $log.info('Successful fetch:', res.data);
+      return $q.resolve(res.data);
+    })
+    .catch(err => {
+      $log.error('Failed to fetch load', err);
+      console.log(this.loads);
+      return $q.reject(err);
+    });
+  };
+
   service.getAllLoads = function() {
     let url = `${__API_URL__}/api/user/loads`;
 
@@ -32,6 +53,7 @@ function loadBookService($log, $q, $http, $window) {
       return $q.reject(err);
     });
   };
+  
   service.createLoad = function(loadData){
     let url = `${__API_URL__}/api/user/load`;
 

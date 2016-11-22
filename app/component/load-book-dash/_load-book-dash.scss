@@ -1,0 +1,25 @@
+@import "_theme";
+
+.app-load-book-dash {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-bottom: thin solid $app-lightgreen;
+  border-radius: 10px 10px 10px 10px;
+  margin-top: 10px;
+
+  .locationInfo, .generalLoadInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .locationInfo {
+    background-color: $app-default;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .loadName {
+    text-align: left;
+  }
+}
