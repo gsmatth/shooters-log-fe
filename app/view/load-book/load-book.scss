@@ -32,9 +32,12 @@
   }
 
   .loadBook-form {
+    position: absolute;
+    top: 0;
     width: 60vw;
     font-size: 1.5em;
-    margin-top: 20%;
+    margin-top: 10px;
+    background-color: white;
 
     .cancel-form-button {
       height: 30px;
@@ -109,5 +112,27 @@
         }
       }
     }
+  }
+}
+
+.loadBook-form.ng-enter {
+  animation: slide_up 0.3s linear;
+  * {
+    animation: slide_up 0.3s linear;
+  }
+}
+
+.loadBook-form.ng-leave {
+  animation: slide_up 0.3s linear reverse;
+  * {
+    animation: slide_up 0.3s linear reverse;
+  }
+}
+
+@keyframes slide_up {
+  from {
+    top: 100vh;
+  } to {
+    top: 0vh;
   }
 }

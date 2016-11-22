@@ -1,19 +1,19 @@
 <main class="app-load-book-dash">
   <div class="loadName">
-    <h4>Load Test: <strong>No Load on model yet!</strong></h4>
+    <h4><strong>Load Name:</strong>{{loadDisplayCtrl.loadData.loadName}}</h4>
   </div>
   <div class="locationInfo">
-    <h4>Date <br>     {{loadDisplayCtrl.loadData.dateCreated | date}}</h4>
-    <h4>Time <br>     {{loadDisplayCtrl.loadData.time | date:'shortTime'}}</h4>
-    <h4>Temp <br>     {{loadDisplayCtrl.loadData.temperature}}</h4>
-    <h4>Humidity <br> {{loadDisplayCtrl.loadData.humidity}}</h4>
-    <h4>Elevation <br>{{loadDisplayCtrl.loadData.elevation}}</h4>
+    <h4><span class="loadDisplayField">Date</span> <br>     {{loadDisplayCtrl.loadData.dateCreated | date}}</h4>
+    <h4><span class="loadDisplayField">Time</span> <br>     {{loadDisplayCtrl.loadData.time | date:'shortTime'}}</h4>
+    <h4> <span class="loadDisplayField">Temp</span <br>     {{loadDisplayCtrl.loadData.temperature}}°</h4>
+    <h4><span class="loadDisplayField">Humidity</span> <br> {{loadDisplayCtrl.loadData.humidity}}%</h4>
+    <h4><span class="loadDisplayField">Elevation</span> <br>{{loadDisplayCtrl.loadData.elevation}}</h4>
   </div>
   <div class="generalLoadInfo">
-    <h4>Caliber <br> {{loadDisplayCtrl.loadData.bulletCaliber}}</h4>
-    <h4>Bullet <br>  {{loadDisplayCtrl.loadData.bulletName}} | {{loadDisplayCtrl.loadData.bulletWeight}}</h4>
-    <h4>Brass <br>   {{loadDisplayCtrl.loadData.brassManufacturer}}</h4>
-    <h4>Primer<br>  {{loadDisplayCtrl.loadData.primeManufacturer}} | {{loadDisplayCtrl.loadData.primeModel}}</h4>
+    <h4><span class="loadDisplayField">Caliber</span> <br> {{loadDisplayCtrl.loadData.bulletCaliber}}</h4>
+    <h4><span class="loadDisplayField">Bullet</span> <br>  {{loadDisplayCtrl.loadData.bulletName}} | {{loadDisplayCtrl.loadData.bulletWeight}}</h4>
+    <h4><span class="loadDisplayField">Brass</span> <br>   {{loadDisplayCtrl.loadData.brassManufacturer}}</h4>
+    <h4><span class="loadDisplayField">Primer</span><br>  {{loadDisplayCtrl.loadData.primeManufacturer}} | {{loadDisplayCtrl.loadData.primeModel}}</h4>
   </div>
   <app-load-book-modal complete-load-info='loadBookCtrl.modalLoad'></app-load-book-modal>
 </main>
