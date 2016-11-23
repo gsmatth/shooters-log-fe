@@ -9,7 +9,7 @@
 
     </section>
 
-    <h3 class="createLoad-button" ng-hide="loadBookCtrl.loadForm">Create Load<span ng-click="loadBookCtrl.showForm()" style="cursor:pointer">+</span></h3>
+    <h3 class="createLoad-button">Create Load<span ng-click="loadBookCtrl.showForm()" style="cursor:pointer">+</span></h3>
     <section class="loadBook-form" ng-if="loadBookCtrl.loadForm">
       <form novalidate name="createLoadForm" ng-submit="loadBookCtrl.createLoad()">
         <button class="cancel-form-button" ng-click="loadBookCtrl.loadForm = false">X</button>
@@ -67,7 +67,7 @@
         </div>
         <div class="form-buttons">
           <input type="reset">
-          <button class="create-load-button" ng-disabled="createLoadForm.$invalid" type="submit">Create Load</button>
+          <button class="create-load-button" ng-disabled="createLoadForm.$invalid" ng-click="loadBookCtrl.loadForm = false" type="submit">Create Load</button>
         </div>
       </form>
     </section>
