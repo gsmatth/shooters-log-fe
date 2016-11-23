@@ -5,7 +5,7 @@
   <div class="locationInfo">
     <h4><span class="loadDisplayField">Date</span> <br>     {{loadDisplayCtrl.loadData.dateCreated | date}}</h4>
     <h4><span class="loadDisplayField">Time</span> <br>     {{loadDisplayCtrl.loadData.time | date:'shortTime'}}</h4>
-    <h4> <span class="loadDisplayField">Temp</span> <br>     {{loadDisplayCtrl.loadData.temperature}}°</h4>
+    <h4> <span class="loadDisplayField">Temp</span> <br>    {{loadDisplayCtrl.loadData.temperature}}°</h4>
     <h4><span class="loadDisplayField">Humidity</span> <br> {{loadDisplayCtrl.loadData.humidity}}%</h4>
     <h4><span class="loadDisplayField">Elevation</span> <br>{{loadDisplayCtrl.loadData.elevation}}ft.</h4>
   </div>
@@ -13,7 +13,7 @@
     <h4><span class="loadDisplayField">Caliber</span> <br> {{loadDisplayCtrl.loadData.bulletCaliber}}</h4>
     <h4><span class="loadDisplayField">Bullet</span> <br>  {{loadDisplayCtrl.loadData.bulletName}} | {{loadDisplayCtrl.loadData.bulletWeight}}</h4>
     <h4><span class="loadDisplayField">Brass</span> <br>   {{loadDisplayCtrl.loadData.brassManufacturer}}</h4>
-    <h4><span class="loadDisplayField">Primer</span><br>  {{loadDisplayCtrl.loadData.primeManufacturer}} | {{loadDisplayCtrl.loadData.primeModel}}</h4>
+    <h4><span class="loadDisplayField">Primer</span><br>   {{loadDisplayCtrl.loadData.primeManufacturer}} | {{loadDisplayCtrl.loadData.primeModel}}</h4>
   </div>
   <app-load-book-modal complete-load-info='loadBookCtrl.modalLoad'></app-load-book-modal>
 </main>

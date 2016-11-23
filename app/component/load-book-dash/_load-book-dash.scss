@@ -6,6 +6,7 @@
   justify-content: space-around;
   border-bottom: thin solid $app-lightgreen;
   border-radius: 10px 10px 10px 10px;
+  box-shadow: 5px 5px 5px grey;
   margin-top: 10px;
 
   .locationInfo, .generalLoadInfo {
@@ -25,13 +26,10 @@
 
   .locationInfo {
     background-color: $app-default;
-    border-radius: 5px 5px 0 0;
   }
 
   .loadName {
     text-align: left;
     margin-left: 10px;
   }
-
-
 }

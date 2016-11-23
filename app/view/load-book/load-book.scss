@@ -2,14 +2,25 @@
 
 .load-list {
   font-family: 'Dual-300';
-  width: 60vw;
+  width: 80vw;
   margin: 10vh auto;
   text-align: center;
 
   #loadHeading {
-    width: 200px;
+    width: 120px;
     margin: 0 auto;
+    text-align: right;
     border-bottom: thin solid $app-default;
+  }
+
+  .user-loadBooks {
+    width: 60vw;
+    padding-left: 45px;
+    margin: 0 auto 20px auto;
+
+    @media(max-width: 900px){
+      width: 80vw;
+    }
   }
 
   .createLoad-button {
@@ -28,16 +39,24 @@
       &:hover {
         background-color: $app-default;
       }
+
+      @media(max-width: 900px) {
+        width: 4vw;
+        height:4vw;
+        font-size: 4vw;
+      }
     }
   }
 
   .loadBook-form {
     position: fixed;
     top: 0;
-    width: 60vw;
+    width: 70vw;
     height: 100vh;
     font-size: 1.5em;
-    padding-top: 10px;
+    padding: 10px 5vw  20px 0;
+    margin: 0 0 0 12vw;
+    overflow: scroll;
     background-color: white;
 
     .cancel-form-button {
@@ -112,6 +131,12 @@
           background-color: $app-lightgreen;
         }
       }
+    }
+
+    @media(max-width: 900px) {
+      margin: 0;
+      width: 85vw;
+      padding-left: 5vw;
     }
   }
 }
