@@ -53,7 +53,7 @@ function loadBookService($log, $q, $http, $window) {
       return $q.reject(err);
     });
   };
-  
+
   service.createLoad = function(loadData){
     let url = `${__API_URL__}/api/user/load`;
 

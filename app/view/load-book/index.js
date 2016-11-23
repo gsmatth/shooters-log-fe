@@ -33,9 +33,10 @@ function LoadBookController($log, loadBookService) {
   });
 
   this.createLoad = function(){
+    console.log('the front end load', this.load);
     loadBookService.createLoad(this.load)
     .then(load => {
-      $log.info('load created:', load);
+      $log.warn('load created:', load);
       this.loads.push(load);
     })
     .catch(err => {
