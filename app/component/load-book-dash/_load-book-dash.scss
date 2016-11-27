@@ -1,0 +1,35 @@
+@import "_theme";
+
+.app-load-book-dash {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-bottom: thin solid $app-lightgreen;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 5px 5px 5px grey;
+  margin-top: 10px;
+
+  .locationInfo, .generalLoadInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    h4 {
+      margin: 10px 10px 10px 10px;
+      line-height: 150%;
+    }
+
+    .loadDisplayField {
+      border-bottom: thin solid $app-lightgreen;
+    }
+  }
+
+  .locationInfo {
+    background-color: $app-default;
+  }
+
+  .loadName {
+    text-align: left;
+    margin-left: 10px;
+  }
+}

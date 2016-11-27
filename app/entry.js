@@ -35,6 +35,11 @@ angular.module('appShooter', [ngRoute, ngAnimate])
     controller: 'CreateScorecardFormController',
     controllerAs: 'createScorecardFormCtrl',
   })
+  .when('/load-book', {
+    template: require('./view/load-book/load-book.html'),
+    controller: 'LoadBookController',
+    controllerAs: 'loadBookCtrl'
+  })
   .otherwise({
     redirectTo: '/signin',
   });
@@ -60,3 +65,4 @@ require('./component/menu');
 require('./component/scorecard');
 require('./component/scorecardDash');
 require('./component/scorecardModal');
+require('./component/load-book-dash');

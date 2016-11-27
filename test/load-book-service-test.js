@@ -24,47 +24,62 @@ describe('testing the load-book service', function(){
   it('getAllLoads should return several load entries', () => {
     let dataToRecieve = [
       {
+        loadName:          'Loady',
         brassManufacturer: 'brass person',
         powderName:        'some powder',
         powderWeight:      5,
         bulletName:        'bullety',
         bulletWeight:      3,
         bulletCaliber:     30,
-        OAL:               50,
         primeManufacturer: 'primerMaker',
         primeModel:        'primerType',
         muzzleVelocity:    500,
-        dateCreated:       1477516154057
+        dateCreated:       1477516154057,
+        notes:             'awesome load',
+        time:              '1970-01-01T19:01:00.000Z',
+        temperature:       70,
+        humidity:          80,
+        elevation:         1200
       },
       {
+        loadName:          'Loady',
         brassManufacturer: 'brass person',
         powderName:        'some powder',
         powderWeight:      5,
         bulletName:        'bullety',
         bulletWeight:      3,
         bulletCaliber:     30,
-        OAL:               50,
         primeManufacturer: 'primerMaker',
         primeModel:        'primerType',
         muzzleVelocity:    500,
-        dateCreated:       1477516154057
+        dateCreated:       1477516154057,
+        notes:             'awesome load',
+        time:              '1970-01-01T19:01:00.000Z',
+        temperature:       70,
+        humidity:          80,
+        elevation:         1200
       },
       {
+        loadName:          'Loady',
         brassManufacturer: 'brass person',
         powderName:        'some powder',
         powderWeight:      5,
         bulletName:        'bullety',
         bulletWeight:      3,
         bulletCaliber:     30,
-        OAL:               50,
         primeManufacturer: 'primerMaker',
         primeModel:        'primerType',
         muzzleVelocity:    500,
-        dateCreated:       1477516154057
+        dateCreated:       1477516154057,
+        notes:             'awesome load',
+        time:              '1970-01-01T19:01:00.000Z',
+        temperature:       70,
+        humidity:          80,
+        elevation:         1200
       }
     ];
 
-    this.$httpBackend.expectGET(`${url}/loads`, headers).respond(200, dataToRecieve);
+    this.$httpBackend.expectGET(`${url}/user/loads`, headers).respond(200, dataToRecieve);
 
     this.loadBookService.getAllLoads()
     .then( loads => {
@@ -78,8 +93,8 @@ describe('testing the load-book service', function(){
   });
   it('getAllLoads should return a 404', () => {
     let dataToRecieve = {};
-  
-    this.$httpBackend.expectGET(`${url}/loads`, headers).respond(404, 'Not Found');
+
+    this.$httpBackend.expectGET(`${url}/user/loads`, headers).respond(404, 'Not Found');
 
     this.loadBookService.getAllLoads()
     .then( res => {
@@ -96,17 +111,20 @@ describe('testing the load-book service', function(){
       'Accept':'application/json, text/plain, */*'
     };
     let dataToSend = {
+      loadName:          'Loady',
       brassManufacturer: 'brass person',
       powderName:        'some powder',
       powderWeight:      5,
       bulletName:        'bullety',
       bulletWeight:      3,
       bulletCaliber:     30,
-      OAL:               50,
+      notes:             'some sweet notes',
       primeManufacturer: 'primerMaker',
       primeModel:        'primerType',
-      muzzleVelocity:    500,
-      dateCreated:       1477516154057
+      dateCreated:       1477516154057,
+      time:              '1970-01-01T19:01:00.000Z',
+      temperature:       60,
+      humidity:          70
     };
 
     this.$httpBackend.expectPOST(`${url}/user/load`, dataToSend, headers).respond(200, dataToSend);

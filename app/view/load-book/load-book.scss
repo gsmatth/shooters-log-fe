@@ -1,0 +1,164 @@
+@import "_theme";
+
+.load-list {
+  font-family: 'Dual-300';
+  width: 80vw;
+  margin: 10vh auto;
+  text-align: center;
+
+  #loadHeading {
+    width: 120px;
+    margin: 0 auto;
+    text-align: right;
+    border-bottom: thin solid $app-default;
+  }
+
+  .user-loadBooks {
+    width: 60vw;
+    padding-left: 45px;
+    margin: 0 auto 20px auto;
+
+    @media(max-width: 900px){
+      width: 80vw;
+    }
+  }
+
+  .createLoad-button {
+    font-size: 2em;
+    margin-top: 20%;
+    text-align: center;
+
+    span{
+      display: inline-block;
+      font-size: 2vw;
+      width: 2vw;
+      height: 2vw;
+      border: thin solid $app-default;
+      margin-left: 10px;
+
+      &:hover {
+        background-color: $app-default;
+      }
+
+      @media(max-width: 900px) {
+        width: 4vw;
+        height:4vw;
+        font-size: 4vw;
+      }
+    }
+  }
+
+  .loadBook-form {
+    position: fixed;
+    top: 0;
+    width: 70vw;
+    height: 100vh;
+    font-size: 1.5em;
+    padding: 10px 5vw  20px 0;
+    margin: 0 0 0 12vw;
+    overflow: scroll;
+    background-color: white;
+
+    .cancel-form-button {
+      height: 30px;
+      width: 30px;
+      margin-bottom: 20px;
+      border: thin solid $app-default;
+      border-radius: 5px;
+      background-color: white;
+
+      &:hover {
+        background-color: $app-default;
+      }
+    }
+
+    #load-name-wrapper {
+      width: 350px;
+      text-align: left;
+
+      label {
+        margin-left: 2px;
+      }
+
+      input{
+        width: 225px;
+        border-bottom: thin solid $app-default;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        outline: none;
+      };
+    }
+
+    .shooting-conditions, .load-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      padding: 10px;
+      border: thin solid grey;
+      border-radius: 5px;
+
+      input {
+        width: 200px;
+        border-bottom: thin solid $app-lightgreen;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        outline: none;
+      }
+
+      .input-wrapper {
+        margin: 10px;
+      }
+
+      .measurement {
+        width: 100px;
+      }
+    }
+
+    .form-buttons {
+      margin-top: 10%;
+
+      input, button {
+        margin-top: 5px;
+        background-color: white;
+        border: thin solid $app-default;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: $app-lightgreen;
+        }
+      }
+    }
+
+    @media(max-width: 900px) {
+      margin: 0;
+      width: 85vw;
+      padding-left: 5vw;
+    }
+  }
+}
+
+.loadBook-form.ng-enter {
+  animation: slide_up 0.3s linear;
+  * {
+    animation: slide_up 0.3s linear;
+  }
+}
+
+.loadBook-form.ng-leave {
+  animation: slide_up 0.3s linear reverse;
+  * {
+    animation: slide_up 0.3s linear reverse;
+  }
+}
+
+@keyframes slide_up {
+  from {
+    top: 100vh;
+  } to {
+    top: 0vh;
+  }
+}
