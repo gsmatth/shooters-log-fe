@@ -31,6 +31,27 @@ function loadTestService($log, $q, $http, $window){
     });
   };
 
+  service.fetchAllLoadTests = function(loadId) {
+    $log.debug('fetching all test loads');
+    let url = `${__API_URL__}/api/user/load/testLoads/${loadId}`;
+    let config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      }
+    };
+
+    return $http.get(url, config)
+    .then(res => {
+      $log.debug('loadTests fetch', res.data);
+      return $q.resolve(res.data);
+    })
+    .catch(err => {
+      $log.error('failed to fetch loadTests', err.message);
+      return $q.reject(err);
+    });
+  };
+
   service.fetchLoadTest = function(testLoadId){
     $log.debug('running fetchLoadTest');
     let url = `${__API_URL__}/api/user/load/testload/${testLoadId}`;

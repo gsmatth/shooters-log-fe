@@ -5,17 +5,35 @@ require('./load-book.scss');
 const angular = require('angular');
 const appShooter = angular.module('appShooter');
 
-appShooter.controller('LoadBookController', ['$log', 'loadBookService', LoadBookController]);
+appShooter.controller('LoadBookController', ['$log', 'loadBookService', 'loadTestService', LoadBookController]);
 
-function LoadBookController($log, loadBookService) {
+function LoadBookController($log, loadBookService, loadTestService) {
 
-  this.showModal = false;
+  this.showTestLoads = false;
   this.loadForm = false;
   this.showForm = function(){this.loadForm = true;};
 
   this.selectLoad = function(load){
-    this.showModal = true;
-    this.modalLoad = load;
+    this.showTestLoads = true;
+    loadTestService.getAllTestLoads(load.id)
+    .then(testLoads => {
+      this.testLoads = testLoads;
+    })
+    .catch(err => {
+      $log.error('No test loads returned to loadBook controller', err.message);
+    });
+  };
+
+  this.createLoad = function(){
+    console.log('the front end load', this.load);
+    loadBookService.createLoad(this.load)
+    .then(load => {
+      $log.warn('load created:', load);
+      this.loads.push(load);
+    })
+    .catch(err => {
+      $log.error('failed to create load', err.message);
+    });
   };
 
   loadBookService.getAllLoads()
@@ -31,16 +49,4 @@ function LoadBookController($log, loadBookService) {
   .catch(err => {
     $log.error('Failed to fetch loads', err.message);
   });
-
-  this.createLoad = function(){
-    console.log('the front end load', this.load);
-    loadBookService.createLoad(this.load)
-    .then(load => {
-      $log.warn('load created:', load);
-      this.loads.push(load);
-    })
-    .catch(err => {
-      $log.error('failed to create load', err.message);
-    });
-  };
 }

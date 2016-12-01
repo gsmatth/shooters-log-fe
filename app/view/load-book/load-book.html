@@ -6,7 +6,7 @@
     <section class="user-loadBooks" ng-repeat="load in loadBookCtrl.loads">
 
       <app-load-book-dash load-to-display="load" ng-click="loadBookCtrl.selectLoad(load)"></app-load-book-dash>
-
+      <!-- <app-test-load-dash ng-repeat="tests in loadBookCtrl.testLoads" tests-to-display="loadBookCtrl.testLoads"></app-test-load-dash> -->
     </section>
 
     <h3 class="createLoad-button">Create Load<span ng-click="loadBookCtrl.showForm()" style="cursor:pointer">+</span></h3>
